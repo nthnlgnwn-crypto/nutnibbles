@@ -89,6 +89,8 @@ main {
 .trip-summary,
 .city-grid,
 .notes-layout,
+.feature-story,
+.photo-grid,
 .feature-grid,
 .story-list {
   width: min(1120px, calc(100% - 40px));
@@ -426,6 +428,44 @@ h3 {
   min-height: 230px;
 }
 
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.photo-grid img,
+.feature-story img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.feature-story {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.7fr);
+  gap: 24px;
+  align-items: stretch;
+  padding-bottom: 42px;
+}
+
+.feature-story-copy {
+  padding: 32px;
+  background: rgba(244, 235, 221, 0.08);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.food-gallery {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding-bottom: 88px;
+}
+
 @media (max-width: 860px) {
   .site-header,
   .site-footer {
@@ -440,6 +480,8 @@ h3 {
   .trip-summary,
   .city-grid,
   .notes-layout,
+  .feature-story,
+  .photo-grid,
   .feature-grid,
   .story-list {
     width: min(100% - 28px, 1120px);
@@ -449,6 +491,8 @@ h3 {
   .split-section,
   .trip-summary,
   .city-grid,
+  .feature-story,
+  .food-gallery,
   .feature-grid,
   .story-list {
     grid-template-columns: 1fr;
