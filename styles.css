@@ -466,6 +466,19 @@ h3 {
   padding-bottom: 88px;
 }
 
+.feature-photo-grid img:first-child {
+  grid-column: span 2;
+  min-height: 420px;
+}
+
+.compact-gallery {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.compact-gallery img {
+  min-height: 260px;
+}
+
 @media (max-width: 860px) {
   .site-header,
   .site-footer {
@@ -493,9 +506,14 @@ h3 {
   .city-grid,
   .feature-story,
   .food-gallery,
+  .compact-gallery,
   .feature-grid,
   .story-list {
     grid-template-columns: 1fr;
+  }
+
+  .feature-photo-grid img:first-child {
+    grid-column: auto;
   }
 
   .hero {
