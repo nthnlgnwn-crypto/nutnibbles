@@ -86,6 +86,9 @@ main {
 .latest,
 .page-hero,
 .map-section,
+.trip-summary,
+.city-grid,
+.notes-layout,
 .feature-grid,
 .story-list {
   width: min(1120px, calc(100% - 40px));
@@ -358,6 +361,71 @@ h3 {
   padding-bottom: 88px;
 }
 
+.trip-hero {
+  padding-bottom: 34px;
+}
+
+.trip-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  padding-bottom: 54px;
+}
+
+.trip-summary article,
+.city-grid article,
+.notes-layout article {
+  padding: 28px;
+  background: rgba(244, 235, 221, 0.08);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.trip-summary span,
+.city-grid span {
+  color: var(--olive);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.trip-summary h2 {
+  margin-top: 12px;
+  margin-bottom: 14px;
+  font-size: clamp(32px, 4vw, 52px);
+}
+
+.trip-heading {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto 26px;
+}
+
+.city-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  padding-bottom: 54px;
+}
+
+.text-link {
+  display: inline-flex;
+  margin-top: 10px;
+  color: var(--cream);
+  font-weight: 800;
+  border-bottom: 1px solid var(--terracotta);
+}
+
+.notes-layout {
+  display: grid;
+  gap: 18px;
+  padding-bottom: 88px;
+}
+
+.notes-layout article {
+  min-height: 230px;
+}
+
 @media (max-width: 860px) {
   .site-header,
   .site-footer {
@@ -369,6 +437,9 @@ h3 {
   .latest,
   .page-hero,
   .map-section,
+  .trip-summary,
+  .city-grid,
+  .notes-layout,
   .feature-grid,
   .story-list {
     width: min(100% - 28px, 1120px);
@@ -376,6 +447,8 @@ h3 {
 
   .hero,
   .split-section,
+  .trip-summary,
+  .city-grid,
   .feature-grid,
   .story-list {
     grid-template-columns: 1fr;
