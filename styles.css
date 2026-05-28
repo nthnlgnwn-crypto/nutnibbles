@@ -275,8 +275,8 @@ h3 {
 
 .food-card {
   background:
-    radial-gradient(circle at 80% 15%, rgba(216, 169, 74, 0.32), transparent 26%),
-    linear-gradient(145deg, rgba(138, 79, 42, 0.55), rgba(244, 235, 221, 0.08));
+    linear-gradient(rgba(24, 34, 28, 0.34), rgba(24, 34, 28, 0.88)),
+    url("assets/images/food-card-bg.png") center / cover;
 }
 
 .latest {
