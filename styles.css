@@ -56,16 +56,14 @@ a {
 }
 
 .brand-mark {
-  display: grid;
   width: 42px;
   height: 42px;
-  place-items: center;
-  color: var(--forest-deep);
-  background: var(--cream);
-  border: 3px solid var(--terracotta);
+  display: block;
+  object-fit: cover;
+  background: var(--cream-soft);
+  border: 2px solid rgba(244, 235, 221, 0.72);
   border-radius: 50%;
-  font-family: Georgia, serif;
-  font-size: 24px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
 }
 
 .nav-links {
