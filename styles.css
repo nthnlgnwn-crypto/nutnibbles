@@ -479,6 +479,14 @@ h3 {
   min-height: 260px;
 }
 
+.single-photo-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.single-photo-grid img {
+  max-height: 720px;
+}
+
 @media (max-width: 860px) {
   .site-header,
   .site-footer {
