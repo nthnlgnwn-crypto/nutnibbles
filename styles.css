@@ -10,6 +10,7 @@
   --terracotta: #c9824a;
   --gold: #d8a94a;
   --line: rgba(244, 235, 221, 0.18);
+  --line-strong: rgba(244, 235, 221, 0.32);
   --shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
 }
 
@@ -393,18 +394,8 @@ h3 {
   transform: rotate(-45deg) scale(1.18);
 }
 
-.pin-bali {
-  left: 74%;
-  top: 61%;
-}
-
 .pin-japan {
   left: 79%;
-  top: 37%;
-}
-
-.pin-italy {
-  left: 50%;
   top: 37%;
 }
 
@@ -421,7 +412,7 @@ h3 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
-  padding-bottom: 54px;
+  padding-bottom: 18px;
 }
 
 .trip-summary article,
@@ -451,6 +442,40 @@ h3 {
 .trip-heading {
   width: min(1120px, calc(100% - 40px));
   margin: 0 auto 26px;
+}
+
+.trip-jump-nav {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto 54px;
+  padding: 14px 0;
+  background: rgba(36, 49, 40, 0.92);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+
+.trip-jump-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 14px;
+  color: rgba(244, 235, 221, 0.82);
+  background: rgba(244, 235, 221, 0.08);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.trip-jump-nav a:hover {
+  color: var(--cream);
+  border-color: var(--line-strong);
 }
 
 .city-grid {
@@ -549,6 +574,7 @@ h3 {
   .page-hero,
   .map-section,
   .trip-summary,
+  .trip-jump-nav,
   .city-grid,
   .notes-layout,
   .feature-story,
@@ -595,6 +621,11 @@ h3 {
 
   .split-section {
     padding: 58px 0;
+  }
+
+  .trip-jump-nav {
+    position: static;
+    margin-bottom: 34px;
   }
 }
 
