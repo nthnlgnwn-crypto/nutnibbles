@@ -484,7 +484,7 @@ h3 {
 
 .trip-highlights {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 18px;
   padding-bottom: 18px;
 }
@@ -560,7 +560,7 @@ h3 {
 
 .city-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 18px;
   padding-bottom: 54px;
 }
