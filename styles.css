@@ -703,6 +703,11 @@ h3 {
   background: rgba(244, 235, 221, 0.08);
 }
 
+.food-feature-portrait > img,
+.kindling-gallery img {
+  aspect-ratio: 3 / 4;
+}
+
 .source-note {
   margin-top: 12px;
   color: var(--muted);
@@ -727,6 +732,15 @@ h3 {
   background: rgba(244, 235, 221, 0.08);
   border: 1px solid var(--line);
   border-radius: 8px;
+}
+
+.feature-story-copy h2 {
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1.02;
+}
+
+.feature-story-copy p:not(.eyebrow) {
+  line-height: 1.62;
 }
 
 .food-gallery {
