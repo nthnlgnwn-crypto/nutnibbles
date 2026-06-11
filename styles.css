@@ -601,6 +601,17 @@ h3 {
   border-radius: 8px;
 }
 
+.source-note {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.source-note a {
+  color: var(--cream);
+  border-bottom: 1px solid var(--terracotta);
+}
+
 .feature-story {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.7fr);
