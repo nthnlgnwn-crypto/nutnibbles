@@ -659,12 +659,17 @@ h3 {
 
 .notes-layout {
   display: grid;
-  gap: 34px;
+  gap: 22px;
   padding-bottom: 88px;
 }
 
 .notes-layout article {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(360px, 1.18fr);
+  column-gap: 28px;
+  row-gap: 12px;
   min-height: 230px;
+  padding: 24px;
   scroll-margin-top: 152px;
 }
 
@@ -673,11 +678,35 @@ h3 {
   max-width: 780px;
 }
 
+.notes-layout article > .eyebrow,
+.notes-layout article > h2,
+.notes-layout article > p,
+.notes-layout article > .text-link,
+.note-copy {
+  grid-column: 1;
+}
+
+.note-media {
+  grid-column: 2;
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.note-copy h2,
+.notes-layout article > h2 {
+  max-width: 660px;
+  font-size: clamp(34px, 4.2vw, 56px);
+  line-height: 1.02;
+}
+
+.note-copy p:not(.eyebrow):not(.source-note),
 .notes-layout article > p:not(.eyebrow):not(.source-note) {
   color: var(--muted);
   line-height: 1.75;
 }
 
+.note-copy p strong,
 .notes-layout article > p strong {
   color: var(--cream);
 }
@@ -701,6 +730,37 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(244, 235, 221, 0.08);
+}
+
+.notes-layout article > .photo-grid {
+  grid-column: 2;
+  margin: 0;
+}
+
+.note-media .photo-grid {
+  width: 100%;
+  margin: 0;
+}
+
+.notes-layout article > .photo-grid:first-of-type {
+  grid-row: 1 / span 5;
+}
+
+.notes-layout .feature-photo-grid img:first-child {
+  grid-column: auto;
+  aspect-ratio: 4 / 3;
+}
+
+.notes-layout .photo-grid img {
+  max-height: 420px;
+}
+
+.notes-layout .single-photo-grid img {
+  max-height: 520px;
+}
+
+.notes-layout .compact-gallery {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .food-feature-portrait > img,
@@ -821,6 +881,7 @@ h3 {
   .split-section,
   .trip-summary,
   .trip-highlights,
+  .notes-layout article,
   .city-grid,
   .feature-story,
   .food-gallery,
@@ -894,6 +955,24 @@ h3 {
   .notes-layout article {
     padding: 24px;
     scroll-margin-top: 118px;
+  }
+
+  .notes-layout article > .eyebrow,
+  .notes-layout article > h2,
+  .notes-layout article > p,
+  .notes-layout article > .text-link,
+  .notes-layout article > .photo-grid,
+  .note-copy,
+  .note-media {
+    grid-column: 1;
+  }
+
+  .notes-layout article > .photo-grid:first-of-type {
+    grid-row: auto;
+  }
+
+  .notes-layout .compact-gallery {
+    grid-template-columns: 1fr;
   }
 }
 
