@@ -3,7 +3,17 @@ const path = require("path");
 
 const root = path.resolve(__dirname, "..");
 const output = path.join(root, "dist");
-const siteEntries = ["index.html", "styles.css", "assets", "travel", "food", ".nojekyll"];
+const siteEntries = [
+  "index.html",
+  "styles.css",
+  "assets",
+  "travel",
+  "food",
+  ".nojekyll",
+  "favicon.ico",
+  "robots.txt",
+  "sitemap.xml"
+];
 
 function copyDirectory(source, target) {
   fs.mkdirSync(target, { recursive: true });
