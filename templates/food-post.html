@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{FOOD_POST_TITLE}} | NutNibbles</title>
+    <meta name="description" content="{{SHORT_DESCRIPTION_WITH_CITY_MEAL_AND_MEMORY}}">
+    <link rel="canonical" href="https://nutsnibbles.cc/food/{{FOOD_SLUG}}/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{FOOD_POST_TITLE}} | NutNibbles">
+    <meta property="og:description" content="{{SHORT_DESCRIPTION_WITH_CITY_MEAL_AND_MEMORY}}">
+    <meta property="og:image" content="https://nutsnibbles.cc/{{SOCIAL_IMAGE_PATH}}">
+    <meta property="og:url" content="https://nutsnibbles.cc/food/{{FOOD_SLUG}}/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{FOOD_POST_TITLE}} | NutNibbles">
+    <meta name="twitter:description" content="{{SHORT_DESCRIPTION_WITH_CITY_MEAL_AND_MEMORY}}">
+    <meta name="twitter:image" content="https://nutsnibbles.cc/{{SOCIAL_IMAGE_PATH}}">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="../../styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../../index.html" aria-label="NutNibbles home">
+        <img class="brand-mark" src="../../assets/images/nutnibbles-logo.webp" alt="" loading="lazy" decoding="async">
+        <span>NutNibbles</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="../../travel/index.html">Travel</a>
+        <a href="../index.html" aria-current="page">Food</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero food-hero">
+        <p class="eyebrow">{{CITY}} / {{DATE}} / {{MEAL_CONTEXT}}</p>
+        <h1>{{PERSONAL_HEADLINE}}</h1>
+        <p>{{OPENING_CONTEXT_PARAGRAPH}}</p>
+      </section>
+
+      <section class="feature-story">
+        <div class="feature-story-copy">
+          <p class="eyebrow">Personal Review</p>
+          <h2>{{REVIEW_HEADING}}</h2>
+          <p>{{WHAT_HAPPENED_AND_WHY_THIS_MEAL_FIT_THE_DAY}}</p>
+          <p>{{STANDOUT_DISHES_TEXTURES_FLAVORS_OR_SERVICE}}</p>
+          <p>{{OPTIONAL_HONEST_CRITIQUE}}</p>
+          <p><strong>Worth it?</strong> {{VERDICT_FOR_WHO_AND_WHEN}}</p>
+          <a class="text-link" href="{{RELATED_CITY_SECTION_RELATIVE_URL}}">Back to {{RELATED_CITY}} trip note</a>
+        </div>
+        <img src="../../{{HERO_IMAGE_PATH}}" alt="{{USEFUL_HERO_IMAGE_ALT_TEXT}}" loading="lazy" decoding="async">
+      </section>
+
+      <section class="related-note" aria-label="Related travel chapter">
+        <strong>Part of {{TRIP_NAME}}:</strong>
+        <a href="{{RELATED_CITY_SECTION_RELATIVE_URL}}">Back to the {{RELATED_CITY}} chapter</a>
+      </section>
+
+      <section class="photo-grid food-gallery">
+        <img src="../../{{GALLERY_IMAGE_1_PATH}}" alt="{{USEFUL_GALLERY_IMAGE_1_ALT_TEXT}}" loading="lazy" decoding="async">
+        <img src="../../{{GALLERY_IMAGE_2_PATH}}" alt="{{USEFUL_GALLERY_IMAGE_2_ALT_TEXT}}" loading="lazy" decoding="async">
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>NutNibbles</p>
+      <p><a href="../index.html">Back to Food</a></p>
+    </footer>
+  </body>
+</html>

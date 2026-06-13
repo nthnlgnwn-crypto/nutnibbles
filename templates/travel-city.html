@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{CITY}} {{TRIP_SEASON_OR_YEAR}} | NutNibbles</title>
+    <meta name="description" content="{{CITY_DESCRIPTION_WITH_DATES_AND_HIGHLIGHTS}}">
+    <link rel="canonical" href="https://nutsnibbles.cc/travel/{{TRIP_SLUG}}/{{CITY_SLUG}}/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{CITY}} {{TRIP_SEASON_OR_YEAR}} | NutNibbles">
+    <meta property="og:description" content="{{CITY_DESCRIPTION_WITH_DATES_AND_HIGHLIGHTS}}">
+    <meta property="og:image" content="https://nutsnibbles.cc/{{SOCIAL_IMAGE_PATH}}">
+    <meta property="og:url" content="https://nutsnibbles.cc/travel/{{TRIP_SLUG}}/{{CITY_SLUG}}/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{CITY}} {{TRIP_SEASON_OR_YEAR}} | NutNibbles">
+    <meta name="twitter:description" content="{{CITY_DESCRIPTION_WITH_DATES_AND_HIGHLIGHTS}}">
+    <meta name="twitter:image" content="https://nutsnibbles.cc/{{SOCIAL_IMAGE_PATH}}">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="../../../styles.css">
+  </head>
+  <body id="top">
+    <header class="site-header">
+      <a class="brand" href="../../../index.html" aria-label="NutNibbles home">
+        <img class="brand-mark" src="../../../assets/images/nutnibbles-logo.webp" alt="" loading="lazy" decoding="async">
+        <span>NutNibbles</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="../../index.html" aria-current="page">Travel</a>
+        <a href="../../../food/index.html">Food</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero trip-hero city-hero">
+        <a class="text-link preface-link" href="../index.html">Back to {{TRIP_NAME}} overview</a>
+        <p class="eyebrow">{{DATE_RANGE}} / {{CITY_CONTEXT}}</p>
+        <h1>{{PERSONAL_CITY_HEADLINE}}</h1>
+        <p>{{OPENING_CITY_CONTEXT}}</p>
+      </section>
+
+      <nav class="trip-jump-nav city-tabs" aria-label="{{TRIP_NAME}} city chapters">
+        <a href="../{{CITY_1_SLUG}}/">{{CITY_1_NAME}}</a>
+        <a href="../{{CITY_2_SLUG}}/">{{CITY_2_NAME}}</a>
+      </nav>
+
+      <nav class="day-jump-nav" aria-label="{{CITY}} section links">
+        <a href="#{{SECTION_1_ID}}">
+          <span>{{SECTION_1_DATE_OR_CONTEXT}}</span>
+          {{SECTION_1_LABEL}}
+        </a>
+        <a href="#{{SECTION_2_ID}}">
+          <span>{{SECTION_2_DATE_OR_CONTEXT}}</span>
+          {{SECTION_2_LABEL}}
+        </a>
+      </nav>
+
+      <nav class="related-links" aria-label="{{CITY}} food notes">
+        <a href="../../../food/{{RELATED_FOOD_SLUG}}/">
+          <span>Food note</span>
+          {{RELATED_FOOD_TITLE}}
+        </a>
+      </nav>
+
+      <section class="notes-layout city-notes">
+        <article id="{{SECTION_1_ID}}">
+          <div class="note-copy">
+            <p class="eyebrow">{{DATE}} / {{STOP_CONTEXT}}</p>
+            <h2>{{SECTION_HEADLINE}}</h2>
+            <p>{{WHAT_HAPPENED}}</p>
+            <p>{{WHAT_MADE_IT_MEMORABLE}}</p>
+            <p><strong>Personal take:</strong> {{HONEST_PERSONAL_TAKE}}</p>
+          </div>
+          <div class="note-media">
+            <div class="photo-grid feature-photo-grid">
+              <img src="../../../{{IMAGE_1_PATH}}" alt="{{IMAGE_1_ALT_TEXT}}" loading="lazy" decoding="async">
+              <img src="../../../{{IMAGE_2_PATH}}" alt="{{IMAGE_2_ALT_TEXT}}" loading="lazy" decoding="async">
+            </div>
+            <p class="photo-caption">{{CAPTION_THAT_ADDS_CONTEXT}}</p>
+          </div>
+        </article>
+      </section>
+
+      <nav class="chapter-pager" aria-label="Continue {{TRIP_NAME}} city chapters">
+        <a href="../{{PREVIOUS_CITY_SLUG}}/">
+          <span>Previous city</span>
+          {{PREVIOUS_CITY_NAME}}
+        </a>
+        <a href="../{{NEXT_CITY_SLUG}}/">
+          <span>Next city</span>
+          {{NEXT_CITY_NAME}}
+        </a>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <p>NutNibbles</p>
+      <p><a href="../index.html">Back to {{TRIP_NAME}} Overview</a></p>
+    </footer>
+    <a class="back-to-top" href="#top" aria-label="Back to top">Top</a>
+    <script src="../../../assets/js/back-to-top.js"></script>
+  </body>
+</html>

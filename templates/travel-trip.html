@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{TRIP_TITLE}} | NutNibbles</title>
+    <meta name="description" content="{{TRIP_DESCRIPTION_WITH_ROUTE_DATES_AND_HIGHLIGHTS}}">
+    <link rel="canonical" href="https://nutsnibbles.cc/travel/{{TRIP_SLUG}}/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{TRIP_TITLE}} | NutNibbles">
+    <meta property="og:description" content="{{TRIP_DESCRIPTION_WITH_ROUTE_DATES_AND_HIGHLIGHTS}}">
+    <meta property="og:image" content="https://nutsnibbles.cc/{{SOCIAL_IMAGE_PATH}}">
+    <meta property="og:url" content="https://nutsnibbles.cc/travel/{{TRIP_SLUG}}/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{TRIP_TITLE}} | NutNibbles">
+    <meta name="twitter:description" content="{{TRIP_DESCRIPTION_WITH_ROUTE_DATES_AND_HIGHLIGHTS}}">
+    <meta name="twitter:image" content="https://nutsnibbles.cc/{{SOCIAL_IMAGE_PATH}}">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="../../styles.css">
+  </head>
+  <body id="top">
+    <header class="site-header">
+      <a class="brand" href="../../index.html" aria-label="NutNibbles home">
+        <img class="brand-mark" src="../../assets/images/nutnibbles-logo.webp" alt="" loading="lazy" decoding="async">
+        <span>NutNibbles</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="../index.html" aria-current="page">Travel</a>
+        <a href="../../food/index.html">Food</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero trip-hero">
+        <p class="eyebrow">{{PLACE}} / {{DATE_RANGE}}</p>
+        <h1>{{PERSONAL_TRIP_HEADLINE}}</h1>
+        <p>{{OPENING_TRIP_CONTEXT}}</p>
+      </section>
+
+      <section class="trip-summary">
+        <article>
+          <span>Route</span>
+          <h2>{{ROUTE_SUMMARY}}</h2>
+          <p>{{ROUTE_FEELING_AND_PACE}}</p>
+        </article>
+        <article>
+          <span>Vibe</span>
+          <h2>{{TRIP_VIBE}}</h2>
+          <p>{{WHAT_READERS_CAN_EXPECT}}</p>
+        </article>
+      </section>
+
+      <nav class="trip-jump-nav city-tabs" aria-label="{{TRIP_NAME}} city chapters">
+        <a href="{{CITY_1_SLUG}}/">{{CITY_1_NAME}}</a>
+        <a href="{{CITY_2_SLUG}}/">{{CITY_2_NAME}}</a>
+      </nav>
+
+      <section class="section-heading trip-heading">
+        <p class="eyebrow">City Chapters</p>
+        <h2>Choose where to start</h2>
+      </section>
+
+      <section class="city-chapter-grid" aria-label="{{TRIP_NAME}} city chapters">
+        <a class="city-chapter-card" href="{{CITY_1_SLUG}}/">
+          <img src="../../{{CITY_1_IMAGE_PATH}}" alt="{{CITY_1_IMAGE_ALT_TEXT}}" loading="lazy" decoding="async">
+          <span>{{CITY_1_DATE_AND_CONTEXT}}</span>
+          <h3>{{CITY_1_NAME}}</h3>
+          <p>{{CITY_1_SHORT_DESCRIPTION}}</p>
+          <div class="card-meta" aria-label="{{CITY_1_NAME}} highlights">
+            <b>{{TAG_1}}</b>
+            <b>{{TAG_2}}</b>
+            <b>{{TAG_3}}</b>
+          </div>
+          <span class="card-action">Start {{CITY_1_NAME}} chapter</span>
+        </a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>NutNibbles</p>
+      <p><a href="../index.html">Back to Travel</a></p>
+    </footer>
+    <a class="back-to-top" href="#top" aria-label="Back to top">Top</a>
+    <script src="../../assets/js/back-to-top.js"></script>
+  </body>
+</html>
