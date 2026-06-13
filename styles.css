@@ -522,8 +522,19 @@ h3 {
   border-radius: 6px;
 }
 
-.map-pin {
+.map-spot {
   position: absolute;
+  width: 28px;
+  height: 28px;
+  z-index: 2;
+  color: var(--cream);
+  text-decoration: none;
+}
+
+.map-pin-marker {
+  position: absolute;
+  inset: 4px;
+  display: block;
   width: 18px;
   height: 18px;
   background: var(--terracotta);
@@ -534,18 +545,106 @@ h3 {
   transition: transform 160ms ease;
 }
 
-.map-pin:hover {
+.map-spot:focus,
+.map-spot:hover,
+.map-spot:focus-visible {
+  z-index: 5;
+}
+
+.map-spot:focus .map-pin-marker,
+.map-spot:hover .map-pin-marker,
+.map-spot:focus-visible .map-pin-marker {
   transform: rotate(-45deg) scale(1.18);
 }
 
 .pin-japan {
-  left: 79%;
-  top: 37%;
+  left: 85%;
+  top: 45%;
 }
 
 .pin-uk {
-  left: 47%;
-  top: 28%;
+  left: 46.5%;
+  top: 39%;
+}
+
+.map-preview {
+  position: absolute;
+  left: 50%;
+  bottom: 32px;
+  width: min(240px, 64vw);
+  padding: 10px;
+  background: rgba(31, 47, 36, 0.96);
+  border: 1px solid rgba(244, 235, 221, 0.32);
+  border-radius: 8px;
+  box-shadow: 0 24px 52px rgba(12, 22, 15, 0.34);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 12px) scale(0.94);
+  transform-origin: 50% 100%;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.map-preview::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  width: 14px;
+  height: 14px;
+  background: rgba(31, 47, 36, 0.96);
+  border-right: 1px solid rgba(244, 235, 221, 0.28);
+  border-bottom: 1px solid rgba(244, 235, 221, 0.28);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.map-spot:focus .map-preview,
+.map-spot:hover .map-preview,
+.map-spot:focus-visible .map-preview {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+.map-preview-title {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--cream);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.map-preview-photos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+}
+
+.map-preview-photos img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.pin-japan .map-preview {
+  left: auto;
+  right: -6px;
+  transform: translateY(12px) scale(0.94);
+  transform-origin: 85% 100%;
+}
+
+.pin-japan .map-preview::after {
+  left: auto;
+  right: 13px;
+  transform: rotate(45deg);
+}
+
+.pin-japan:focus .map-preview,
+.pin-japan:hover .map-preview,
+.pin-japan:focus-visible .map-preview {
+  transform: translateY(0) scale(1);
 }
 
 .place-list,
@@ -1440,5 +1539,10 @@ h3 {
   .snowfall::before,
   .snowfall::after {
     animation: none;
+  }
+
+  .map-pin-marker,
+  .map-preview {
+    transition: none;
   }
 }
