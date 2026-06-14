@@ -575,6 +575,11 @@ h3 {
   top: calc(88% - 26px);
 }
 
+.pin-indonesia {
+  left: calc(78.4% - 13px);
+  top: calc(74.6% - 26px);
+}
+
 .map-preview {
   position: absolute;
   left: 50%;
@@ -637,7 +642,8 @@ h3 {
 }
 
 .pin-japan .map-preview,
-.pin-new-zealand .map-preview {
+.pin-new-zealand .map-preview,
+.pin-indonesia .map-preview {
   left: auto;
   right: -6px;
   transform: translateY(12px) scale(0.94);
@@ -645,7 +651,8 @@ h3 {
 }
 
 .pin-japan .map-preview::after,
-.pin-new-zealand .map-preview::after {
+.pin-new-zealand .map-preview::after,
+.pin-indonesia .map-preview::after {
   left: auto;
   right: 13px;
   transform: rotate(45deg);
@@ -656,7 +663,10 @@ h3 {
 .pin-japan:focus-visible .map-preview,
 .pin-new-zealand:focus .map-preview,
 .pin-new-zealand:hover .map-preview,
-.pin-new-zealand:focus-visible .map-preview {
+.pin-new-zealand:focus-visible .map-preview,
+.pin-indonesia:focus .map-preview,
+.pin-indonesia:hover .map-preview,
+.pin-indonesia:focus-visible .map-preview {
   transform: translateY(0) scale(1);
 }
 
