@@ -4,16 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Travel | NutNibbles</title>
-    <meta name="description" content="Explore NutNibbles travel stories through a simple visited places map.">
+    <meta name="description" content="Explore NutNibbles travel stories through a simple visited places map, from Japan winter days to the UK, Scotland, and New Zealand.">
     <link rel="canonical" href="https://nutsnibbles.cc/travel/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Travel | NutNibbles">
-    <meta property="og:description" content="Explore NutNibbles travel stories through a simple visited places map.">
+    <meta property="og:description" content="Explore NutNibbles travel stories through a simple visited places map, from Japan winter days to the UK, Scotland, and New Zealand.">
     <meta property="og:image" content="https://nutsnibbles.cc/assets/images/japan-2025/sapporo/moerenuma-family-pyramid.jpeg">
     <meta property="og:url" content="https://nutsnibbles.cc/travel/">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Travel | NutNibbles">
-    <meta name="twitter:description" content="Explore NutNibbles travel stories through a simple visited places map.">
+    <meta name="twitter:description" content="Explore NutNibbles travel stories through a simple visited places map, from Japan winter days to the UK, Scotland, and New Zealand.">
     <meta name="twitter:image" content="https://nutsnibbles.cc/assets/images/japan-2025/sapporo/moerenuma-family-pyramid.jpeg">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
@@ -36,33 +36,46 @@
       <section class="page-hero">
         <p class="eyebrow">Travel</p>
         <h1>Explore the places behind the meals.</h1>
-        <p>Travel notes from trips worth remembering, from Japan winter family days to an autumn route through the UK and Scotland.</p>
+        <p>Travel notes from trips worth remembering, from Japan winter family days to an autumn route through the UK and Scotland, and a compact New Zealand winter loop.</p>
       </section>
 
       <section class="map-section" aria-label="World map with visited place pins">
-        <img src="../assets/images/world-map.png" alt="Muted illustrated world map" loading="eager" decoding="async">
-        <a class="map-spot pin-uk" href="uk-scotland-2023/index.html" aria-label="UK and Scotland autumn trip">
-          <span class="map-pin-marker" aria-hidden="true"></span>
-          <span class="map-preview" aria-hidden="true">
-            <span class="map-preview-title">UK & Scotland</span>
-            <span class="map-preview-photos">
-              <img src="../assets/images/uk-scotland-2023/london/london-westminster-abbey.jpeg" alt="" loading="lazy" decoding="async">
-              <img src="../assets/images/uk-scotland-2023/glasgow-highlands/highlands-moody-road.jpeg" alt="" loading="lazy" decoding="async">
-              <img src="../assets/images/uk-scotland-2023/edinburgh/edinburgh-night-lights.jpeg" alt="" loading="lazy" decoding="async">
+        <div class="map-canvas">
+          <img src="../assets/images/world-map.png" alt="Muted illustrated world map" loading="eager" decoding="async">
+          <a class="map-spot pin-uk" href="uk-scotland-2023/index.html" aria-label="UK and Scotland autumn trip">
+            <span class="map-pin-marker" aria-hidden="true"></span>
+            <span class="map-preview" aria-hidden="true">
+              <span class="map-preview-title">UK & Scotland</span>
+              <span class="map-preview-photos">
+                <img src="../assets/images/uk-scotland-2023/london/london-park-lake.jpeg" alt="" loading="lazy" decoding="async">
+                <img src="../assets/images/uk-scotland-2023/glasgow-highlands/highlands-moody-road.jpeg" alt="" loading="lazy" decoding="async">
+                <img src="../assets/images/uk-scotland-2023/edinburgh/edinburgh-palace-courtyard.jpeg" alt="" loading="lazy" decoding="async">
+              </span>
             </span>
-          </span>
-        </a>
-        <a class="map-spot pin-japan" href="japan-2025/index.html" aria-label="Japan winter family trip">
-          <span class="map-pin-marker" aria-hidden="true"></span>
-          <span class="map-preview" aria-hidden="true">
-            <span class="map-preview-title">Japan Winter</span>
-            <span class="map-preview-photos">
-              <img src="../assets/images/japan-2025/sapporo/moerenuma-family-pyramid.jpeg" alt="" loading="lazy" decoding="async">
-              <img src="../assets/images/japan-2025/kyoto/fushimi-inari-fox-statue.jpeg" alt="" loading="lazy" decoding="async">
-              <img src="../assets/images/japan-2025/tokyo/fuji-san-lake-clouds.jpeg" alt="" loading="lazy" decoding="async">
+          </a>
+          <a class="map-spot pin-japan" href="japan-2025/index.html" aria-label="Japan winter family trip">
+            <span class="map-pin-marker" aria-hidden="true"></span>
+            <span class="map-preview" aria-hidden="true">
+              <span class="map-preview-title">Japan Winter</span>
+              <span class="map-preview-photos">
+                <img src="../assets/images/japan-2025/sapporo/moerenuma-family-pyramid.jpeg" alt="" loading="lazy" decoding="async">
+                <img src="../assets/images/japan-2025/kyoto/fushimi-inari-fox-statue.jpeg" alt="" loading="lazy" decoding="async">
+                <img src="../assets/images/japan-2025/tokyo/fuji-san-lake-clouds.jpeg" alt="" loading="lazy" decoding="async">
+              </span>
             </span>
-          </span>
-        </a>
+          </a>
+          <a class="map-spot pin-new-zealand" href="new-zealand-2024/index.html" aria-label="New Zealand winter road trip">
+            <span class="map-pin-marker" aria-hidden="true"></span>
+            <span class="map-preview" aria-hidden="true">
+              <span class="map-preview-title">New Zealand</span>
+              <span class="map-preview-photos">
+                <img src="../assets/images/new-zealand-2024/rotorua-taupo/taupo-geothermal-steam.jpeg" alt="" loading="lazy" decoding="async">
+                <img src="../assets/images/new-zealand-2024/new-plymouth/taranaki-lake-view.jpeg" alt="" loading="lazy" decoding="async">
+                <img src="../assets/images/new-zealand-2024/matamata-hamilton/hobbiton-green-hills.jpeg" alt="" loading="lazy" decoding="async">
+              </span>
+            </span>
+          </a>
+        </div>
       </section>
 
       <section class="story-list place-list">
@@ -75,6 +88,11 @@
           <span>United Kingdom</span>
           <h3><a href="uk-scotland-2023/index.html">UK and Scotland Autumn Trip</a></h3>
           <p>London to Windsor, Manchester, Blackpool, Glasgow, the Highlands, Inverness, Stirling, and Edinburgh, 7-22 Nov 2023.</p>
+        </article>
+        <article>
+          <span>New Zealand</span>
+          <h3><a href="new-zealand-2024/index.html">New Zealand Winter Road Trip</a></h3>
+          <p>Rotorua, Taupo, New Plymouth, Hamilton, and Matamata, 20-25 Jul 2024, with steam, lake clouds, and green hillside details.</p>
         </article>
         <article>
           <span>Reading Flow</span>

@@ -508,7 +508,6 @@ h3 {
 }
 
 .map-section {
-  position: relative;
   margin-bottom: 42px;
   padding: 22px;
   background: rgba(244, 235, 221, 0.06);
@@ -516,7 +515,11 @@ h3 {
   border-radius: 8px;
 }
 
-.map-section img {
+.map-canvas {
+  position: relative;
+}
+
+.map-canvas > img {
   display: block;
   width: 100%;
   border-radius: 6px;
@@ -558,13 +561,18 @@ h3 {
 }
 
 .pin-japan {
-  left: 79.7%;
-  top: 50.2%;
+  left: calc(80% - 13px);
+  top: calc(48.8% - 26px);
 }
 
 .pin-uk {
-  left: 44.9%;
-  top: 36%;
+  left: calc(47.2% - 13px);
+  top: calc(38% - 26px);
+}
+
+.pin-new-zealand {
+  left: calc(90.8% - 13px);
+  top: calc(88% - 26px);
 }
 
 .map-preview {
@@ -628,14 +636,16 @@ h3 {
   border-radius: 6px;
 }
 
-.pin-japan .map-preview {
+.pin-japan .map-preview,
+.pin-new-zealand .map-preview {
   left: auto;
   right: -6px;
   transform: translateY(12px) scale(0.94);
   transform-origin: 85% 100%;
 }
 
-.pin-japan .map-preview::after {
+.pin-japan .map-preview::after,
+.pin-new-zealand .map-preview::after {
   left: auto;
   right: 13px;
   transform: rotate(45deg);
@@ -643,7 +653,10 @@ h3 {
 
 .pin-japan:focus .map-preview,
 .pin-japan:hover .map-preview,
-.pin-japan:focus-visible .map-preview {
+.pin-japan:focus-visible .map-preview,
+.pin-new-zealand:focus .map-preview,
+.pin-new-zealand:hover .map-preview,
+.pin-new-zealand:focus-visible .map-preview {
   transform: translateY(0) scale(1);
 }
 
