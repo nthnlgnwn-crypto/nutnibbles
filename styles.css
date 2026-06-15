@@ -482,7 +482,8 @@ h3 {
 }
 
 .section-heading {
-  margin-bottom: 26px;
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto 26px;
 }
 
 .story-list article {
@@ -1608,6 +1609,10 @@ h3 {
     margin-top: -6px;
     margin-bottom: 22px;
     padding: 12px 14px;
+  }
+
+  .section-heading {
+    width: min(100% - 28px, 1120px);
   }
 
   .trip-jump-nav a {
