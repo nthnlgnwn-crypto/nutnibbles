@@ -857,6 +857,37 @@ h3 {
   margin-top: 12px;
 }
 
+.trip-rhythm {
+  padding-bottom: 20px;
+}
+
+.trip-rhythm article {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.trip-rhythm h3 {
+  margin: 0;
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.12;
+}
+
+.trip-rhythm p {
+  margin: 0;
+}
+
+.trip-rhythm ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.trip-rhythm li + li {
+  margin-top: 4px;
+}
+
 .trip-heading {
   width: min(1120px, calc(100% - 40px));
   margin: 0 auto 26px;
