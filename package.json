@@ -1,6 +1,12 @@
 {
   "scripts": {
-    "build": "node scripts/build-static.js"
+    "build": "node scripts/build-static.js",
+    "check:meta": "node scripts/check-meta.js",
+    "check:sitemap": "node scripts/check-sitemap.js",
+    "check:links": "node scripts/check-links.js",
+    "check:images": "node scripts/check-images.js",
+    "check": "npm run check:meta && npm run check:sitemap && npm run check:links && npm run check:images",
+    "preview": "python3 -m http.server 4173 -d dist"
   },
   "devDependencies": {}
 }
