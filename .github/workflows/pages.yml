@@ -1,9 +1,10 @@
-name: Publish static site
+name: Manual GitHub Pages fallback
 
 on:
-  push:
-    branches:
-      - main
+  # Manual fallback only.
+  # Production currently updates through an external publisher behind Cloudflare.
+  # This workflow is kept as a reference path and should not be treated as the
+  # active production deploy path unless it is intentionally re-enabled.
   workflow_dispatch:
 
 permissions:

@@ -44,7 +44,20 @@ From the repo root:
 
 Source files are edited in the repo root.
 
-Deployment output is generated into `dist/` by `scripts/build-static.js`. The GitHub Pages workflow builds the site and deploys `dist/`, including:
+Deployment output is generated into `dist/` by `scripts/build-static.js`.
+
+Production is currently served through an external publisher behind Cloudflare. The exact publisher is not proven by this repo alone.
+
+The GitHub Pages workflow in `.github/workflows/pages.yml` is now manual-only and is kept as a fallback/reference workflow. It no longer runs automatically on push because it is not the active production deploy path.
+
+The local quality gate before publishing remains:
+
+- `npm run build`
+- `npm run check`
+
+Publishing currently happens by pushing to `origin/main`, after which the external publisher updates the live site.
+
+The manual GitHub Pages fallback workflow still targets `dist/`, including:
 
 - `.nojekyll`
 - `robots.txt`
