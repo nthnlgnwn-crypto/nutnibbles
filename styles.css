@@ -535,6 +535,7 @@ h3 {
 .magazine-intro-copy p,
 .magazine-rich-text p {
   color: var(--muted);
+  margin-bottom: 0;
   line-height: 1.76;
 }
 
@@ -1082,6 +1083,7 @@ h3 {
   box-shadow: 0 24px 52px rgba(12, 22, 15, 0.34);
   opacity: 0;
   pointer-events: none;
+  cursor: pointer;
   transform: translate(-50%, 12px) scale(0.94);
   transform-origin: 50% 100%;
   transition: opacity 180ms ease, transform 180ms ease;
@@ -1104,6 +1106,7 @@ h3 {
 .map-spot:hover .map-preview,
 .map-spot:focus-visible .map-preview {
   opacity: 1;
+  pointer-events: auto;
   transform: translate(-50%, 0) scale(1);
 }
 
@@ -1162,6 +1165,7 @@ h3 {
 .pin-indonesia:focus .map-preview,
 .pin-indonesia:hover .map-preview,
 .pin-indonesia:focus-visible .map-preview {
+  pointer-events: auto;
   transform: translateY(0) scale(1);
 }
 
@@ -1551,6 +1555,59 @@ h3 {
   margin: 0 auto 88px;
 }
 
+.city-chapter-nav {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto 52px;
+}
+
+.city-chapter-nav-header {
+  display: grid;
+  gap: 10px;
+  max-width: 680px;
+  margin-bottom: 22px;
+}
+
+.city-chapter-nav-header h2 {
+  margin-bottom: 0;
+}
+
+.city-chapter-nav-header p:not(.eyebrow) {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.city-chapter-grid--chapters {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  margin: 0;
+}
+
+.city-chapter-card--chapter {
+  min-height: 280px;
+  padding: 18px;
+  gap: 8px;
+}
+
+.city-chapter-card--chapter::before {
+  background: linear-gradient(180deg, rgba(27, 42, 32, 0.02), rgba(16, 26, 20, 0.5) 62%, rgba(10, 18, 13, 0.72));
+}
+
+.city-chapter-card--chapter img {
+  filter: saturate(1) contrast(0.98) brightness(0.94);
+}
+
+.city-chapter-card--chapter h3 {
+  max-width: 9ch;
+  font-size: clamp(24px, 2.2vw, 34px);
+  line-height: 1.04;
+}
+
+.city-chapter-card--chapter p {
+  max-width: 28ch;
+  font-size: 14px;
+  line-height: 1.58;
+}
+
 .city-chapter-card {
   position: relative;
   display: flex;
@@ -1581,6 +1638,7 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: var(--chapter-focus, center);
   filter: saturate(0.94) contrast(0.96);
   transform: scale(1.01);
   transition: transform 220ms ease, filter 220ms ease;
@@ -2115,6 +2173,10 @@ h3 {
     margin-bottom: 30px;
   }
 
+  .magazine-intro-copy {
+    gap: 14px;
+  }
+
   .editorial-intro {
     max-width: 100%;
     font-size: clamp(24px, 7vw, 32px);
@@ -2197,6 +2259,19 @@ h3 {
 
   .city-chapter-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .city-chapter-grid--chapters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .city-chapter-card--chapter {
+    min-height: 220px;
+    padding: 16px;
+  }
+
+  .city-chapter-card--chapter h3 {
+    font-size: clamp(22px, 4.6vw, 30px);
   }
 
   .city-notes article:has(.note-copy) {
@@ -2506,12 +2581,52 @@ h3 {
     width: min(100% - 28px, 1120px);
   }
 
+  .city-chapter-nav {
+    width: min(100% - 28px, 1120px);
+    margin-bottom: 34px;
+  }
+
+  .city-chapter-nav-header {
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .city-chapter-nav-header h2 {
+    font-size: clamp(30px, 9.4vw, 40px);
+    line-height: 1.08;
+  }
+
+  .city-chapter-nav-header p:not(.eyebrow) {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .city-chapter-grid--chapters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
   .collection-grid {
     width: min(100% - 28px, 1120px);
   }
 
   .city-chapter-card {
     min-height: 320px;
+  }
+
+  .city-chapter-card--chapter {
+    min-height: 200px;
+    padding: 14px;
+    gap: 6px;
+  }
+
+  .city-chapter-card--chapter h3 {
+    font-size: clamp(20px, 5vw, 26px);
+  }
+
+  .city-chapter-card--chapter p {
+    font-size: 13px;
+    line-height: 1.54;
   }
 
   .back-to-top {

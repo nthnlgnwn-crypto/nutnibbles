@@ -198,5 +198,17 @@
       <p>NutNibbles</p>
       <p><a href="../index.html">Home</a></p>
     </footer>
+    <script>
+      document.querySelectorAll(".map-preview").forEach((preview) => {
+        preview.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          const destination = preview.closest(".map-spot")?.getAttribute("href");
+          if (destination) {
+            window.location.assign(destination);
+          }
+        });
+      });
+    </script>
   </body>
 </html>
