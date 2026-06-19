@@ -508,6 +508,8 @@ h3 {
   grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
   gap: 32px;
   align-items: stretch;
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
   padding: 72px 0 40px;
 }
 
@@ -2077,6 +2079,7 @@ h3 {
   .map-section,
   .trip-summary,
   .trip-highlights,
+  .magazine-hero,
   .trip-jump-nav,
   .day-jump-nav,
   .city-grid,
