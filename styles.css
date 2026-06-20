@@ -1269,6 +1269,47 @@ h3 {
   justify-content: center;
 }
 
+.home-hero h1 {
+  max-width: 840px;
+}
+
+.home-start {
+  margin-top: -22px;
+}
+
+.home-section-links {
+  padding-top: 24px;
+}
+
+.home-featured {
+  padding-bottom: 70px;
+}
+
+.home-featured-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.home-featured-grid .collection-card {
+  gap: 14px;
+}
+
+.home-featured-grid .collection-card h3 {
+  font-size: clamp(24px, 2.2vw, 32px);
+  line-height: 1.08;
+}
+
+.home-featured-grid .collection-card p {
+  font-size: 15px;
+}
+
+.home-mood-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.home-future-note {
+  margin-bottom: 88px;
+}
+
 .index-guide,
 .hub-link-section,
 .food-index-group {
@@ -2234,6 +2275,10 @@ h3 {
     grid-column: auto;
   }
 
+  .home-mood-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .photo-grid img,
   .feature-photo-grid img:first-child,
   .single-photo-grid img {
@@ -2576,6 +2621,10 @@ h3 {
 
   .section-heading {
     width: min(100% - 28px, 1120px);
+  }
+
+  .home-start {
+    margin-top: 0;
   }
 
   .index-guide,
