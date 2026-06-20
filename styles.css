@@ -1269,6 +1269,123 @@ h3 {
   justify-content: center;
 }
 
+.index-guide,
+.hub-link-section,
+.food-index-group {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto 64px;
+}
+
+.index-guide--compact {
+  margin-bottom: 44px;
+}
+
+.index-guide-header,
+.food-index-group-header {
+  display: grid;
+  gap: 10px;
+  max-width: 760px;
+  margin-bottom: 18px;
+}
+
+.index-guide-header h2,
+.food-index-group-header h2 {
+  margin-bottom: 0;
+  font-size: clamp(36px, 5vw, 58px);
+  line-height: 1;
+}
+
+.index-guide-header p:not(.eyebrow),
+.food-index-group-header p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.index-guide-grid,
+.hub-link-grid,
+.food-index-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.hub-link-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.food-index-grid {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.index-guide-card,
+.hub-link-card,
+.food-index-group .food-preview-card {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+  color: var(--cream);
+  background: linear-gradient(145deg, rgba(244, 235, 221, 0.09), rgba(244, 235, 221, 0.045));
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+.index-guide-card,
+.hub-link-card {
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.index-guide-card:hover,
+.hub-link-card:hover {
+  background: linear-gradient(145deg, rgba(244, 235, 221, 0.13), rgba(244, 235, 221, 0.065));
+  transform: translateY(-2px);
+}
+
+.index-guide-card span,
+.hub-link-card span,
+.food-index-group .food-preview-card > span {
+  color: var(--olive);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.index-guide-card h3,
+.hub-link-card h3,
+.food-index-group .food-preview-card h3 {
+  margin-bottom: 0;
+  font-size: clamp(24px, 2.4vw, 34px);
+  line-height: 1.06;
+}
+
+.index-guide-card p,
+.hub-link-card p,
+.food-index-group .food-preview-card p {
+  margin-bottom: 0;
+  color: rgba(244, 235, 221, 0.78);
+  line-height: 1.65;
+}
+
+.food-start-guide {
+  margin-bottom: 48px;
+}
+
+.food-index-group {
+  margin-bottom: 52px;
+}
+
+.food-index-group--last {
+  margin-bottom: 88px;
+}
+
+.food-index-group .food-preview-image {
+  margin: -6px -6px 10px;
+}
+
 .trip-summary {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2439,6 +2556,17 @@ h3 {
     margin-bottom: 28px;
   }
 
+  .hub-city-tabs {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    border-radius: 16px;
+  }
+
+  .hub-city-tabs a {
+    flex: 1 1 calc(50% - 10px);
+    min-width: 0;
+  }
+
   .trip-reading-note {
     width: min(100% - 28px, 1120px);
     margin-top: -6px;
@@ -2448,6 +2576,44 @@ h3 {
 
   .section-heading {
     width: min(100% - 28px, 1120px);
+  }
+
+  .index-guide,
+  .hub-link-section,
+  .food-index-group {
+    width: min(100% - 28px, 1120px);
+    margin-bottom: 38px;
+  }
+
+  .index-guide-header,
+  .food-index-group-header {
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .index-guide-header h2,
+  .food-index-group-header h2 {
+    font-size: clamp(30px, 9.4vw, 40px);
+    line-height: 1.08;
+  }
+
+  .index-guide-header p:not(.eyebrow),
+  .food-index-group-header p:not(.eyebrow) {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .index-guide-grid,
+  .hub-link-grid,
+  .food-index-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .index-guide-card,
+  .hub-link-card,
+  .food-index-group .food-preview-card {
+    padding: 16px;
   }
 
   .trip-jump-nav a {
