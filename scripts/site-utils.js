@@ -6,7 +6,9 @@ const SITE_BASE_URL = "https://nutsnibbles.cc";
 const PUBLIC_HTML_ROOTS = [
   path.join(ROOT, "index.html"),
   path.join(ROOT, "travel"),
-  path.join(ROOT, "food")
+  path.join(ROOT, "food"),
+  path.join(ROOT, "work-with-nutnibbles"),
+  path.join(ROOT, "japan-guide")
 ];
 
 function readFile(filePath) {

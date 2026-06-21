@@ -1310,6 +1310,41 @@ h3 {
   margin-bottom: 88px;
 }
 
+.foundation-link-row,
+.foundation-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.foundation-card-grid {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.foundation-split {
+  align-items: start;
+}
+
+.foundation-principles,
+.foundation-cta {
+  padding: 24px;
+  background: linear-gradient(145deg, rgba(244, 235, 221, 0.08), rgba(244, 235, 221, 0.04));
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.foundation-principles ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.foundation-principles li + li {
+  margin-top: 10px;
+}
+
 .index-guide,
 .hub-link-section,
 .food-index-group {

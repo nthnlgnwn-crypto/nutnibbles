@@ -9,6 +9,8 @@ const siteEntries = [
   "assets",
   "travel",
   "food",
+  "work-with-nutnibbles",
+  "japan-guide",
   ".nojekyll",
   "favicon.ico",
   "robots.txt",
