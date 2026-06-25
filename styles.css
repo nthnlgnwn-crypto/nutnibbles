@@ -1063,6 +1063,11 @@ h3 {
   top: calc(36.4% - 26px);
 }
 
+.pin-europe {
+  left: calc(53.2% - 13px);
+  top: calc(47.8% - 26px);
+}
+
 .pin-new-zealand {
   left: calc(90.8% - 13px);
   top: calc(88% - 26px);
