@@ -1058,6 +1058,11 @@ h3 {
   top: calc(45.1% - 26px);
 }
 
+.pin-hong-kong {
+  left: calc(76.8% - 13px);
+  top: calc(58% - 26px);
+}
+
 .pin-uk {
   left: calc(45.4% - 13px);
   top: calc(36.4% - 26px);
@@ -1143,6 +1148,7 @@ h3 {
 
 .pin-japan .map-preview,
 .pin-korea .map-preview,
+.pin-hong-kong .map-preview,
 .pin-new-zealand .map-preview,
 .pin-indonesia .map-preview {
   left: auto;
@@ -1153,6 +1159,7 @@ h3 {
 
 .pin-japan .map-preview::after,
 .pin-korea .map-preview::after,
+.pin-hong-kong .map-preview::after,
 .pin-new-zealand .map-preview::after,
 .pin-indonesia .map-preview::after {
   left: auto;
@@ -1166,6 +1173,9 @@ h3 {
 .pin-korea:focus .map-preview,
 .pin-korea:hover .map-preview,
 .pin-korea:focus-visible .map-preview,
+.pin-hong-kong:focus .map-preview,
+.pin-hong-kong:hover .map-preview,
+.pin-hong-kong:focus-visible .map-preview,
 .pin-new-zealand:focus .map-preview,
 .pin-new-zealand:hover .map-preview,
 .pin-new-zealand:focus-visible .map-preview,
