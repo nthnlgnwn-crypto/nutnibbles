@@ -42,56 +42,6 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-body.home-page {
-  position: relative;
-}
-
-body.home-page .site-header,
-body.home-page main,
-body.home-page .site-footer {
-  position: relative;
-  z-index: 1;
-}
-
-.snowfall,
-.snowfall::before,
-.snowfall::after {
-  position: fixed;
-  inset: -20vh 0 0;
-  content: "";
-  pointer-events: none;
-  z-index: 0;
-  background-image:
-    radial-gradient(circle, rgba(255, 248, 234, 0.92) 0 1px, transparent 1.7px),
-    radial-gradient(circle, rgba(255, 248, 234, 0.72) 0 1px, transparent 1.8px);
-  background-position: 0 0, 42px 56px;
-  background-size: 120px 120px, 170px 170px;
-  animation: snowfall 18s linear infinite;
-}
-
-.snowfall::before {
-  opacity: 0.54;
-  background-size: 90px 90px, 140px 140px;
-  animation-duration: 26s;
-  animation-direction: reverse;
-}
-
-.snowfall::after {
-  opacity: 0.36;
-  background-size: 180px 180px, 240px 240px;
-  animation-duration: 34s;
-}
-
-@keyframes snowfall {
-  from {
-    transform: translate3d(0, -8vh, 0);
-  }
-
-  to {
-    transform: translate3d(36px, 108vh, 0);
-  }
-}
-
 a {
   color: inherit;
   text-decoration: none;
@@ -1314,35 +1264,62 @@ h3 {
   justify-content: center;
 }
 
-.home-hero h1 {
-  max-width: 840px;
+.home-hero {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: min(760px, calc(100vh - 84px));
+  align-items: center;
+  margin: 0;
+  overflow: hidden;
+  padding:
+    clamp(86px, 10vw, 142px)
+    max(20px, calc((100% - 1120px) / 2))
+    clamp(92px, 10vw, 152px);
+  background: var(--forest-deep);
 }
 
-.home-hero {
-  grid-template-columns: minmax(0, 0.94fr) minmax(430px, 0.86fr);
-  gap: clamp(36px, 5vw, 72px);
+.home-hero::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(24, 34, 28, 0.92) 0%, rgba(24, 34, 28, 0.8) 36%, rgba(24, 34, 28, 0.4) 68%, rgba(24, 34, 28, 0.24) 100%),
+    linear-gradient(180deg, rgba(24, 34, 28, 0.18) 0%, rgba(24, 34, 28, 0.42) 100%);
+  pointer-events: none;
+}
+
+.home-hero .hero-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+}
+
+.home-hero h1 {
+  max-width: 760px;
+  text-shadow: 0 16px 42px rgba(0, 0, 0, 0.34);
+}
+
+.home-hero .intro {
+  color: rgba(244, 235, 221, 0.82);
+  text-shadow: 0 8px 28px rgba(0, 0, 0, 0.34);
 }
 
 .home-hero-media {
-  position: relative;
-  align-self: center;
-  min-height: 0;
-  aspect-ratio: 16 / 9;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
-  padding: 0;
   background-image: url("assets/images/home/nutnibbles-hero-poster.jpg");
-  background-position: 64% center;
+  background-position: 68% center;
   background-size: cover;
 }
 
 .home-hero-media::after {
-  position: absolute;
-  inset: 0;
-  content: "";
-  background:
-    linear-gradient(90deg, rgba(24, 34, 28, 0.18), transparent 42%),
-    linear-gradient(180deg, transparent 48%, rgba(24, 34, 28, 0.24));
-  pointer-events: none;
+  content: none;
 }
 
 .home-hero-video {
@@ -1350,11 +1327,11 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 64% center;
+  object-position: 68% center;
 }
 
 .home-start {
-  margin-top: -22px;
+  margin-top: clamp(54px, 7vw, 86px);
 }
 
 .home-section-links {
@@ -2419,11 +2396,27 @@ h3 {
   }
 
   .home-hero {
-    gap: 28px;
+    width: 100%;
+    min-height: max(620px, calc(100svh - 84px));
+    align-items: flex-end;
+    padding: 74px 20px 64px;
+  }
+
+  .home-hero::after {
+    background:
+      linear-gradient(180deg, rgba(24, 34, 28, 0.18) 0%, rgba(24, 34, 28, 0.62) 46%, rgba(24, 34, 28, 0.92) 100%),
+      linear-gradient(90deg, rgba(24, 34, 28, 0.78) 0%, rgba(24, 34, 28, 0.38) 100%);
+  }
+
+  .home-hero .hero-copy {
+    max-width: 620px;
   }
 
   .home-hero-media {
-    aspect-ratio: 16 / 10;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    background-position: 64% center;
   }
 
   .home-hero-video {
@@ -2486,11 +2479,6 @@ h3 {
 
   .photo-panel img {
     height: 420px;
-    min-height: 0;
-  }
-
-  .home-hero-media {
-    width: 100%;
     min-height: 0;
   }
 
@@ -2994,12 +2982,6 @@ h3 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .snowfall,
-  .snowfall::before,
-  .snowfall::after {
-    animation: none;
-  }
-
   .map-pin-marker,
   .map-preview,
   .review-meter-fill::after {
