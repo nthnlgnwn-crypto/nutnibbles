@@ -968,9 +968,13 @@ h3 {
   line-height: 1.02;
 }
 
-.map-section-copy p:last-child {
+.map-section-copy p:not(.eyebrow) {
   color: var(--muted);
   line-height: 1.7;
+}
+
+.map-mobile-note {
+  display: none;
 }
 
 .map-canvas {
@@ -1048,6 +1052,11 @@ h3 {
   top: calc(47.8% - 26px);
 }
 
+.pin-europe-alpine {
+  left: calc(52.4% - 13px);
+  top: calc(44.2% - 26px);
+}
+
 .pin-new-zealand {
   left: calc(90.8% - 13px);
   top: calc(88% - 26px);
@@ -1101,7 +1110,7 @@ h3 {
   display: block;
   margin-bottom: 8px;
   color: var(--cream);
-  font-family: var(--font-sans);
+  font-family: var(--sans);
   font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.06em;
@@ -2649,6 +2658,27 @@ h3 {
   .callout-card,
   .related-card {
     padding: 16px;
+  }
+
+  .map-mobile-note {
+    display: block;
+  }
+
+  .map-canvas {
+    pointer-events: none;
+  }
+
+  .map-canvas .map-spot {
+    display: none;
+  }
+
+  .back-to-top {
+    right: 10px;
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    min-width: 44px;
+    min-height: 38px;
+    padding: 0 10px;
+    font-size: 12px;
   }
 }
 
