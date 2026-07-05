@@ -267,12 +267,12 @@ h3 {
 .photo-panel {
   position: relative;
   overflow: hidden;
-  padding: 14px;
+  padding: 10px;
 }
 
 .photo-panel::after {
   position: absolute;
-  inset: 14px;
+  inset: 10px;
   content: "";
   background: linear-gradient(180deg, transparent 42%, rgba(24, 34, 28, 0.28));
   border-radius: 6px;
@@ -589,13 +589,14 @@ h3 {
   max-width: var(--reading-width);
 }
 
+/* Longer editorial statement: calmer than a true pull quote, reads as a deck. */
 .editorial-intro {
   margin: 0;
   color: var(--cream-soft);
   font-family: var(--serif);
-  max-width: 18ch;
-  font-size: clamp(28px, 3.6vw, 40px);
-  line-height: 1.22;
+  max-width: 26ch;
+  font-size: clamp(24px, 2.6vw, 30px);
+  line-height: 1.3;
   text-wrap: balance;
 }
 
@@ -679,9 +680,9 @@ h3 {
   margin: 0;
   color: var(--cream-soft);
   font-family: var(--serif);
-  max-width: 24ch;
-  font-size: clamp(26px, 3.6vw, 38px);
-  line-height: 1.22;
+  max-width: 34ch;
+  font-size: clamp(22px, 2.5vw, 29px);
+  line-height: 1.34;
 }
 
 .pull-quote cite {
@@ -830,7 +831,7 @@ h3 {
 }
 
 .essay-photo-card {
-  padding: 12px;
+  padding: 10px;
 }
 
 .essay-photo-card img {
@@ -854,7 +855,7 @@ h3 {
 .gallery-card {
   display: grid;
   gap: 10px;
-  padding: 12px;
+  padding: 10px;
 }
 
 .gallery-card img {
@@ -863,6 +864,25 @@ h3 {
   aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: 6px;
+}
+
+/* Lead editorial image: one unframed, full-bleed moment per article.
+   Combine with a grid figure class, e.g. class="gallery-card photo-lead". */
+figure.photo-lead {
+  grid-column: 1 / -1;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.24);
+}
+
+figure.photo-lead img {
+  aspect-ratio: 2 / 1;
+  border-radius: 8px;
+}
+
+figure.photo-lead figcaption {
+  padding: 0 2px;
 }
 
 .scan-grid {
@@ -1832,6 +1852,36 @@ h3 {
   margin: 0 auto 88px;
 }
 
+/* Match column count to card count so rows stay balanced:
+   2-3 cards fill one row, 5-6 cards break as 3+2 / 3+3 instead of 4+orphan. */
+@media (min-width: 861px) {
+  .city-chapter-grid:has(> :last-child:nth-child(2)) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .city-chapter-grid:has(> :last-child:nth-child(3)),
+  .city-chapter-grid:has(> :last-child:nth-child(5)),
+  .city-chapter-grid:has(> :last-child:nth-child(6)) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .food-index-grid:has(> :last-child:nth-child(5)) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .chapter-pager:has(> a:last-child:nth-child(3)) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .chapter-pager:has(> a:last-child:nth-child(4)) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .chapter-pager:has(> a:nth-child(3)) a:last-child {
+    text-align: left;
+  }
+}
+
 .city-chapter-nav {
   width: min(1120px, calc(100% - 40px));
   margin: 0 auto 52px;
@@ -1874,9 +1924,9 @@ h3 {
 }
 
 .city-chapter-card--chapter h3 {
-  max-width: 9ch;
-  font-size: clamp(24px, 2.2vw, 34px);
-  line-height: 1.04;
+  max-width: 100%;
+  font-size: clamp(22px, 2vw, 30px);
+  line-height: 1.08;
 }
 
 .city-chapter-card--chapter p {
@@ -1937,14 +1987,23 @@ h3 {
 }
 
 .city-chapter-card h3 {
-  font-size: clamp(30px, 3vw, 44px);
-  line-height: 1;
+  max-width: 100%;
+  font-size: clamp(26px, 2.4vw, 36px);
+  line-height: 1.05;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+  text-wrap: balance;
 }
 
 .city-chapter-card p {
+  display: -webkit-box;
+  overflow: hidden;
   color: rgba(244, 235, 221, 0.82);
   font-size: 15px;
   line-height: 1.55;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 
 .city-chapter-card .card-meta {
@@ -2490,8 +2549,8 @@ h3 {
 
   .editorial-intro {
     max-width: 100%;
-    font-size: clamp(24px, 7vw, 32px);
-    line-height: 1.24;
+    font-size: clamp(21px, 5.6vw, 26px);
+    line-height: 1.36;
   }
 
   h1 {
@@ -2572,6 +2631,11 @@ h3 {
     grid-template-columns: 1fr 1fr;
   }
 
+  .city-chapter-grid > :last-child:nth-child(odd),
+  .food-index-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
   .city-chapter-grid--chapters {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2628,7 +2692,8 @@ h3 {
   }
 
   .pull-quote p {
-    font-size: clamp(24px, 7vw, 30px);
+    font-size: clamp(20px, 5.4vw, 25px);
+    line-height: 1.4;
   }
 }
 
@@ -2638,15 +2703,27 @@ h3 {
   }
 
   .meta-row {
-    gap: 8px;
+    gap: 6px;
   }
 
   .meta-row li,
   .meta-pill {
-    min-height: 30px;
+    min-height: 26px;
+    padding: 0 9px;
+    font-size: 10.5px;
+    letter-spacing: 0.05em;
+  }
+
+  /* Keep hero metadata to three chips on phones; the rest stays in the standfirst. */
+  .meta-row li:nth-child(n + 4) {
+    display: none;
+  }
+
+  .city-chapter-card .card-meta b,
+  .collection-card-tags b {
+    min-height: 26px;
     padding: 0 9px;
     font-size: 11px;
-    letter-spacing: 0.06em;
   }
 
   .day-jump-nav {
@@ -2658,6 +2735,10 @@ h3 {
   .photo-essay-grid,
   .scan-grid {
     grid-template-columns: 1fr;
+  }
+
+  figure.photo-lead img {
+    aspect-ratio: 3 / 2;
   }
 
   .glance-card,
