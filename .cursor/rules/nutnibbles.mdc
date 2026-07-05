@@ -1,0 +1,49 @@
+---
+description: NutNibbles priorities, technical rules, and design direction
+alwaysApply: true
+---
+
+# NutNibbles Cursor Rules
+
+NutNibbles is a static personal travel and food journal.
+
+## Priorities
+- Premium editorial travel/food magazine feel
+- Calm, tasteful, personal, useful
+- Strong spacing, clean alignment, good visual rhythm
+- Mobile-first and responsive
+- No generic AI travel blog tone
+- Preserve existing content, links, metadata, sitemap, and static build flow
+
+## Technical rules
+- Keep site static HTML/CSS/JS
+- Do not add heavy libraries
+- Do not rewrite large unrelated sections
+- Do not touch unrelated pages unless needed
+- Do not commit or push unless explicitly asked
+- Always run:
+  - npm run build
+  - npm run check
+  - git diff --check
+
+## Design rules
+- Fix layout by improving shared CSS classes first
+- Avoid one-off page hacks unless necessary
+- Do not judge success only by "no overflow"
+- Judge by:
+  - visual hierarchy
+  - spacing rhythm
+  - alignment
+  - image proportion
+  - mobile readability
+  - premium editorial feel
+
+## Current visual concern
+The site is functional but still feels too template-like in places.
+Focus especially on:
+- homepage hero spacing and next-section rhythm
+- article hero alignment
+- at-a-glance card placement
+- pull quote scale
+- image/card proportions
+- mobile spacing
