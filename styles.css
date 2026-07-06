@@ -469,8 +469,8 @@ h3 {
 
 .hub-hero h1 {
   max-width: 13ch;
-  font-size: clamp(52px, 6.8vw, 82px);
-  line-height: 0.96;
+  font-size: clamp(48px, 6vw, 72px);
+  line-height: 0.98;
 }
 
 .hub-hero p {
@@ -533,15 +533,15 @@ h3 {
 
 .magazine-hero.article-hero-spread .magazine-hero-copy h1 {
   max-width: none;
-  font-size: clamp(56px, 7.8vw, 96px);
-  line-height: 0.94;
+  font-size: clamp(56px, 6vw, 78px);
+  line-height: 0.96;
 }
 
 .magazine-hero.article-hero-spread .standfirst {
-  max-width: 54ch;
-  font-size: clamp(19px, 2.3vw, 24px);
-  line-height: 1.58;
-  color: rgba(255, 248, 234, 0.9);
+  max-width: 52ch;
+  font-size: clamp(17px, 2vw, 20px);
+  line-height: 1.66;
+  color: rgba(255, 248, 234, 0.86);
 }
 
 .magazine-hero.article-hero-spread .meta-row {
@@ -582,9 +582,9 @@ h3 {
 }
 
 .magazine-hero-copy h1 {
-  max-width: 12.5ch;
+  max-width: 13ch;
   margin-bottom: 0;
-  font-size: clamp(52px, 7.2vw, 84px);
+  font-size: clamp(56px, 6vw, 78px);
   line-height: 0.96;
   text-wrap: balance;
 }
@@ -599,11 +599,11 @@ h3 {
 }
 
 .standfirst {
-  max-width: 60ch;
+  max-width: 52ch;
   margin: 0;
-  font-size: clamp(18px, 2.15vw, 22px);
-  line-height: 1.64;
-  color: rgba(255, 248, 234, 0.84);
+  font-size: clamp(17px, 2vw, 20px);
+  line-height: 1.66;
+  color: rgba(255, 248, 234, 0.86);
 }
 
 .meta-row {
@@ -619,15 +619,15 @@ h3 {
 .meta-pill {
   display: inline-flex;
   align-items: center;
-  min-height: 32px;
-  padding: 0 11px;
-  color: rgba(255, 248, 234, 0.8);
-  background: rgba(244, 235, 221, 0.06);
+  min-height: 28px;
+  padding: 0 10px;
+  color: rgba(255, 248, 234, 0.76);
+  background: rgba(244, 235, 221, 0.05);
   border: 1px solid var(--line);
   border-radius: 999px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
 }
 
@@ -666,10 +666,13 @@ h3 {
 .magazine-hero-frame figcaption,
 .editorial-photo figcaption,
 .essay-photo-card figcaption,
-.gallery-card figcaption {
-  color: rgba(244, 235, 221, 0.68);
-  font-size: 13px;
-  line-height: 1.62;
+.gallery-card figcaption,
+.photo-essay figcaption,
+.photo-essay-grid figcaption {
+  color: rgba(244, 235, 221, 0.62);
+  font-size: 12px;
+  line-height: 1.58;
+  letter-spacing: 0.01em;
 }
 
 .magazine-hero-frame figcaption {
@@ -703,8 +706,8 @@ h3 {
 }
 
 .magazine-intro.article-intro-band .glance-card {
-  border-color: var(--line-strong);
-  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.2);
+  border-color: rgba(168, 173, 114, 0.35);
+  box-shadow: none;
 }
 
 .magazine-intro-copy,
@@ -718,19 +721,62 @@ h3 {
   max-width: var(--reading-width);
 }
 
-/* Longer editorial statement: calmer than a true pull quote, reads as a deck. */
+/* Long editorial deck / statement: calmer and more readable than a pull quote. */
+.editorial-statement,
 .editorial-intro {
   margin: 0;
-  color: var(--cream-soft);
-  font-family: var(--serif);
-  max-width: 26ch;
-  font-size: clamp(24px, 2.6vw, 30px);
-  line-height: 1.3;
-  text-wrap: balance;
+  color: rgba(255, 248, 234, 0.88);
+  font-family: var(--sans);
+  max-width: 48ch;
+  font-size: clamp(18px, 2.05vw, 21px);
+  line-height: 1.64;
+  font-weight: 500;
+}
+
+blockquote.editorial-statement {
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+.editorial-statement p,
+.editorial-intro p {
+  margin: 0;
+  color: inherit;
+  font-family: inherit;
+  max-width: none;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.editorial-statement cite {
+  display: block;
+  margin-top: 12px;
+  color: var(--olive);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .magazine-rich-text p {
   margin-bottom: 0;
+  font-size: 17px;
+  line-height: 1.78;
+}
+
+@media (min-width: 861px) {
+  .magazine-rich-text p,
+  .magazine-hero-copy > p:not(.standfirst):not(.eyebrow),
+  .editorial-text p,
+  .editorial-section > p,
+  .editorial-section-header > p:not(.eyebrow),
+  .photo-essay > div > p {
+    font-size: 18px;
+    line-height: 1.76;
+  }
 }
 
 .magazine-rich-text > * + * {
@@ -739,23 +785,42 @@ h3 {
 
 .editorial-card {
   display: grid;
-  gap: 12px;
-  padding: 20px;
-  background: var(--card-surface);
+  gap: 10px;
+  padding: 16px 18px;
+  background: rgba(244, 235, 221, 0.04);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  box-shadow: none;
 }
 
 .editorial-card h3,
 .editorial-card h4 {
   margin-bottom: 0;
+  font-size: clamp(20px, 2vw, 24px);
+  line-height: 1.12;
 }
 
-.glance-card {
-  gap: 16px;
+.glance-card,
+.editorial-card.glance-card {
+  gap: 14px;
+  padding: 16px 18px 18px;
+  background: rgba(244, 235, 221, 0.035);
+  border: 1px solid rgba(244, 235, 221, 0.14);
+  border-left: 3px solid rgba(168, 173, 114, 0.72);
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+.glance-card .eyebrow {
+  margin-bottom: 2px;
+  color: var(--olive);
+  font-size: 11px;
+  letter-spacing: 0.1em;
 }
 
 .glance-card ul {
   display: grid;
-  gap: 12px;
+  gap: 10px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -763,20 +828,28 @@ h3 {
 
 .glance-card li {
   display: grid;
-  gap: 4px;
+  gap: 3px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(244, 235, 221, 0.08);
+}
+
+.glance-card li:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 .glance-card strong {
-  color: var(--cream);
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 0.08em;
+  color: rgba(244, 235, 221, 0.72);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .glance-card span {
-  color: var(--muted);
-  line-height: 1.55;
+  color: rgba(244, 235, 221, 0.78);
+  font-size: 14px;
+  line-height: 1.58;
 }
 
 .magazine-flow {
@@ -786,7 +859,21 @@ h3 {
 }
 
 .magazine-flow > * + * {
-  margin-top: 32px;
+  margin-top: clamp(40px, 5vw, 56px);
+}
+
+.magazine-flow > .editorial-section + .editorial-section,
+.magazine-flow > .photo-essay + .editorial-section,
+.magazine-flow > .editorial-section + .photo-essay,
+.magazine-flow > .editorial-statement + .editorial-section,
+.magazine-flow > .pull-quote + .editorial-section,
+.magazine-flow > .editorial-statement + .photo-essay {
+  padding-top: clamp(28px, 3.5vw, 40px);
+  border-top: 1px solid rgba(244, 235, 221, 0.1);
+}
+
+.magazine-flow > blockquote.editorial-statement {
+  max-width: 760px;
 }
 
 .section-divider {
@@ -795,33 +882,36 @@ h3 {
   background: linear-gradient(90deg, rgba(201, 130, 74, 0.42), rgba(244, 235, 221, 0.08) 72%, transparent);
 }
 
+/* Short memorable lines only — keep display scale tight. */
 .pull-quote {
   margin: 0;
-  padding: 24px 26px 22px;
-  background: rgba(244, 235, 221, 0.06);
-  border: 1px solid var(--line);
-  border-left: 4px solid rgba(201, 130, 74, 0.72);
-  border-radius: 8px;
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.12);
+  padding: 20px 0 18px;
+  background: none;
+  border: none;
+  border-top: 1px solid rgba(201, 130, 74, 0.35);
+  border-left: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .pull-quote p {
   margin: 0;
   color: var(--cream-soft);
   font-family: var(--serif);
-  max-width: 34ch;
-  font-size: clamp(22px, 2.5vw, 29px);
-  line-height: 1.34;
+  max-width: 22ch;
+  font-size: clamp(24px, 2.8vw, 32px);
+  line-height: 1.28;
+  text-wrap: balance;
 }
 
 .pull-quote cite {
   display: block;
-  margin-top: 14px;
+  margin-top: 12px;
   color: var(--olive);
-  font-size: 12px;
+  font-size: 11px;
   font-style: normal;
-  font-weight: 900;
-  letter-spacing: 0.08em;
+  font-weight: 800;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -833,15 +923,24 @@ h3 {
 
 .callout-card {
   display: grid;
-  gap: 10px;
-  padding: 18px;
-  background: rgba(244, 235, 221, 0.045);
-  border: 1px solid var(--line);
-  border-radius: 8px;
+  gap: 8px;
+  padding: 14px 16px;
+  background: rgba(244, 235, 221, 0.035);
+  border: 1px solid rgba(244, 235, 221, 0.12);
+  border-left: 2px solid rgba(168, 173, 114, 0.55);
+  border-radius: 4px;
+  box-shadow: none;
 }
 
 .callout-card p {
   margin-bottom: 0;
+  font-size: 15px;
+  line-height: 1.62;
+}
+
+.callout-card .eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.1em;
 }
 
 .callout-card strong {
@@ -850,18 +949,22 @@ h3 {
 
 .editorial-section {
   display: grid;
-  gap: 18px;
-  padding: 28px;
-  background: var(--card-surface);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.12);
+  gap: 16px;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.editorial-section--quiet {
+  gap: 12px;
 }
 
 .editorial-section-header {
   display: grid;
-  gap: 12px;
-  max-width: 860px;
+  gap: 10px;
+  max-width: 760px;
 }
 
 .editorial-section-header h2,
@@ -871,9 +974,9 @@ h3 {
 }
 
 .editorial-section-header h2 {
-  max-width: 14ch;
-  font-size: clamp(32px, 4vw, 50px);
-  line-height: 1.06;
+  max-width: 16ch;
+  font-size: clamp(28px, 3.2vw, 42px);
+  line-height: 1.08;
 }
 
 .editorial-section-header p:last-child {
@@ -913,7 +1016,10 @@ h3 {
 }
 
 .editorial-photo {
-  padding: 12px;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
 }
 
 .editorial-photo img {
@@ -922,6 +1028,7 @@ h3 {
   aspect-ratio: 4 / 5;
   object-fit: cover;
   border-radius: 6px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
 }
 
 .editorial-photo figcaption {
@@ -931,6 +1038,59 @@ h3 {
 .photo-essay {
   display: grid;
   gap: 16px;
+}
+
+.photo-essay.magazine-spread {
+  gap: clamp(20px, 3vw, 28px);
+}
+
+.photo-essay.magazine-spread > div {
+  max-width: 760px;
+}
+
+.photo-essay.magazine-spread > div h2 {
+  max-width: 16ch;
+  font-size: clamp(28px, 3.2vw, 42px);
+  line-height: 1.08;
+}
+
+.photo-essay.magazine-spread > figure.photo-lead {
+  margin-top: clamp(12px, 2vw, 20px);
+}
+
+.editorial-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 20px);
+}
+
+.editorial-card-grid.field-notes-grid {
+  gap: 14px;
+}
+
+.editorial-card-grid.field-notes-grid .editorial-card {
+  padding: 14px 16px;
+  background: rgba(244, 235, 221, 0.03);
+  border: 1px solid rgba(244, 235, 221, 0.1);
+  border-left: 2px solid rgba(168, 173, 114, 0.55);
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+.editorial-card-grid.field-notes-grid .editorial-card .eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+.editorial-card-grid.field-notes-grid .editorial-card h3 {
+  font-size: clamp(18px, 1.8vw, 22px);
+  line-height: 1.14;
+}
+
+.editorial-card-grid.field-notes-grid .editorial-card p {
+  font-size: 15px;
+  line-height: 1.62;
+  color: rgba(244, 235, 221, 0.72);
 }
 
 .photo-essay-grid {
@@ -1488,6 +1648,8 @@ figure.photo-lead figcaption {
 
 .home-hero h1 {
   max-width: 760px;
+  font-size: clamp(54px, 8vw, 104px);
+  line-height: 0.94;
   text-shadow: 0 16px 42px rgba(0, 0, 0, 0.34);
 }
 
@@ -1834,43 +1996,46 @@ figure.photo-lead figcaption {
 .trip-summary {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 18px;
-  padding-bottom: 18px;
+  gap: clamp(24px, 4vw, 36px);
+  padding: clamp(28px, 4vw, 40px) 0;
+  border-top: 1px solid rgba(244, 235, 221, 0.1);
+  border-bottom: 1px solid rgba(244, 235, 221, 0.1);
 }
 
 .trip-highlights {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 18px;
-  padding-bottom: 18px;
+  gap: clamp(20px, 3vw, 28px);
+  padding: clamp(24px, 3.5vw, 36px) 0;
 }
 
 .trip-summary article,
 .trip-highlights article,
 .city-grid article,
 .notes-layout article {
-  padding: 28px;
-  background:
-    linear-gradient(145deg, rgba(244, 235, 221, 0.1), rgba(244, 235, 221, 0.055));
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.12);
+  padding: 0 0 0 18px;
+  background: none;
+  border: none;
+  border-left: 2px solid rgba(201, 130, 74, 0.45);
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .trip-summary span,
 .trip-highlights span,
 .city-grid span {
   color: var(--olive);
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .trip-summary h2 {
-  margin-top: 12px;
-  margin-bottom: 14px;
-  font-size: clamp(32px, 4vw, 52px);
+  margin-top: 10px;
+  margin-bottom: 12px;
+  font-size: clamp(24px, 2.8vw, 34px);
+  line-height: 1.1;
 }
 
 .trip-highlights h3 {
@@ -2862,10 +3027,16 @@ figure.photo-lead figcaption {
     gap: 14px;
   }
 
-  .editorial-intro {
+  .editorial-intro,
+  .editorial-statement {
     max-width: 100%;
-    font-size: clamp(21px, 5.6vw, 26px);
-    line-height: 1.36;
+    font-size: 17px;
+    line-height: 1.62;
+  }
+
+  blockquote.editorial-statement {
+    padding-top: 4px;
+    border-top: 1px solid rgba(244, 235, 221, 0.1);
   }
 
   h1 {
@@ -2973,7 +3144,7 @@ figure.photo-lead figcaption {
   }
 
   .editorial-section {
-    padding: 20px;
+    padding: 0;
   }
 
   .editorial-section-header h2 {
@@ -3003,12 +3174,18 @@ figure.photo-lead figcaption {
   }
 
   .pull-quote {
-    padding: 22px 20px;
+    padding: 18px 0 16px;
   }
 
   .pull-quote p {
-    font-size: clamp(20px, 5.4vw, 25px);
-    line-height: 1.4;
+    max-width: 100%;
+    font-size: clamp(20px, 5vw, 26px);
+    line-height: 1.34;
+  }
+
+  .editorial-card-grid,
+  .editorial-card-grid.field-notes-grid {
+    grid-template-columns: 1fr;
   }
 }
 
