@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:ital,wght@0,300..800;1,300..800&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#FAF5EC; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: #B0451C; }
+  ::selection { background:#E9C79A; }
+</style>
+</helmet>
+
+<div style="background:#FAF5EC; font-family:Karla, sans-serif; min-height:100vh;">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; padding:20px 56px; border-bottom:1px solid #E3DACA; position:sticky; top:0; background:rgba(250,245,236,.94); backdrop-filter:blur(8px); z-index:20;">
+    <a href="Home.dc.html" style="display:flex; align-items:center;">
+      <span style="font-family:Karla,sans-serif; font-weight:800; font-size:19px; letter-spacing:.17em; color:#191713;">NUT</span>
+      <span style="width:5px; height:5px; border-radius:50%; background:#B0451C; margin:0 7px;"></span>
+      <span style="font-family:Karla,sans-serif; font-weight:800; font-size:19px; letter-spacing:.17em; color:#191713;">NIBBLES</span>
+    </a>
+    <nav style="display:flex; gap:30px; font-size:12.5px; letter-spacing:.12em; text-transform:uppercase; color:#4A463C; font-weight:600;">
+      <a href="Travel-Index.dc.html">Travel</a>
+      <a href="Food-Index.dc.html" style="border-bottom:2px solid #B0451C; padding-bottom:2px;">Food</a>
+      <a href="Atlas.dc.html">Atlas</a>
+      <a href="Work-With-Me.dc.html">Work with me</a>
+    </nav>
+    <div style="font-family:'DM Mono',monospace; font-size:11px; color:#8A8271;">{{ total }} notes</div>
+  </header>
+
+  <!-- title -->
+  <section style="padding:56px 56px 36px; display:grid; grid-template-columns:1fr 380px; gap:64px; align-items:end; border-bottom:1px solid #E3DACA;">
+    <div>
+      <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#B0451C; margin-bottom:20px;">Food notes</div>
+      <h1 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:74px; line-height:.99; letter-spacing:-.015em; color:#191713; margin:0 0 20px; max-width:22ch;">Every meal, scored the same way.</h1>
+      <p style="font-family:Newsreader,serif; font-size:20px; line-height:1.6; color:#514B41; margin:0; max-width:54ch;">Jakarta reviews every few weeks, plus the meals worth writing about from each trip. Full reviews carry a Signature Meter; shorter notes just tell you whether to bother.</p>
+    </div>
+    <div style="border-left:1px solid #E3DACA; padding-left:28px; display:flex; flex-direction:column; gap:16px;">
+      <div>
+        <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#A39880; margin-bottom:5px;">Signature Meter</div>
+        <div style="font-family:Newsreader,serif; font-size:17px; color:#3E382F;">Saawaan &mdash; 7.7, the only scored review</div>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#A39880; margin-bottom:5px;">Home base</div>
+        <div style="font-family:Newsreader,serif; font-size:17px; color:#3E382F;">Jakarta &mdash; the list that keeps growing</div>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#A39880; margin-bottom:5px;">Disclosure</div>
+        <div style="font-family:Newsreader,serif; font-size:17px; color:#3E382F;">All paid in full unless a note says otherwise</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- controls -->
+  <section style="padding:26px 56px; border-bottom:1px solid #E3DACA; display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; position:sticky; top:61px; background:rgba(250,245,236,.96); backdrop-filter:blur(8px); z-index:15;">
+    <div style="display:flex; align-items:center; gap:9px; flex-wrap:wrap;">
+      <div style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:#A39880; margin-right:6px;">Place</div>
+      <sc-for list="{{ cities }}" as="c" hint-placeholder-count="5">
+        <button type="button" onClick="{{ c.pick }}" style="border:1px solid {{ c.border }}; background:{{ c.bg }}; color:{{ c.fg }}; padding:9px 16px; font-family:Karla,sans-serif; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; cursor:pointer;">{{ c.label }}</button>
+      </sc-for>
+    </div>
+    <div style="display:flex; align-items:center; gap:9px; flex-wrap:wrap;">
+      <div style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:#A39880; margin-right:6px;">Sort</div>
+      <sc-for list="{{ sorts }}" as="s" hint-placeholder-count="3">
+        <button type="button" onClick="{{ s.pick }}" style="border:1px solid {{ s.border }}; background:{{ s.bg }}; color:{{ s.fg }}; padding:9px 16px; font-family:Karla,sans-serif; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; cursor:pointer;">{{ s.label }}</button>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- count -->
+  <section style="padding:26px 56px 0; display:flex; align-items:baseline; justify-content:space-between;">
+    <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#8A8271;">{{ countLabel }}</div>
+    <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#A39880;">{{ sortLabel }}</div>
+  </section>
+
+  <!-- grid -->
+  <section style="padding:20px 56px 56px; display:grid; grid-template-columns:repeat(3,1fr); gap:26px;">
+    <sc-for list="{{ items }}" as="it" hint-placeholder-count="6">
+      <a href="{{ it.href }}" style="background:#FAF5EC; border:1px solid #E3DACA; display:flex; flex-direction:column;" style-hover="border-color:#B0451C">
+        <div style="position:relative;">
+          <img src="{{ it.img }}" alt="{{ it.alt }}" style="width:100%; height:230px; object-fit:cover; display:block;">
+          <sc-if value="{{ it.hasScore }}" hint-placeholder-val="{{ true }}">
+            <div style="position:absolute; right:0; bottom:0; background:#191713; color:#FAF5EC; padding:9px 14px; font-family:'Instrument Serif',serif; font-size:24px; line-height:1;">{{ it.score }}</div>
+          </sc-if>
+        </div>
+        <div style="padding:22px 22px 24px; display:flex; flex-direction:column; gap:9px; flex:1;">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:14px;">
+            <div style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#B0451C;">{{ it.city }} · {{ it.kind }}</div>
+            <div style="font-family:'DM Mono',monospace; font-size:10.5px; color:#A39880; white-space:nowrap;">{{ it.date }}</div>
+          </div>
+          <h3 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:29px; line-height:1.1; margin:0; color:#191713;">{{ it.name }}</h3>
+          <p style="font-family:Newsreader,serif; font-size:16px; line-height:1.6; color:#5A5348; margin:0;">{{ it.note }}</p>
+          <div style="margin-top:auto; padding-top:12px; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#8A8271;">{{ it.verdict }}</div>
+        </div>
+      </a>
+    </sc-for>
+  </section>
+
+  <!-- next -->
+  <section style="padding:48px 56px; background:#F3ECDD; border-top:1px solid #E3DACA; display:flex; align-items:center; justify-content:space-between; gap:40px;">
+    <div>
+      <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#7E7565; margin-bottom:10px;">Coming next</div>
+      <h2 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:38px; color:#191713; margin:0 0 6px;">More Jakarta, and a Malang list.</h2>
+      <p style="font-family:Newsreader,serif; font-size:17.5px; color:#5A5348; margin:0;">A new review every few weeks. The monthly letter goes out before anything is polished.</p>
+    </div>
+    <a href="Home.dc.html" style="background:#B0451C; color:#FAF5EC; padding:15px 26px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; white-space:nowrap;" style-hover="background:#191713; color:#FAF5EC">Get the letter</a>
+  </section>
+
+  <footer style="background:#12100E; color:#CFC6B6; padding:48px 56px; display:flex; justify-content:space-between; align-items:flex-end;">
+    <div>
+      <div style="display:flex; align-items:center; margin-bottom:12px;">
+        <span style="font-family:Karla,sans-serif; font-weight:800; font-size:19px; letter-spacing:.17em; color:#FAF5EC;">NUT</span>
+        <span style="width:5px; height:5px; border-radius:50%; background:#B0451C; margin:0 7px;"></span>
+        <span style="font-family:Karla,sans-serif; font-weight:800; font-size:19px; letter-spacing:.17em; color:#FAF5EC;">NIBBLES</span>
+      </div>
+      <div style="font-family:Newsreader,serif; font-size:16px; font-style:italic; color:#9C9385;">Kept by hand since 2023.</div>
+    </div>
+    <div style="display:flex; gap:48px; font-size:12px; letter-spacing:.12em; text-transform:uppercase;">
+      <div style="display:flex; flex-direction:column; gap:10px;"><a href="Home.dc.html">Journal</a><a href="Travel-Index.dc.html">Travel</a></div>
+      <div style="display:flex; flex-direction:column; gap:10px;"><a href="Food-Index.dc.html">Food</a><a href="Atlas.dc.html">The Atlas</a></div>
+      <div style="display:flex; flex-direction:column; gap:10px;"><a href="Work-With-Me.dc.html">Work with me</a><a href="Home.dc.html">Instagram</a></div>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280}}">
+const IMG = "https://nutsnibbles.cc/assets/images/";
+
+const DATA = [
+  { name:"Kindling", city:"Jakarta", kind:"Review", date:"9 May 2026", sort:20260509, score:null,
+    href:"Food-Kindling.dc.html", img:IMG+"jakarta/kindling-birthday/crab-custard.jpeg",
+    alt:"Crab custard course at Kindling",
+    note:"Three-room set menu that felt intimate rather than polished. Crab custard was the peak.",
+    verdict:"Expensive but worth it · birthday dinner" },
+  { name:"August", city:"Jakarta", kind:"Review", date:"18 Apr 2026", sort:20260418, score:null,
+    href:"Food-Kindling.dc.html", img:IMG+"jakarta/august/teh-kotak.jpeg",
+    alt:"Teh Kotak dessert presentation at August",
+    note:"Third visit and still no weak dish. Warmer-modern where Kindling is nostalgic.",
+    verdict:"Worth it · date night" },
+  { name:"Saawaan", city:"Bangkok", kind:"Review", date:"17 Jan 2026", sort:20260117, score:7.7,
+    href:"Food-Kindling.dc.html", img:IMG+"saawaan-bangkok-jan-2026/saawaan-opening-course.jpeg",
+    alt:"Sculptural opening course at Saawaan Bangkok",
+    note:"Serious Thai craft and excellent service, but the Raw course was the clear miss.",
+    verdict:"Beautiful craft, not automatic return" },
+  { name:"Gyukatsu Motomura", city:"Tokyo", kind:"Food note", date:"26 Jan 2025", sort:20250126, score:null,
+    href:"Chapter-Tokyo.dc.html", img:IMG+"japan-2025/tokyo/gyukatsu-motomura-cutlet-set.jpeg",
+    alt:"Gyukatsu beef cutlet set with sides",
+    note:"The hot stone lets you finish each bite yourself. Best first meal of the Tokyo leg.",
+    verdict:"Go · casual" },
+  { name:"Ryunosu yakiniku", city:"Osaka", kind:"Food note", date:"23 Jan 2025", sort:20250123, score:null,
+    href:"Trip-Japan-2025.dc.html", img:IMG+"japan-2025/osaka/ryunosu-yakiniku-meat.jpeg",
+    alt:"Assorted wagyu beef plate at Ryunosu",
+    note:"Yakiniku near Shinsaibashi — legitly good meat, plus a big udon bowl.",
+    verdict:"Go · late lunch" },
+  { name:"CoCo Curry, Shin Umeda", city:"Osaka", kind:"Food note", date:"24 Jan 2025", sort:20250124, score:null,
+    href:"Trip-Japan-2025.dc.html", img:IMG+"japan-2025/osaka/coco-ichibanya-shin-umeda-curry.jpeg",
+    alt:"CoCo Ichibanya curry with fried cutlet",
+    note:"After Osaka Castle: crispy cutlet, warm sauce, easy travel-day comfort.",
+    verdict:"Fine · easy lunch" },
+  { name:"Arrival night ramen", city:"Sapporo", kind:"Food note", date:"18 Jan 2025", sort:20250118, score:null,
+    href:"Trip-Japan-2025.dc.html", img:IMG+"japan-2025/sapporo/ramen-bowl.jpeg",
+    alt:"Bowl of ramen with egg, pork and scallions",
+    note:"A late 22:30 bowl after landing in Hokkaido. Cramped, cozy, savoury broth.",
+    verdict:"Go · first night" },
+  { name:"Salmon & king crab lunch", city:"Sapporo", kind:"Food note", date:"19 Jan 2025", sort:20250119, score:null,
+    href:"Trip-Japan-2025.dc.html", img:IMG+"japan-2025/sapporo/sapporo-lunch-salmon-sashimi.jpeg",
+    alt:"Fresh salmon sashimi rice bowl",
+    note:"Restaurant name forgotten, but the salmon sashimi and king crab leg stuck.",
+    verdict:"Go · seafood" },
+  { name:"7-Eleven hotel dinner", city:"Sapporo", kind:"Food note", date:"20 Jan 2025", sort:20250120, score:null,
+    href:"Trip-Japan-2025.dc.html", img:IMG+"japan-2025/sapporo/sapporo-711-dinner.jpeg",
+    alt:"Convenience store dinner spread with crab, egg and grilled chicken",
+    note:"After Mt. Moiwa: convenience store snacks, crab-style bites, egg, chicken, dessert.",
+    verdict:"Do it · hotel night" },
+  { name:"Lunch near Hokkaido Jingu", city:"Sapporo", kind:"Food note", date:"21 Jan 2025", sort:20250121, score:null,
+    href:"Trip-Japan-2025.dc.html", img:IMG+"japan-2025/sapporo/hokkaido-jingu-nearby-lunch.jpeg",
+    alt:"Lunch plate with omurice, fried seafood and salad",
+    note:"Omurice, fried seafood, salad, hamburger patty — comfort after the shrine.",
+    verdict:"Fine · shrine day" },
+  { name:"Shiroi Koibito soft serve", city:"Sapporo", kind:"Food note", date:"20 Jan 2025", sort:20250120.5, score:null,
+    href:"Trip-Japan-2025.dc.html", img:IMG+"japan-2025/sapporo/shiroi-koibito-soft-serve.jpeg",
+    alt:"Soft serve ice cream cups outside Shiroi Koibito Park",
+    note:"Delicate and sweet, eaten outside in freezing weather after the biscuit tour.",
+    verdict:"Go once · sweet stop" }
+];
+
+const CITIES = ["All", "Jakarta", "Bangkok", "Tokyo", "Osaka", "Sapporo"];
+const SORTS = [
+  { id:"recent", label:"Newest", note:"Newest first" },
+  { id:"score",  label:"Score",  note:"Highest Signature Meter first" },
+  { id:"place",  label:"Place",  note:"Grouped by city" }
+];
+
+class Component extends DCLogic {
+  state = { city:"All", sort:"recent" };
+
+  renderVals() {
+    const { city, sort } = this.state;
+
+    let items = city === "All" ? DATA.slice() : DATA.filter(d => d.city === city);
+    if (sort === "recent") items.sort((a, b) => b.sort - a.sort);
+    if (sort === "score")  items.sort((a, b) => (b.score ?? -1) - (a.score ?? -1) || b.sort - a.sort);
+    if (sort === "place")  items.sort((a, b) => a.city.localeCompare(b.city) || b.sort - a.sort);
+
+    const chip = (active) => active
+      ? { bg:"#191713", fg:"#FAF5EC", border:"#191713" }
+      : { bg:"transparent", fg:"#4A463C", border:"#C9BFAB" };
+
+    return {
+      total: DATA.length,
+      items: items.map((d, i) => ({
+        ...d,
+        key: d.name + i,
+        hasScore: d.score !== null,
+        score: d.score === null ? "" : d.score.toFixed(1)
+      })),
+      cities: CITIES.map(c => ({
+        label: c, ...chip(this.state.city === c),
+        pick: () => this.setState({ city: c })
+      })),
+      sorts: SORTS.map(s => ({
+        label: s.label, ...chip(this.state.sort === s.id),
+        pick: () => this.setState({ sort: s.id })
+      })),
+      countLabel: items.length + (items.length === 1 ? " note" : " notes")
+        + (city === "All" ? " across 5 places" : " in " + city),
+      sortLabel: (SORTS.find(s => s.id === sort) || SORTS[0]).note
+    };
+  }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NutNibbles Atlas</title>
+<script src="https://unpkg.com/d3@7.9.0/dist/d3.min.js" integrity="sha384-CjloA8y00+1SDAUkjs099PVfnY2KmDC2BZnws9kh8D/lX1s46w6EPhpXdqMfjK6i" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js" integrity="sha384-Ukv1p/xTma6P4/2bY5KzWBw+ydSpXmhCMtyciIQVDJ1RmOxtCYNMF1uXT9T63H67" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  html, body { margin:0; height:100%; background:#FAF5EC; font-family:"DM Mono", monospace; overflow:hidden; }
+  #wrap { position:relative; width:100%; height:100%; overflow:hidden; cursor:grab; }
+  #wrap.dragging { cursor:grabbing; }
+  svg { display:block; width:100%; height:100%; }
+  .lbl { font-family:"DM Mono", monospace; font-size:12px; letter-spacing:.06em; text-transform:uppercase; fill:#3E382F; pointer-events:none; }
+  .clbl { font-family:"DM Mono", monospace; font-size:12.5px; letter-spacing:.1em; text-transform:uppercase; fill:#191713; pointer-events:none; }
+  .cnt { font-family:"Instrument Serif", serif; font-size:15px; fill:#FAF5EC; pointer-events:none; text-anchor:middle; }
+  .pin { cursor:pointer; }
+  #card { position:absolute; left:20px; bottom:20px; width:250px; background:#FAF5EC; border:1px solid #E3DACA;
+          padding:15px 18px 18px; box-shadow:0 14px 34px rgba(25,23,19,.12); }
+  #card .k { font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#6E6558; }
+  #card h3 { margin:7px 0 3px; font-family:"Instrument Serif", serif; font-weight:400; font-size:26px; color:#191713; line-height:1.05; }
+  #card p { margin:0; font-size:13px; line-height:1.55; color:#6E6558; font-family:"Newsreader", serif; }
+  #card ul { margin:11px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:6px; }
+  #card li { font-size:12.5px; line-height:1.5; color:#3E382F; display:flex; gap:8px; align-items:baseline; }
+  #card li span { color:#B0451C; flex-shrink:0; }
+  #legend { position:absolute; right:20px; top:18px; display:flex; gap:14px; font-size:12px;
+            letter-spacing:.1em; text-transform:uppercase; color:#6E6558; }
+  #legend i { display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:6px; }
+  #zoom { position:absolute; left:20px; top:18px; display:flex; flex-direction:column; gap:1px; background:#E3DACA; border:1px solid #E3DACA; }
+  #zoom button { width:32px; height:32px; border:0; background:#FAF5EC; color:#191713; font-family:"DM Mono",monospace;
+                 font-size:15px; line-height:1; cursor:pointer; padding:0; }
+  #zoom button:hover { background:#B0451C; color:#FAF5EC; }
+  #hint { position:absolute; right:20px; bottom:20px; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#6E6558; }
+  #loading { position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+             font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:#6E6558; }
+  @media (max-width: 520px) {
+    #card { left:0; right:0; bottom:0; width:auto; border-left:0; border-right:0; border-bottom:0;
+            padding:12px 16px 14px; box-shadow:0 -8px 24px rgba(25,23,19,.12); }
+    #card h3 { font-size:22px; }
+    #card ul { max-height:78px; overflow-y:auto; }
+    #card li { font-size:12px; }
+    #card p { font-size:12px; }
+    #card .k { font-size:10px; }
+    #zoom { left:12px; top:12px; }
+    #zoom button { width:44px; height:44px; font-size:18px; }
+    #legend { right:12px; top:14px; gap:10px; font-size:10px; letter-spacing:.1em; }
+    #hint { display:none; }
+  }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <div id="loading">Loading map…</div>
+  <div id="legend">
+    <div><i style="background:#191713"></i>Travel chapter</div>
+    <div><i style="background:#B0451C"></i>Food note</div>
+    <div><i style="background:#C9BFAB"></i>Planned</div>
+  </div>
+  <div id="zoom">
+    <button type="button" id="zin" title="Zoom in">+</button>
+    <button type="button" id="zout" title="Zoom out">&minus;</button>
+    <button type="button" id="zreset" title="Reset">&#9675;</button>
+  </div>
+  <div id="card">
+    <div class="k">Selected</div>
+    <h3 id="c-title">Japan</h3>
+    <p id="c-sub"></p>
+    <ul id="c-list"></ul>
+  </div>
+  <div id="hint">Scroll or +/&minus; to zoom · drag to pan</div>
+</div>
+<script>
+const places = [
+  { name:"Sapporo",   country:"Japan",     when:"18–21 Jan 2025", lat:43.06, lon:141.35, kind:"travel", items:["Snow days & Hokkaido side trips","Arrival night ramen alley","Salmon & king crab lunch","7-Eleven hotel dinner","Shiroi Koibito soft serve"] },
+  { name:"Osaka",     country:"Japan",     when:"22–24 Jan 2025", lat:34.69, lon:135.50, kind:"travel", items:["Osaka as a slower city base","Ryunosu yakiniku late lunch","CoCo Curry Shin Umeda"] },
+  { name:"Kyoto",     country:"Japan",     when:"25 Jan 2025",    lat:35.01, lon:135.77, kind:"travel", items:["Kimono day trip & shrine walks"] },
+  { name:"Fuji-san",  country:"Japan",     when:"27 Jan 2025",    lat:35.36, lon:138.73, kind:"travel", items:["Picture hunting around Mt. Fuji"] },
+  { name:"Tokyo",     country:"Japan",     when:"26–28 Jan 2025", lat:35.68, lon:139.69, kind:"travel", items:["Stays, food, Fuji, soft pauses","Gyukatsu Motomura","Meiji Jingu + Harajuku"] },
+  { name:"Jakarta",   country:"Indonesia", when:"Ongoing",        lat:-6.21, lon:106.85, kind:"food",   items:["Kindling — 9 May 2026 — 9.1","August — 18 Apr 2026 — 9.1","New review every few weeks"] },
+  { name:"Malang",    country:"Indonesia", when:"Planned",        lat:-7.98, lon:112.63, kind:"soon",   items:["Not written yet"] },
+  { name:"Bangkok",   country:"Thailand",  when:"17 Jan 2026",    lat:13.75, lon:100.50, kind:"food",   items:["Saawaan — 17 Jan 2026 — 7.7"] },
+  { name:"London",    country:"UK",        when:"7–22 Nov 2023",  lat:51.51, lon:-0.13,  kind:"travel", items:["Arrived 7 Nov via Singapore","Old city, long walks"] },
+  { name:"Highlands", country:"UK",        when:"Nov 2023",       lat:57.12, lon:-4.71,  kind:"travel", items:["Moody Highland road chapter","Whisky rooms"] },
+  { name:"Edinburgh", country:"UK",        when:"Nov 2023",       lat:55.95, lon:-3.19,  kind:"travel", items:["Grey skies, closes and stairs"] }
+];
+
+const COLORS = { travel:"#191713", food:"#B0451C", soon:"#C9BFAB" };
+const CITY_ZOOM = 2.4;
+const COMPACT = window.innerWidth <= 520;
+// Touch needs a 44px target: hit areas are transparent circles over the visible dot.
+const DOT_R    = COMPACT ? 10 : 5;
+const DOT_HOVER= COMPACT ? 13 : 7.5;
+const HIT_R    = COMPACT ? 24 : 16;
+const DISC_R   = COMPACT ? 22 : 15;
+const DISC_HOVER = COMPACT ? 25 : 17;
+
+const wrap = document.getElementById("wrap");
+const W = wrap.clientWidth, H = wrap.clientHeight;
+const svg = d3.select("#wrap").append("svg").attr("viewBox", `0 0 ${W} ${H}`);
+const gGeo = svg.append("g");
+const gClusters = svg.append("g");
+const gCities = svg.append("g");
+
+const projection = d3.geoMercator();
+const path = d3.geoPath(projection);
+let clusters = [], zoomBehavior, current = d3.zoomIdentity;
+
+const countryOrder = ["Japan","Indonesia","Thailand","UK"];
+countryOrder.forEach(c => {
+  const members = places.filter(p => p.country === c);
+  const live = members.filter(p => p.kind !== "soon");
+  clusters.push({
+    name: c,
+    lat: d3.mean(members, p => p.lat),
+    lon: d3.mean(members, p => p.lon),
+    count: live.length,
+    kind: live.every(p => p.kind === "food") ? "food" : "travel",
+    members
+  });
+});
+
+d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json").then(topo => {
+  document.getElementById("loading").remove();
+  const feats = topojson.feature(topo, topo.objects.countries);
+  const box = { type:"Polygon", coordinates:[[[-14,-14],[152,-14],[152,62],[-14,62],[-14,-14]]] };
+  projection.fitExtent([[26, 40], [W - 26, H - 26]], box);
+
+  gGeo.selectAll("path").data(feats.features).join("path")
+    .attr("d", path).attr("fill", "#EDE5D6").attr("stroke", "#FAF5EC").attr("stroke-width", 1);
+
+  places.forEach(p => { const xy = projection([p.lon, p.lat]); p.px = xy[0]; p.py = xy[1]; });
+  clusters.forEach(c => { const xy = projection([c.lon, c.lat]); c.px = xy[0]; c.py = xy[1]; });
+
+  // ── country clusters ─────────────────────────────
+  const cl = gClusters.selectAll("g.pin").data(clusters).join("g").attr("class","pin")
+    .on("click", (e, d) => { zoomTo(d.members, 5.5); showCluster(d); })
+    .on("mouseenter", function(){ d3.select(this).select("circle.disc").transition().duration(140).attr("r", DISC_HOVER); })
+    .on("mouseleave", function(){ d3.select(this).select("circle.disc").transition().duration(140).attr("r", DISC_R); });
+  cl.append("circle").attr("class","hit").attr("r", d => Math.max(DISC_R, 24)).attr("fill", "transparent");
+  cl.append("circle").attr("class","disc").attr("r", DISC_R)
+    .attr("fill", d => COLORS[d.kind]).attr("stroke", "#FAF5EC").attr("stroke-width", 2);
+  cl.append("text").attr("class","cnt").attr("y", COMPACT ? 7 : 5)
+    .style("font-size", COMPACT ? "20px" : "15px").text(d => d.count);
+  const LBL_DY = { Thailand:-26, Indonesia:36, Japan:34, UK:34 };
+  cl.append("text").attr("class","clbl").attr("y", d => LBL_DY[d.name] || 34).attr("text-anchor","middle").text(d => d.name);
+
+  // ── city pins ───────────────────────────────────
+  const ct = gCities.selectAll("g.pin").data(places).join("g").attr("class","pin")
+    .on("click", (e, d) => showCity(d))
+    .on("mouseenter", function(){ d3.select(this).select("circle.dot").transition().duration(140).attr("r", DOT_HOVER); })
+    .on("mouseleave", function(){ d3.select(this).select("circle.dot").transition().duration(140).attr("r", DOT_R); });
+  ct.append("circle").attr("class","hit").attr("r", HIT_R).attr("fill", "transparent");
+  ct.append("circle").attr("class","halo").attr("r", COMPACT ? 20 : 14)
+    .attr("fill", d => d.kind === "food" ? "rgba(176,69,28,.13)" : d.kind === "soon" ? "rgba(122,114,100,.10)" : "rgba(25,23,19,.09)");
+  ct.append("circle").attr("class","dot").attr("r", DOT_R)
+    .attr("fill", d => COLORS[d.kind]).attr("stroke", "#FAF5EC").attr("stroke-width", COMPACT ? 2 : 1.5);
+  ct.append("text").attr("class","lbl")
+    .attr("x", d => d.lon < 20 ? -(DOT_R + 8) : (DOT_R + 8)).attr("y", 4)
+    .attr("text-anchor", d => d.lon < 20 ? "end" : "start")
+    .text(d => d.kind === "soon" ? d.name + " · soon" : d.name);
+
+  zoomBehavior = d3.zoom().scaleExtent([1, 14])
+    .translateExtent([[-W * 0.4, -H * 0.4], [W * 1.4, H * 1.4]])
+    .on("start", () => wrap.classList.add("dragging"))
+    .on("end", () => wrap.classList.remove("dragging"))
+    .on("zoom", (e) => { current = e.transform; render(); });
+  svg.call(zoomBehavior).on("dblclick.zoom", null);
+
+  render();
+  showCluster(clusters[0]);
+});
+
+function render() {
+  const t = current;
+  gGeo.attr("transform", t);
+  const cityMode = t.k >= CITY_ZOOM;
+  gClusters.style("opacity", cityMode ? 0 : 1).style("pointer-events", cityMode ? "none" : "all");
+  gCities.style("opacity", cityMode ? 1 : 0).style("pointer-events", cityMode ? "all" : "none");
+  gClusters.selectAll("g.pin").attr("transform", d => `translate(${t.applyX(d.px)},${t.applyY(d.py)})`);
+  gCities.selectAll("g.pin").attr("transform", d => `translate(${t.applyX(d.px)},${t.applyY(d.py)})`);
+}
+
+function zoomTo(members, k) {
+  const xs = members.map(m => m.px), ys = members.map(m => m.py);
+  const cx = (Math.min(...xs) + Math.max(...xs)) / 2;
+  const cy = (Math.min(...ys) + Math.max(...ys)) / 2;
+  const spanX = Math.max(...xs) - Math.min(...xs), spanY = Math.max(...ys) - Math.min(...ys);
+  const fit = Math.min((W - 220) / Math.max(spanX, 1), (H - 200) / Math.max(spanY, 1));
+  const kk = Math.max(CITY_ZOOM + 0.4, Math.min(k, isFinite(fit) ? fit : k, 9));
+  svg.transition().duration(700).call(
+    zoomBehavior.transform,
+    d3.zoomIdentity.translate(W / 2 - kk * cx, H / 2 - kk * cy).scale(kk)
+  );
+}
+
+function showCity(d) {
+  set("City", d.name, d.country + " · " + d.when, d.items);
+}
+function showCluster(c) {
+  set("Country", c.name, c.count + (c.count === 1 ? " place" : " places") + " · click to zoom in",
+      c.members.map(m => m.name + (m.kind === "soon" ? " — planned" : " — " + m.when)));
+}
+function set(kind, title, sub, items) {
+  document.querySelector("#card .k").textContent = kind;
+  document.getElementById("c-title").textContent = title;
+  document.getElementById("c-sub").textContent = sub;
+  document.getElementById("c-list").innerHTML = items.map(t => `<li><span>→</span><span style="color:#3E382F">${t}</span></li>`).join("");
+}
+
+document.getElementById("zin").onclick = () => svg.transition().duration(300).call(zoomBehavior.scaleBy, 1.9);
+document.getElementById("zout").onclick = () => svg.transition().duration(300).call(zoomBehavior.scaleBy, 1 / 1.9);
+document.getElementById("zreset").onclick = () => {
+  svg.transition().duration(600).call(zoomBehavior.transform, d3.zoomIdentity);
+  showCluster(clusters[0]);
+};
+</script>
+</body>
+</html>

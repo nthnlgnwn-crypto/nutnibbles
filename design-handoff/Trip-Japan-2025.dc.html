@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:ital,wght@0,300..800;1,300..800&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#FAF5EC; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: #B0451C; }
+  ::selection { background:#E9C79A; }
+</style>
+</helmet>
+
+<div style="background:#FAF5EC; font-family:Karla, sans-serif;">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; padding:20px 56px; border-bottom:1px solid #E3DACA;">
+    <a href="Home.dc.html" style="display:flex; align-items:center;">
+      <span style="font-family:Karla,sans-serif; font-weight:800; font-size:19px; letter-spacing:.17em; color:#191713;">NUT</span>
+      <span style="width:5px; height:5px; border-radius:50%; background:#B0451C; margin:0 7px;"></span>
+      <span style="font-family:Karla,sans-serif; font-weight:800; font-size:19px; letter-spacing:.17em; color:#191713;">NIBBLES</span>
+    </a>
+    <nav style="display:flex; gap:30px; font-size:12.5px; letter-spacing:.12em; text-transform:uppercase; color:#4A463C; font-weight:600;">
+      <a href="Travel-Index.dc.html" style="border-bottom:2px solid #B0451C; padding-bottom:2px;">Travel</a>
+      <a href="Food-Index.dc.html">Food</a>
+      <a href="Atlas.dc.html">Atlas</a>
+      <a href="Work-With-Me.dc.html">Work with me</a>
+    </nav>
+    <div style="font-family:'DM Mono',monospace; font-size:11px; color:#8A8271;">Trip 04</div>
+  </header>
+
+  <!-- trip title -->
+  <section style="padding:60px 56px 40px; display:grid; grid-template-columns:1fr 380px; gap:64px; align-items:end; border-bottom:1px solid #E3DACA;">
+    <div>
+      <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#B0451C; margin-bottom:20px;">Trip hub · Japan · 18&ndash;29 Jan 2025</div>
+      <h1 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:84px; line-height:.97; letter-spacing:-.015em; color:#191713; margin:0 0 22px; max-width:20ch;">Four cities, twelve winter days</h1>
+      <p style="font-family:Newsreader,serif; font-size:20.5px; line-height:1.6; color:#514B41; margin:0; max-width:54ch;">Sapporo snow to Tokyo pauses across twelve days, kept as four chapters in the order we travelled them &mdash; with every meal worth its own page linked where it happened.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:16px; border-left:1px solid #E3DACA; padding-left:28px;">
+      <div>
+        <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#A39880; margin-bottom:5px;">Season</div>
+        <div style="font-family:Newsreader,serif; font-size:17px; color:#3E382F;">Deep winter, snow in Hokkaido</div>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#A39880; margin-bottom:5px;">Who</div>
+        <div style="font-family:Newsreader,serif; font-size:17px; color:#3E382F;">Family trip, four adults</div>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#A39880; margin-bottom:5px;">Moving between cities</div>
+        <div style="font-family:Newsreader,serif; font-size:17px; color:#3E382F;">Domestic flights + Shinkansen</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- route -->
+  <section style="padding:48px 56px 8px;">
+    <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#8A8271; margin-bottom:26px;">The route</div>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-top:2px solid #191713;">
+      <div style="padding:20px 24px 24px 0; border-right:1px solid #E3DACA;">
+        <div style="font-family:'DM Mono',monospace; font-size:11px; color:#B0451C; margin-bottom:8px;">18&ndash;21 Jan</div>
+        <div style="font-family:'Instrument Serif',serif; font-size:30px; color:#191713;">Sapporo</div>
+        <div style="font-family:Newsreader,serif; font-size:16.5px; color:#5A5348; margin-top:6px;">Snow parks, ramen, seafood</div>
+      </div>
+      <div style="padding:20px 24px 24px; border-right:1px solid #E3DACA;">
+        <div style="font-family:'DM Mono',monospace; font-size:11px; color:#B0451C; margin-bottom:8px;">22&ndash;24 Jan</div>
+        <div style="font-family:'Instrument Serif',serif; font-size:30px; color:#191713;">Osaka</div>
+        <div style="font-family:Newsreader,serif; font-size:16.5px; color:#5A5348; margin-top:6px;">Night gardens, comfort food</div>
+      </div>
+      <div style="padding:20px 24px 24px; border-right:1px solid #E3DACA;">
+        <div style="font-family:'DM Mono',monospace; font-size:11px; color:#B0451C; margin-bottom:8px;">25 Jan</div>
+        <div style="font-family:'Instrument Serif',serif; font-size:30px; color:#191713;">Kyoto</div>
+        <div style="font-family:Newsreader,serif; font-size:16.5px; color:#5A5348; margin-top:6px;">Kimono day, shrine paths</div>
+      </div>
+      <div style="padding:20px 0 24px 24px;">
+        <div style="font-family:'DM Mono',monospace; font-size:11px; color:#B0451C; margin-bottom:8px;">26&ndash;28 Jan</div>
+        <div style="font-family:'Instrument Serif',serif; font-size:30px; color:#191713;">Tokyo</div>
+        <div style="font-family:Newsreader,serif; font-size:16.5px; color:#5A5348; margin-top:6px;">Fuji, cats, donuts</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- chapters -->
+  <section style="padding:52px 56px 0;">
+    <h2 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:40px; color:#191713; margin:0 0 28px;">The four chapters</h2>
+    <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:24px;">
+      <a href="Chapter-Tokyo.dc.html" style="position:relative; height:420px; display:block; overflow:hidden;" style-hover="opacity:.93">
+        <img src="https://nutsnibbles.cc/assets/images/japan-2025/sapporo/moerenuma-family-pyramid.jpeg" alt="Family standing in the snow at Moerenuma Park" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+        <div style="position:absolute; inset:0; background:linear-gradient(transparent 30%,rgba(18,16,14,.9));"></div>
+        <div style="position:absolute; left:26px; right:26px; bottom:24px; color:#FAF5EC;">
+          <div style="font-family:'DM Mono',monospace; font-size:24px; color:#E9B98F; line-height:1;">01</div>
+          <div style="font-family:'Instrument Serif',serif; font-size:38px; margin-top:10px;">Sapporo snow days</div>
+          <div style="font-family:Newsreader,serif; font-size:17px; color:#D8D0C2; margin-top:6px;">The strongest cold-weather atmosphere of the trip.</div>
+        </div>
+      </a>
+      <a href="Chapter-Tokyo.dc.html" style="position:relative; height:420px; display:block; overflow:hidden;" style-hover="opacity:.93">
+        <img src="https://nutsnibbles.cc/assets/images/japan-2025/osaka/osaka-botanic-garden-tree-path.jpeg" alt="Illuminated tree-lined night path at Osaka Botanic Garden" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+        <div style="position:absolute; inset:0; background:linear-gradient(transparent 30%,rgba(18,16,14,.9));"></div>
+        <div style="position:absolute; left:26px; right:26px; bottom:24px; color:#FAF5EC;">
+          <div style="font-family:'DM Mono',monospace; font-size:24px; color:#E9B98F; line-height:1;">02</div>
+          <div style="font-family:'Instrument Serif',serif; font-size:38px; margin-top:10px;">Osaka, slower</div>
+          <div style="font-family:Newsreader,serif; font-size:17px; color:#D8D0C2; margin-top:6px;">City views, curry comfort, night garden lights.</div>
+        </div>
+      </a>
+      <a href="Chapter-Tokyo.dc.html" style="position:relative; height:420px; display:block; overflow:hidden;" style-hover="opacity:.93">
+        <img src="https://nutsnibbles.cc/assets/images/japan-2025/tokyo/meiji-jingu-south-gate.jpeg" alt="Shrine gate framed by trees" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+        <div style="position:absolute; inset:0; background:linear-gradient(transparent 30%,rgba(18,16,14,.9));"></div>
+        <div style="position:absolute; left:26px; right:26px; bottom:24px; color:#FAF5EC;">
+          <div style="font-family:'DM Mono',monospace; font-size:24px; color:#E9B98F; line-height:1;">03</div>
+          <div style="font-family:'Instrument Serif',serif; font-size:38px; margin-top:10px;">Kyoto in kimono</div>
+          <div style="font-family:Newsreader,serif; font-size:17px; color:#D8D0C2; margin-top:6px;">One day, shrine-heavy, and worth the detour.</div>
+        </div>
+      </a>
+      <a href="Chapter-Tokyo.dc.html" style="position:relative; height:420px; display:block; overflow:hidden; outline:3px solid #B0451C; outline-offset:-3px;" style-hover="opacity:.93">
+        <img src="https://nutsnibbles.cc/assets/images/japan-2025/tokyo/fuji-san-lake-clouds.jpeg" alt="Mt. Fuji behind clouds over a lake" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+        <div style="position:absolute; inset:0; background:linear-gradient(transparent 30%,rgba(18,16,14,.9));"></div>
+        <div style="position:absolute; left:26px; right:26px; bottom:24px; color:#FAF5EC;">
+          <div style="font-family:'DM Mono',monospace; font-size:24px; color:#E9B98F; line-height:1;">04</div>
+          <div style="font-family:'Instrument Serif',serif; font-size:38px; margin-top:10px;">Tokyo, the closing chapter</div>
+          <div style="font-family:Newsreader,serif; font-size:17px; color:#D8D0C2; margin-top:6px;">Stays, food, Fuji, and soft pauses.</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- meals from this trip -->
+  <section style="margin-top:60px; padding:52px 56px; background:#F3ECDD;">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:28px; gap:40px;">
+      <h2 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:40px; color:#191713; margin:0;">Meals from this trip</h2>
+      <p style="font-family:Newsreader,serif; font-size:17.5px; line-height:1.6; color:#5A5348; max-width:38ch; margin:0;">Each one has its own page, so you can send someone the meal without the whole chapter.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:20px 20px;">
+      <a href="Food-Kindling.dc.html" style="background:#FAF5EC; border:1px solid #E3DACA; display:block;" style-hover="border-color:#B0451C">
+        <img src="https://nutsnibbles.cc/assets/images/japan-2025/tokyo/gyukatsu-motomura-cutlet-set.jpeg" alt="Gyukatsu cutlet set" style="width:100%; height:170px; object-fit:cover; display:block;">
+        <div style="padding:18px 20px 22px;">
+          <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#B0451C; margin-bottom:8px;">Tokyo · Late lunch</div>
+          <div style="font-family:'Instrument Serif',serif; font-size:25px; color:#191713;">Gyukatsu Motomura</div>
+        </div>
+      </a>
+      <a href="Food-Kindling.dc.html" style="background:#FAF5EC; border:1px solid #E3DACA; display:block;" style-hover="border-color:#B0451C">
+        <img src="https://nutsnibbles.cc/assets/images/japan-2025/sapporo/ramen-bowl.jpeg" alt="Bowl of ramen with egg, pork and scallions" style="width:100%; height:170px; object-fit:cover; display:block;">
+        <div style="padding:18px 20px 22px;">
+          <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#B0451C; margin-bottom:8px;">Sapporo · Arrival night</div>
+          <div style="font-family:'Instrument Serif',serif; font-size:25px; color:#191713;">Arrival night ramen</div>
+        </div>
+      </a>
+      <a href="Food-Kindling.dc.html" style="background:#FAF5EC; border:1px solid #E3DACA; display:block;" style-hover="border-color:#B0451C">
+        <img src="https://nutsnibbles.cc/assets/images/japan-2025/sapporo/sapporo-lunch-salmon-sashimi.jpeg" alt="Fresh salmon sashimi rice bowl" style="width:100%; height:170px; object-fit:cover; display:block;">
+        <div style="padding:18px 20px 22px;">
+          <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#B0451C; margin-bottom:8px;">Sapporo · Seafood lunch</div>
+          <div style="font-family:'Instrument Serif',serif; font-size:25px; color:#191713;">Salmon &amp; king crab</div>
+        </div>
+      </a>
+      <a href="Food-Kindling.dc.html" style="background:#FAF5EC; border:1px solid #E3DACA; display:block;" style-hover="border-color:#B0451C">
+        <img src="https://nutsnibbles.cc/assets/images/japan-2025/osaka/coco-ichibanya-shin-umeda-curry.jpeg" alt="CoCo Ichibanya curry with fried cutlet" style="width:100%; height:170px; object-fit:cover; display:block;">
+        <div style="padding:18px 20px 22px;">
+          <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#B0451C; margin-bottom:8px;">Osaka · Easy lunch</div>
+          <div style="font-family:'Instrument Serif',serif; font-size:25px; color:#191713;">CoCo Curry Shin Umeda</div>
+        </div>
+      </a>
+      <a href="Food-Kindling.dc.html" style="background:#FAF5EC; border:1px solid #E3DACA; display:block;" style-hover="border-color:#B0451C">
+        <img src="https://nutsnibbles.cc/assets/images/japan-2025/sapporo/sapporo-711-dinner.jpeg" alt="7-Eleven dinner spread with crab, egg and grilled chicken" style="width:100%; height:170px; object-fit:cover; display:block;">
+        <div style="padding:18px 20px 22px;">
+          <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#B0451C; margin-bottom:8px;">Sapporo · Hotel night</div>
+          <div style="font-family:'Instrument Serif',serif; font-size:25px; color:#191713;">7-Eleven hotel dinner</div>
+        </div>
+      </a>
+      <a href="Food-Kindling.dc.html" style="background:#FAF5EC; border:1px solid #E3DACA; display:block;" style-hover="border-color:#B0451C">
+        <img src="https://nutsnibbles.cc/assets/images/japan-2025/sapporo/hokkaido-jingu-nearby-lunch.jpeg" alt="Lunch plate with omurice, fried seafood and salad" style="width:100%; height:170px; object-fit:cover; display:block;">
+        <div style="padding:18px 20px 22px;">
+          <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#B0451C; margin-bottom:8px;">Sapporo · Shrine day</div>
+          <div style="font-family:'Instrument Serif',serif; font-size:25px; color:#191713;">Lunch near Hokkaido Jingu</div>
+        </div>
+      </a>
+      <a href="Food-Kindling.dc.html" style="background:#FAF5EC; border:1px solid #E3DACA; display:block;" style-hover="border-color:#B0451C">
+        <img src="https://nutsnibbles.cc/assets/images/japan-2025/sapporo/shiroi-koibito-soft-serve.jpeg" alt="Soft serve ice cream cups outside Shiroi Koibito Park" style="width:100%; height:170px; object-fit:cover; display:block;">
+        <div style="padding:18px 20px 22px;">
+          <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#B0451C; margin-bottom:8px;">Sapporo · Sweet stop</div>
+          <div style="font-family:'Instrument Serif',serif; font-size:25px; color:#191713;">Shiroi Koibito soft serve</div>
+        </div>
+      </a>
+      <a href="Food-Kindling.dc.html" style="background:#FAF5EC; border:1px solid #E3DACA; display:block;" style-hover="border-color:#B0451C">
+        <img src="https://nutsnibbles.cc/assets/images/japan-2025/osaka/ryunosu-yakiniku-meat.jpeg" alt="Assorted wagyu beef plate at Ryunosu in Osaka" style="width:100%; height:170px; object-fit:cover; display:block;">
+        <div style="padding:18px 20px 22px;">
+          <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#B0451C; margin-bottom:8px;">Osaka · Late lunch</div>
+          <div style="font-family:'Instrument Serif',serif; font-size:25px; color:#191713;">Ryunosu yakiniku</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- planning notes -->
+  <section style="padding:56px 56px 0; display:grid; grid-template-columns:1fr 1fr; gap:56px;">
+    <div>
+      <h2 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:40px; color:#191713; margin:0 0 20px;">If you&rsquo;re planning the same route</h2>
+      <p style="font-family:Newsreader,serif; font-size:19.5px; line-height:1.75; color:#463F36; margin:0 0 20px;">Sapporo first was the right call. Starting in the coldest place meant the trip warmed up rather than fizzled out, and the snow stopped feeling novel by the time we reached Kansai anyway.</p>
+      <p style="font-family:Newsreader,serif; font-size:19.5px; line-height:1.75; color:#463F36; margin:0;">Twelve days for four cities is comfortable rather than tight, as long as you accept that Kyoto becomes a day trip rather than a base. Tokyo last gives you the easiest airport exit and the best hotel comfort at the point you need it most.</p>
+    </div>
+    <div style="border-top:2px solid #191713;">
+      <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#8A8271; padding:16px 0 18px;">Practical</div>
+      <div style="display:grid; grid-template-columns:160px 1fr; gap:18px; padding:13px 0; border-top:1px solid #E3DACA;">
+        <div style="font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; color:#6E6558;">Go when</div>
+        <div style="font-family:Newsreader,serif; font-size:17px; color:#3E382F;">Late January for snow; expect short daylight</div>
+      </div>
+      <div style="display:grid; grid-template-columns:160px 1fr; gap:18px; padding:13px 0; border-top:1px solid #E3DACA;">
+        <div style="font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; color:#6E6558;">Best stay</div>
+        <div style="font-family:Newsreader,serif; font-size:17px; color:#3E382F;">Cerulean Tower Tokyu, Tokyo</div>
+      </div>
+      <div style="display:grid; grid-template-columns:160px 1fr; gap:18px; padding:13px 0; border-top:1px solid #E3DACA;">
+        <div style="font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; color:#6E6558;">Skip</div>
+        <div style="font-family:Newsreader,serif; font-size:17px; color:#3E382F;">A second Kyoto day if Osaka is your base</div>
+      </div>
+      <div style="display:grid; grid-template-columns:160px 1fr; gap:18px; padding:13px 0; border-top:1px solid #E3DACA; border-bottom:1px solid #E3DACA;">
+        <div style="font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; color:#6E6558;">Book early</div>
+        <div style="font-family:Newsreader,serif; font-size:17px; color:#3E382F;">Fuji day tours &mdash; weather-dependent, they fill up</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:56px; margin-top:56px; background:#191713; display:flex; align-items:center; justify-content:space-between; gap:40px;">
+    <div>
+      <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#E9B98F; margin-bottom:14px;">See it laid out</div>
+      <h2 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:44px; line-height:1.06; color:#FAF5EC; margin:0;">The whole route, pinned on the Atlas.</h2>
+    </div>
+    <a href="Atlas.dc.html" style="background:#FAF5EC; color:#191713; padding:16px 28px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; white-space:nowrap;" style-hover="background:#B0451C; color:#FAF5EC">Open the Atlas</a>
+  </section>
+
+  <footer style="background:#12100E; color:#CFC6B6; padding:48px 56px; display:flex; justify-content:space-between; align-items:flex-end;">
+    <div>
+      <div style="display:flex; align-items:center; margin-bottom:12px;">
+        <span style="font-family:Karla,sans-serif; font-weight:800; font-size:19px; letter-spacing:.17em; color:#FAF5EC;">NUT</span>
+        <span style="width:5px; height:5px; border-radius:50%; background:#B0451C; margin:0 7px;"></span>
+        <span style="font-family:Karla,sans-serif; font-weight:800; font-size:19px; letter-spacing:.17em; color:#FAF5EC;">NIBBLES</span>
+      </div>
+      <div style="font-family:Newsreader,serif; font-size:16px; font-style:italic; color:#9C9385;">Kept by hand since 2023.</div>
+    </div>
+    <div style="display:flex; gap:48px; font-size:12px; letter-spacing:.12em; text-transform:uppercase;">
+      <div style="display:flex; flex-direction:column; gap:10px;"><a href="Home.dc.html">Journal</a><a href="Travel-Index.dc.html">Travel</a></div>
+      <div style="display:flex; flex-direction:column; gap:10px;"><a href="Food-Index.dc.html">Food</a><a href="Atlas.dc.html">The Atlas</a></div>
+      <div style="display:flex; flex-direction:column; gap:10px;"><a href="Work-With-Me.dc.html">Work with me</a><a href="Home.dc.html">Instagram</a></div>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+</body>
+</html>

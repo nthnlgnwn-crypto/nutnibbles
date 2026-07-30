@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:ital,wght@0,300..800;1,300..800&family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#DEDACE; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: inherit; }
+  ::selection { background:#E9C79A; }
+</style>
+</helmet>
+
+<section style="padding:56px 56px 120px; display:flex; flex-direction:column; gap:28px; font-family:Karla, sans-serif;">
+  <div style="display:flex; align-items:baseline; gap:16px; color:#3A382F;">
+    <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.22em; text-transform:uppercase;">Turn 1</div>
+    <div style="height:1px; flex:1; background:#B9B4A4;"></div>
+    <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.14em; color:#6C685B;">Three homepage directions for nutsnibbles.cc — pick one and I'll build the full set</div>
+  </div>
+
+  <div style="display:flex; flex-wrap:wrap; gap:48px; align-items:flex-start;">
+
+    <!-- ══════════════ 1a — ALMANAC ══════════════ -->
+    <div id="1a" style="display:flex; flex-direction:column; gap:14px;">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div style="font-family:'DM Mono',monospace; font-size:12px; letter-spacing:.1em; background:#191713; color:#FAF5EC; padding:5px 10px;">1a</div>
+        <div style="font-family:Karla,sans-serif; font-weight:700; font-size:15px; letter-spacing:.02em; color:#191713;">The Almanac — warm print editorial</div>
+        <div style="font-family:'DM Mono',monospace; font-size:11px; color:#6C685B;">Instrument Serif + Karla · paper, terracotta, sage</div>
+      </div>
+
+      <div style="width:1180px; background:#FAF5EC; box-shadow:0 30px 70px rgba(25,23,19,.16); overflow:hidden;">
+
+        <!-- header -->
+        <div style="display:flex; align-items:center; justify-content:space-between; padding:20px 44px; border-bottom:1px solid #E3DACA;">
+          <div style="display:flex; align-items:baseline; gap:10px;">
+            <div style="font-family:'Instrument Serif',serif; font-size:26px; color:#191713; letter-spacing:.01em;">NutNibbles</div>
+            <div style="width:5px; height:5px; border-radius:50%; background:#B0451C; margin-bottom:4px;"></div>
+          </div>
+          <div style="display:flex; gap:30px; font-size:12.5px; letter-spacing:.12em; text-transform:uppercase; color:#4A463C; font-weight:600;">
+            <a href="#1a" style="border-bottom:2px solid #B0451C; padding-bottom:2px;">Travel</a>
+            <a href="#1a">Food</a>
+            <a href="#1a">The Atlas</a>
+            <a href="#1a">Guides</a>
+            <a href="#1a">Work with me</a>
+          </div>
+          <div style="font-family:'DM Mono',monospace; font-size:11px; color:#8A8271;">Jul 2026</div>
+        </div>
+
+        <!-- hero -->
+        <div style="display:grid; grid-template-columns:1.08fr .92fr; gap:0; border-bottom:1px solid #E3DACA;">
+          <div style="padding:64px 48px 56px; display:flex; flex-direction:column; justify-content:space-between;">
+            <div>
+              <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#B0451C; margin-bottom:26px;">Journal · No. 12 · Since 2023</div>
+              <h1 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:82px; line-height:.98; letter-spacing:-.015em; color:#191713; margin:0 0 26px; text-wrap:pretty;">Everything I&rsquo;d tell you about the meal <em style="font-style:italic; color:#B0451C;">before</em> I tell you about the view.</h1>
+              <p style="font-family:Newsreader,serif; font-size:19px; line-height:1.6; color:#514B41; max-width:46ch; margin:0;">A travel and food journal kept properly: chapter notes from trips 1&ndash;3 times a year, and honest Jakarta restaurant reviews the rest of the time. Written so it&rsquo;s still useful two years later.</p>
+            </div>
+            <div style="display:flex; gap:12px; margin-top:44px;">
+              <a href="#1a" style="background:#191713; color:#FAF5EC; padding:15px 26px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:700;">Start with a trip</a>
+              <a href="#1a" style="border:1px solid #C9BFAB; color:#191713; padding:15px 26px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:700;">Jakarta food reviews</a>
+            </div>
+          </div>
+          <div style="position:relative; min-height:560px; background:#E3DACA;">
+            <img src="https://nutsnibbles.cc/assets/images/japan-2025/tokyo/fuji-san-lake-clouds.jpeg" alt="Mt. Fuji behind clouds over a lake" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+            <div style="position:absolute; left:0; bottom:0; right:0; padding:22px 26px; background:linear-gradient(transparent,rgba(20,18,14,.72)); color:#FAF5EC;">
+              <div style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; opacity:.75;">35.36&deg;N 138.73&deg;E · 27 Jan 2025</div>
+              <div style="font-family:Newsreader,serif; font-style:italic; font-size:16px; margin-top:6px;">The clouds made every clear view feel earned.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- latest index -->
+        <div style="padding:52px 48px 20px; display:flex; align-items:flex-end; justify-content:space-between;">
+          <h2 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:38px; color:#191713; margin:0;">Latest from the journal</h2>
+          <a href="#1a" style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#B0451C; border-bottom:1px solid #DCC7B4; padding-bottom:3px;">All 48 entries →</a>
+        </div>
+        <div style="padding:0 48px 52px; display:flex; flex-direction:column;">
+          <div style="display:grid; grid-template-columns:56px 1fr 190px 130px 92px; gap:20px; align-items:center; padding:22px 8px; border-top:1px solid #E3DACA; cursor:pointer;" style-hover="background:#F3ECDD;">
+            <div style="font-family:'DM Mono',monospace; font-size:11px; color:#A39880;">001</div>
+            <div style="font-family:'Instrument Serif',serif; font-size:27px; color:#191713;">Kindling, and the birthday dinner that got the pacing right</div>
+            <div style="font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#6E6558; font-weight:600;">Jakarta · Food</div>
+            <div style="font-family:'DM Mono',monospace; font-size:11.5px; color:#8A8271;">12 Jul 2026</div>
+            <img src="https://nutsnibbles.cc/assets/images/jakarta/kindling-birthday/crab-custard.jpeg" alt="Crab custard course" style="width:92px; height:62px; object-fit:cover;">
+          </div>
+          <div style="display:grid; grid-template-columns:56px 1fr 190px 130px 92px; gap:20px; align-items:center; padding:22px 8px; border-top:1px solid #E3DACA; cursor:pointer;" style-hover="background:#F3ECDD;">
+            <div style="font-family:'DM Mono',monospace; font-size:11px; color:#A39880;">002</div>
+            <div style="font-family:'Instrument Serif',serif; font-size:27px; color:#191713;">August: is it worth saving for the date you have in mind?</div>
+            <div style="font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#6E6558; font-weight:600;">Jakarta · Food</div>
+            <div style="font-family:'DM Mono',monospace; font-size:11.5px; color:#8A8271;">28 Jun 2026</div>
+            <img src="https://nutsnibbles.cc/assets/images/jakarta/august/restaurant-interior.jpeg" alt="Warm dining room" style="width:92px; height:62px; object-fit:cover;">
+          </div>
+          <div style="display:grid; grid-template-columns:56px 1fr 190px 130px 92px; gap:20px; align-items:center; padding:22px 8px; border-top:1px solid #E3DACA; cursor:pointer;" style-hover="background:#F3ECDD;">
+            <div style="font-family:'DM Mono',monospace; font-size:11px; color:#A39880;">003</div>
+            <div style="font-family:'Instrument Serif',serif; font-size:27px; color:#191713;">Tokyo stays, food, Fuji, and the soft pauses between</div>
+            <div style="font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#6E6558; font-weight:600;">Japan · Chapter</div>
+            <div style="font-family:'DM Mono',monospace; font-size:11.5px; color:#8A8271;">04 Jun 2026</div>
+            <img src="https://nutsnibbles.cc/assets/images/japan-2025/tokyo/meiji-jingu-sacred-tree-ema.jpeg" alt="Sacred tree with ema tablets" style="width:92px; height:62px; object-fit:cover;">
+          </div>
+          <div style="display:grid; grid-template-columns:56px 1fr 190px 130px 92px; gap:20px; align-items:center; padding:22px 8px; border-top:1px solid #E3DACA; border-bottom:1px solid #E3DACA; cursor:pointer;" style-hover="background:#F3ECDD;">
+            <div style="font-family:'DM Mono',monospace; font-size:11px; color:#A39880;">004</div>
+            <div style="font-family:'Instrument Serif',serif; font-size:27px; color:#191713;">Gyukatsu Motomura &mdash; the hot stone does the work</div>
+            <div style="font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#6E6558; font-weight:600;">Tokyo · Food</div>
+            <div style="font-family:'DM Mono',monospace; font-size:11.5px; color:#8A8271;">21 May 2026</div>
+            <img src="https://nutsnibbles.cc/assets/images/japan-2025/tokyo/gyukatsu-motomura-cutlet-set.jpeg" alt="Gyukatsu set" style="width:92px; height:62px; object-fit:cover;">
+          </div>
+        </div>
+
+        <!-- full bleed feature -->
+        <div style="position:relative; height:520px; background:#191713;">
+          <img src="https://nutsnibbles.cc/assets/images/japan-2025/sapporo/moerenuma-family-pyramid.jpeg" alt="Family in the snow at Moerenuma Park" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.86;">
+          <div style="position:absolute; inset:0; background:linear-gradient(105deg,rgba(20,18,14,.74) 8%,rgba(20,18,14,.15) 62%);"></div>
+          <div style="position:absolute; left:48px; top:0; bottom:0; width:520px; display:flex; flex-direction:column; justify-content:center; color:#FAF5EC;">
+            <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#E9B98F; margin-bottom:18px;">Trip in focus · Japan, Winter 2025</div>
+            <h2 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:60px; line-height:1.02; margin:0 0 18px;">Four cities, one cold week, and the snow that made it stick.</h2>
+            <p style="font-family:Newsreader,serif; font-size:18px; line-height:1.6; color:#E7DFD2; margin:0 0 28px; max-width:44ch;">Sapporo to Tokyo as chapters, with every meal worth its own page linked where it happened.</p>
+            <div style="display:flex; gap:10px; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase;">
+              <span style="border:1px solid rgba(250,245,236,.4); padding:8px 13px;">Sapporo</span>
+              <span style="border:1px solid rgba(250,245,236,.4); padding:8px 13px;">Osaka</span>
+              <span style="border:1px solid rgba(250,245,236,.4); padding:8px 13px;">Kyoto</span>
+              <span style="border:1px solid rgba(250,245,236,.4); padding:8px 13px;">Tokyo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- jakarta table -->
+        <div style="padding:56px 48px; background:#F3ECDD;">
+          <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:32px;">
+            <div>
+              <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#7E7565; margin-bottom:10px;">Between trips</div>
+              <h2 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:44px; color:#191713; margin:0;">The Jakarta table, kept monthly.</h2>
+            </div>
+            <p style="font-family:Newsreader,serif; font-size:17px; line-height:1.6; color:#5A5348; max-width:34ch; margin:0;">Reviews with the part most people leave out: what it costs, who it&rsquo;s for, and whether I&rsquo;d go back.</p>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:26px;">
+            <div style="background:#FAF5EC; border:1px solid #E3DACA; cursor:pointer;" style-hover="border-color:#B0451C">
+              <img src="https://nutsnibbles.cc/assets/images/jakarta/kindling-birthday/crab-custard.jpeg" alt="Crab custard" style="width:100%; height:200px; object-fit:cover; display:block;">
+              <div style="padding:22px 22px 24px;">
+                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px;">
+                  <div style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#B0451C;">Tasting menu</div>
+                  <div style="font-family:'DM Mono',monospace; font-size:11px; color:#8A8271;">Worth it</div>
+                </div>
+                <h3 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:28px; margin:0 0 8px; color:#191713;">Kindling</h3>
+                <p style="font-family:Newsreader,serif; font-size:15.5px; line-height:1.6; color:#5A5348; margin:0;">Room-to-room courses that felt special without feeling stiff.</p>
+              </div>
+            </div>
+            <div style="background:#FAF5EC; border:1px solid #E3DACA; cursor:pointer;" style-hover="border-color:#B0451C">
+              <img src="https://nutsnibbles.cc/assets/images/jakarta/august/restaurant-interior.jpeg" alt="August dining room" style="width:100%; height:200px; object-fit:cover; display:block;">
+              <div style="padding:22px 22px 24px;">
+                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px;">
+                  <div style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#B0451C;">Date night</div>
+                  <div style="font-family:'DM Mono',monospace; font-size:11px; color:#8A8271;">Save for it</div>
+                </div>
+                <h3 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:28px; margin:0 0 8px; color:#191713;">August</h3>
+                <p style="font-family:Newsreader,serif; font-size:15.5px; line-height:1.6; color:#5A5348; margin:0;">The set menu that decides whether the occasion earns the price.</p>
+              </div>
+            </div>
+            <div style="background:#FAF5EC; border:1px solid #E3DACA; cursor:pointer;" style-hover="border-color:#B0451C">
+              <img src="https://nutsnibbles.cc/assets/images/japan-2025/tokyo/im-donut-display.jpeg" alt="Donut display" style="width:100%; height:200px; object-fit:cover; display:block;">
+              <div style="padding:22px 22px 24px;">
+                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px;">
+                  <div style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#B0451C;">Snack note</div>
+                  <div style="font-family:'DM Mono',monospace; font-size:11px; color:#8A8271;">Go once</div>
+                </div>
+                <h3 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:28px; margin:0 0 8px; color:#191713;">I&rsquo;m donut?</h3>
+                <p style="font-family:Newsreader,serif; font-size:15.5px; line-height:1.6; color:#5A5348; margin:0;">Sweet custard to prosciutto &mdash; a snack mission with a payoff.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- atlas strip -->
+        <div style="padding:44px 48px; display:flex; align-items:center; justify-content:space-between; gap:40px; border-top:1px solid #E3DACA;">
+          <div style="display:flex; align-items:baseline; gap:38px;">
+            <div>
+              <div style="font-family:'Instrument Serif',serif; font-size:46px; color:#B0451C; line-height:1;">48</div>
+              <div style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#8A8271; margin-top:6px;">Places logged</div>
+            </div>
+            <div>
+              <div style="font-family:'Instrument Serif',serif; font-size:46px; color:#191713; line-height:1;">09</div>
+              <div style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#8A8271; margin-top:6px;">Cities</div>
+            </div>
+            <div>
+              <div style="font-family:'Instrument Serif',serif; font-size:46px; color:#191713; line-height:1;">03</div>
+              <div style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#8A8271; margin-top:6px;">Countries</div>
+            </div>
+          </div>
+          <div style="flex:1; display:flex; align-items:center; gap:20px; justify-content:flex-end;">
+            <p style="font-family:Newsreader,serif; font-size:18px; line-height:1.55; color:#514B41; margin:0; max-width:38ch; text-align:right;">The Atlas maps every entry &mdash; open a pin to read what happened there.</p>
+            <a href="#1a" style="background:#B0451C; color:#FAF5EC; padding:15px 24px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; white-space:nowrap;">Open the Atlas</a>
+          </div>
+        </div>
+
+        <!-- footer -->
+        <div style="background:#191713; color:#CFC6B6; padding:44px 48px; display:flex; justify-content:space-between; align-items:flex-end;">
+          <div>
+            <div style="font-family:'Instrument Serif',serif; font-size:32px; color:#FAF5EC; margin-bottom:10px;">NutNibbles</div>
+            <div style="font-family:Newsreader,serif; font-size:16px; font-style:italic; color:#9C9385;">Kept by hand since 2023.</div>
+          </div>
+          <div style="display:flex; gap:44px; font-size:12px; letter-spacing:.12em; text-transform:uppercase;">
+            <div style="display:flex; flex-direction:column; gap:9px;"><a href="#1a">Travel</a><a href="#1a">Food</a></div>
+            <div style="display:flex; flex-direction:column; gap:9px;"><a href="#1a">The Atlas</a><a href="#1a">Japan guide</a></div>
+            <div style="display:flex; flex-direction:column; gap:9px;"><a href="#1a">Work with me</a><a href="#1a">Instagram</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════ 1b — NIGHTFALL ══════════════ -->
+    <div id="1b" style="display:flex; flex-direction:column; gap:14px;">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div style="font-family:'DM Mono',monospace; font-size:12px; letter-spacing:.1em; background:#12100E; color:#F2EDE4; padding:5px 10px;">1b</div>
+        <div style="font-family:Karla,sans-serif; font-weight:700; font-size:15px; letter-spacing:.02em; color:#191713;">Nightfall — cinematic, photo-first</div>
+        <div style="font-family:'DM Mono',monospace; font-size:11px; color:#6C685B;">Bricolage Grotesque + Newsreader · warm black, amber</div>
+      </div>
+
+      <div style="width:1180px; background:#12100E; box-shadow:0 30px 70px rgba(25,23,19,.28); overflow:hidden;">
+
+        <div style="display:flex; align-items:center; justify-content:space-between; padding:18px 40px; position:relative; z-index:2; border-bottom:1px solid rgba(242,237,228,.1);">
+          <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; letter-spacing:-.02em; color:#F2EDE4;">nutnibbles<span style="color:#E0A03A;">.</span></div>
+          <div style="display:flex; gap:26px; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#B7AF9F; font-weight:600;">
+            <a href="#1b" style="color:#F2EDE4;">Chapters</a><a href="#1b">Food</a><a href="#1b">Atlas</a><a href="#1b">About</a>
+          </div>
+          <a href="#1b" style="border:1px solid #E0A03A; color:#E0A03A; padding:9px 16px; font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:700;">Work with me</a>
+        </div>
+
+        <!-- cinematic hero -->
+        <div style="position:relative; height:680px; overflow:hidden;">
+          <img src="https://nutsnibbles.cc/assets/images/uk-scotland-2023/glasgow-highlands/highlands-moody-road.jpeg" alt="Moody road through the Scottish Highlands" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+          <div style="position:absolute; inset:0; background:linear-gradient(180deg,rgba(18,16,14,.66) 0%,rgba(18,16,14,.25) 42%,rgba(18,16,14,.96) 100%);"></div>
+          <div style="position:absolute; left:40px; right:40px; bottom:46px; color:#F2EDE4;">
+            <div style="display:flex; align-items:center; gap:14px; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#E0A03A; margin-bottom:22px;">
+              <span>Chapter 07</span><span style="width:46px; height:1px; background:#E0A03A; opacity:.6;"></span><span>Scotland · Autumn 2023</span>
+            </div>
+            <h1 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:88px; line-height:.92; letter-spacing:-.035em; margin:0 0 22px; max-width:20ch;">Grey skies, long roads, whisky rooms.</h1>
+            <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:60px;">
+              <p style="font-family:Newsreader,serif; font-size:20px; line-height:1.55; color:#DCD4C6; margin:0; max-width:52ch;">The Highlands chapter at its most atmospheric &mdash; and the reason I stopped writing checklists and started writing weather.</p>
+              <div style="display:flex; gap:12px; flex-shrink:0;">
+                <a href="#1b" style="background:#F2EDE4; color:#12100E; padding:16px 28px; font-size:12px; letter-spacing:.14em; text-transform:uppercase; font-weight:700;">Read chapter</a>
+                <a href="#1b" style="border:1px solid rgba(242,237,228,.35); color:#F2EDE4; padding:16px 28px; font-size:12px; letter-spacing:.14em; text-transform:uppercase; font-weight:700;">All chapters</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- chapter rail -->
+        <div style="padding:56px 40px 60px;">
+          <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:28px;">
+            <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:500; font-size:34px; letter-spacing:-.02em; color:#F2EDE4; margin:0;">Japan, Winter 2025 &mdash; in four parts</h2>
+            <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#8E8676;">Drag to scroll →</div>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:18px;">
+            <a href="#1b" style="position:relative; height:400px; overflow:hidden; display:block;" style-hover="opacity:.92">
+              <img src="https://nutsnibbles.cc/assets/images/japan-2025/sapporo/moerenuma-family-pyramid.jpeg" alt="Snow at Moerenuma Park" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+              <div style="position:absolute; inset:0; background:linear-gradient(transparent 35%,rgba(18,16,14,.9));"></div>
+              <div style="position:absolute; left:20px; right:20px; bottom:20px; color:#F2EDE4;">
+                <div style="font-family:'DM Mono',monospace; font-size:26px; color:#E0A03A; line-height:1;">01</div>
+                <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:26px; letter-spacing:-.02em; margin-top:10px;">Sapporo</div>
+                <div style="font-family:Newsreader,serif; font-size:15px; color:#C6BEB0; margin-top:5px;">Snow parks, ramen, seafood</div>
+              </div>
+            </a>
+            <a href="#1b" style="position:relative; height:400px; overflow:hidden; display:block;" style-hover="opacity:.92">
+              <img src="https://nutsnibbles.cc/assets/images/japan-2025/osaka/osaka-botanic-garden-tree-path.jpeg" alt="Lit tree path at Osaka Botanic Garden" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+              <div style="position:absolute; inset:0; background:linear-gradient(transparent 35%,rgba(18,16,14,.9));"></div>
+              <div style="position:absolute; left:20px; right:20px; bottom:20px; color:#F2EDE4;">
+                <div style="font-family:'DM Mono',monospace; font-size:26px; color:#E0A03A; line-height:1;">02</div>
+                <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:26px; letter-spacing:-.02em; margin-top:10px;">Osaka</div>
+                <div style="font-family:Newsreader,serif; font-size:15px; color:#C6BEB0; margin-top:5px;">Night gardens, comfort food</div>
+              </div>
+            </a>
+            <a href="#1b" style="position:relative; height:400px; overflow:hidden; display:block;" style-hover="opacity:.92">
+              <img src="https://nutsnibbles.cc/assets/images/japan-2025/tokyo/meiji-jingu-south-gate.jpeg" alt="Meiji Jingu south gate" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+              <div style="position:absolute; inset:0; background:linear-gradient(transparent 35%,rgba(18,16,14,.9));"></div>
+              <div style="position:absolute; left:20px; right:20px; bottom:20px; color:#F2EDE4;">
+                <div style="font-family:'DM Mono',monospace; font-size:26px; color:#E0A03A; line-height:1;">03</div>
+                <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:26px; letter-spacing:-.02em; margin-top:10px;">Kyoto</div>
+                <div style="font-family:Newsreader,serif; font-size:15px; color:#C6BEB0; margin-top:5px;">Kimono day, shrine paths</div>
+              </div>
+            </a>
+            <a href="#1b" style="position:relative; height:400px; overflow:hidden; display:block;" style-hover="opacity:.92">
+              <img src="https://nutsnibbles.cc/assets/images/japan-2025/tokyo/harajuku-omotesando-mirror-building.jpeg" alt="Mirror building in Omotesando at sunset" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+              <div style="position:absolute; inset:0; background:linear-gradient(transparent 35%,rgba(18,16,14,.9));"></div>
+              <div style="position:absolute; left:20px; right:20px; bottom:20px; color:#F2EDE4;">
+                <div style="font-family:'DM Mono',monospace; font-size:26px; color:#E0A03A; line-height:1;">04</div>
+                <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:26px; letter-spacing:-.02em; margin-top:10px;">Tokyo</div>
+                <div style="font-family:Newsreader,serif; font-size:15px; color:#C6BEB0; margin-top:5px;">Fuji, cats, donuts</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- diary voice -->
+        <div style="padding:0 40px 64px; display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;">
+          <div style="position:relative;">
+            <img src="https://nutsnibbles.cc/assets/images/japan-2025/tokyo/shibuya-cat-lounge-mocha-feeding-circle.jpeg" alt="Cats at feeding time in a lounge" style="width:100%; height:420px; object-fit:cover; display:block;">
+            <div style="position:absolute; left:-1px; bottom:-1px; background:#12100E; padding:14px 20px 4px 0; font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#8E8676;">28 Jan · Shibuya</div>
+          </div>
+          <div>
+            <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#E0A03A; margin-bottom:20px;">From the diary</div>
+            <blockquote style="font-family:Newsreader,serif; font-weight:300; font-style:italic; font-size:34px; line-height:1.3; color:#F2EDE4; margin:0 0 24px;">&ldquo;Tokyo worked because it never had to be only one thing.&rdquo;</blockquote>
+            <p style="font-family:Newsreader,serif; font-size:18px; line-height:1.7; color:#B7AF9F; margin:0 0 26px;">Every chapter carries the note I actually wrote at the time &mdash; not a rewritten guide. The recommendations come after, once you know what kind of day it was.</p>
+            <a href="#1b" style="font-family:'DM Mono',monospace; font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:#F2EDE4; border-bottom:1px solid #E0A03A; padding-bottom:5px;">Read the Tokyo chapter →</a>
+          </div>
+        </div>
+
+        <!-- food grid -->
+        <div style="padding:60px 40px; background:#1A1714;">
+          <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:30px;">
+            <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:500; font-size:34px; letter-spacing:-.02em; color:#F2EDE4; margin:0;">Food notes</h2>
+            <div style="display:flex; gap:8px; font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase;">
+              <span style="background:#E0A03A; color:#12100E; padding:8px 14px;">All</span>
+              <span style="border:1px solid rgba(242,237,228,.25); color:#B7AF9F; padding:8px 14px;">Jakarta</span>
+              <span style="border:1px solid rgba(242,237,228,.25); color:#B7AF9F; padding:8px 14px;">Japan</span>
+              <span style="border:1px solid rgba(242,237,228,.25); color:#B7AF9F; padding:8px 14px;">Worth it</span>
+            </div>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px;">
+            <a href="#1b" style="display:block; background:#12100E;" style-hover="background:#221E19">
+              <img src="https://nutsnibbles.cc/assets/images/jakarta/kindling-birthday/crab-custard.jpeg" alt="Crab custard" style="width:100%; height:220px; object-fit:cover; display:block;">
+              <div style="padding:20px;">
+                <div style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#E0A03A; margin-bottom:9px;">Jakarta · Tasting</div>
+                <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:22px; color:#F2EDE4; letter-spacing:-.015em;">Kindling</div>
+                <p style="font-family:Newsreader,serif; font-size:15px; line-height:1.55; color:#9E968A; margin:8px 0 0;">Cozy, room-to-room, special without stiff.</p>
+              </div>
+            </a>
+            <a href="#1b" style="display:block; background:#12100E;" style-hover="background:#221E19">
+              <img src="https://nutsnibbles.cc/assets/images/jakarta/august/restaurant-interior.jpeg" alt="August interior" style="width:100%; height:220px; object-fit:cover; display:block;">
+              <div style="padding:20px;">
+                <div style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#E0A03A; margin-bottom:9px;">Jakarta · Date night</div>
+                <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:22px; color:#F2EDE4; letter-spacing:-.015em;">August</div>
+                <p style="font-family:Newsreader,serif; font-size:15px; line-height:1.55; color:#9E968A; margin:8px 0 0;">Worth saving for the occasion &mdash; here&rsquo;s why.</p>
+              </div>
+            </a>
+            <a href="#1b" style="display:block; background:#12100E;" style-hover="background:#221E19">
+              <img src="https://nutsnibbles.cc/assets/images/japan-2025/tokyo/gyukatsu-motomura-cutlet-set.jpeg" alt="Gyukatsu set" style="width:100%; height:220px; object-fit:cover; display:block;">
+              <div style="padding:20px;">
+                <div style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#E0A03A; margin-bottom:9px;">Tokyo · Casual</div>
+                <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:22px; color:#F2EDE4; letter-spacing:-.015em;">Gyukatsu Motomura</div>
+                <p style="font-family:Newsreader,serif; font-size:15px; line-height:1.55; color:#9E968A; margin:8px 0 0;">The hot stone finishes each bite your way.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- atlas band -->
+        <div style="padding:58px 40px; display:flex; align-items:center; justify-content:space-between; gap:50px; border-top:1px solid rgba(242,237,228,.1);">
+          <div style="max-width:46ch;">
+            <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#E0A03A; margin-bottom:16px;">The Atlas</div>
+            <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:46px; line-height:1.02; letter-spacing:-.03em; color:#F2EDE4; margin:0 0 16px;">Every pin is a meal I can still describe.</h2>
+            <p style="font-family:Newsreader,serif; font-size:18px; line-height:1.6; color:#B7AF9F; margin:0 0 26px;">Browse by place instead of by post. Open a city, get the chapter and every food note attached to it.</p>
+            <a href="#1b" style="background:#E0A03A; color:#12100E; padding:15px 26px; font-size:12px; letter-spacing:.14em; text-transform:uppercase; font-weight:700;">Open the map</a>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:12px; font-family:'DM Mono',monospace; font-size:12px; color:#8E8676; min-width:280px;">
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid rgba(242,237,228,.1); padding-bottom:9px;"><span style="color:#F2EDE4;">Tokyo</span><span>35.68N 139.69E</span></div>
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid rgba(242,237,228,.1); padding-bottom:9px;"><span style="color:#F2EDE4;">Sapporo</span><span>43.06N 141.35E</span></div>
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid rgba(242,237,228,.1); padding-bottom:9px;"><span style="color:#F2EDE4;">Highlands</span><span>57.12N 4.71W</span></div>
+            <div style="display:flex; justify-content:space-between;"><span style="color:#F2EDE4;">Jakarta</span><span>6.21S 106.85E</span></div>
+          </div>
+        </div>
+
+        <div style="background:#F2EDE4; color:#12100E; padding:40px; display:flex; justify-content:space-between; align-items:flex-end;">
+          <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:44px; letter-spacing:-.035em;">nutnibbles<span style="color:#C8471F;">.</span></div>
+          <div style="display:flex; gap:38px; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; color:#4A443C;">
+            <a href="#1b">Chapters</a><a href="#1b">Food</a><a href="#1b">Atlas</a><a href="#1b">Work with me</a><a href="#1b">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════ 1c — ATLAS FIRST ══════════════ -->
+    <div id="1c" style="display:flex; flex-direction:column; gap:14px;">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div style="font-family:'DM Mono',monospace; font-size:12px; letter-spacing:.1em; background:#1F2A24; color:#F4F1EA; padding:5px 10px;">1c</div>
+        <div style="font-family:Karla,sans-serif; font-weight:700; font-size:15px; letter-spacing:.02em; color:#191713;">Atlas First — the map is the homepage</div>
+        <div style="font-family:'DM Mono',monospace; font-size:11px; color:#6C685B;">Newsreader + DM Mono · live, clickable world map</div>
+      </div>
+
+      <div style="width:1180px; background:#F4F1EA; box-shadow:0 30px 70px rgba(25,23,19,.16); overflow:hidden;">
+
+        <div style="display:flex; align-items:center; justify-content:space-between; padding:18px 40px; border-bottom:1px solid #DFD8C8;">
+          <div style="display:flex; align-items:center; gap:9px;">
+            <div style="width:9px; height:9px; border-radius:50%; background:#C2643A;"></div>
+            <div style="font-family:Newsreader,serif; font-size:22px; color:#1F2A24;">NutNibbles</div>
+          </div>
+          <div style="display:flex; gap:28px; font-family:'DM Mono',monospace; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; color:#54604F;">
+            <a href="#1c" style="color:#C2643A;">Atlas</a><a href="#1c">Trips</a><a href="#1c">Food</a><a href="#1c">Guides</a><a href="#1c">Work with me</a>
+          </div>
+        </div>
+
+        <!-- hero: map -->
+        <div style="display:grid; grid-template-columns:380px 1fr; border-bottom:1px solid #DFD8C8;">
+          <div style="padding:52px 36px; border-right:1px solid #DFD8C8; display:flex; flex-direction:column; justify-content:space-between;">
+            <div>
+              <div style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#C2643A; margin-bottom:22px;">Food &amp; travel diary · est. 2023</div>
+              <h1 style="font-family:Newsreader,serif; font-weight:300; font-size:52px; line-height:1.06; letter-spacing:-.02em; color:#1F2A24; margin:0 0 20px;">Start with a place, not a post.</h1>
+              <p style="font-family:Newsreader,serif; font-size:17.5px; line-height:1.65; color:#4F5B4C; margin:0;">Every pin holds the trip chapter and the meals attached to it. Japan and Scotland are done; Jakarta grows a few times a month.</p>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:11px; margin-top:36px;">
+              <a href="#1c" style="background:#1F2A24; color:#F4F1EA; padding:14px 22px; font-family:'DM Mono',monospace; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; text-align:center;">Browse all entries</a>
+              <a href="#1c" style="border:1px solid #CDC6B4; color:#1F2A24; padding:14px 22px; font-family:'DM Mono',monospace; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; text-align:center;">Newest: Kindling review</a>
+            </div>
+          </div>
+          <div style="position:relative; height:520px; background:#F4F1EA;">
+            <iframe src="map-atlas.html" title="Map of every place logged" style="width:100%; height:100%; border:0; display:block;"></iframe>
+          </div>
+        </div>
+
+        <!-- recent + shelves -->
+        <div style="display:grid; grid-template-columns:1.15fr .85fr;">
+          <div style="padding:48px 36px 48px 40px; border-right:1px solid #DFD8C8;">
+            <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:24px;">
+              <h2 style="font-family:Newsreader,serif; font-weight:400; font-size:30px; color:#1F2A24; margin:0;">Recent notes</h2>
+              <div style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#8B9184;">Updated weekly</div>
+            </div>
+            <div style="display:flex; flex-direction:column;">
+              <a href="#1c" style="display:grid; grid-template-columns:80px 1fr; gap:18px; padding:18px 0; border-top:1px solid #E3DDCD;" style-hover="opacity:.7">
+                <img src="https://nutsnibbles.cc/assets/images/jakarta/kindling-birthday/crab-custard.jpeg" alt="Crab custard" style="width:80px; height:80px; object-fit:cover;">
+                <div>
+                  <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:#C2643A; margin-bottom:7px;">Jakarta · Food · 12 Jul</div>
+                  <div style="font-family:Newsreader,serif; font-size:23px; color:#1F2A24; line-height:1.2;">Kindling, and a birthday dinner with the right pacing</div>
+                </div>
+              </a>
+              <a href="#1c" style="display:grid; grid-template-columns:80px 1fr; gap:18px; padding:18px 0; border-top:1px solid #E3DDCD;" style-hover="opacity:.7">
+                <img src="https://nutsnibbles.cc/assets/images/jakarta/august/restaurant-interior.jpeg" alt="August interior" style="width:80px; height:80px; object-fit:cover;">
+                <div>
+                  <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:#C2643A; margin-bottom:7px;">Jakarta · Food · 28 Jun</div>
+                  <div style="font-family:Newsreader,serif; font-size:23px; color:#1F2A24; line-height:1.2;">August: worth saving for, if the occasion is real</div>
+                </div>
+              </a>
+              <a href="#1c" style="display:grid; grid-template-columns:80px 1fr; gap:18px; padding:18px 0; border-top:1px solid #E3DDCD;" style-hover="opacity:.7">
+                <img src="https://nutsnibbles.cc/assets/images/japan-2025/tokyo/oshino-hakkai-fuji-view.jpeg" alt="Fuji from Oshino Hakkai" style="width:80px; height:80px; object-fit:cover;">
+                <div>
+                  <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:#54604F; margin-bottom:7px;">Japan · Chapter · 04 Jun</div>
+                  <div style="font-family:Newsreader,serif; font-size:23px; color:#1F2A24; line-height:1.2;">Tokyo stays, food, Fuji, and soft pauses</div>
+                </div>
+              </a>
+              <a href="#1c" style="display:grid; grid-template-columns:80px 1fr; gap:18px; padding:18px 0; border-top:1px solid #E3DDCD; border-bottom:1px solid #E3DDCD;" style-hover="opacity:.7">
+                <img src="https://nutsnibbles.cc/assets/images/uk-scotland-2023/glasgow-highlands/highlands-moody-road.jpeg" alt="Highland road" style="width:80px; height:80px; object-fit:cover;">
+                <div>
+                  <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:#54604F; margin-bottom:7px;">Scotland · Chapter · 19 May</div>
+                  <div style="font-family:Newsreader,serif; font-size:23px; color:#1F2A24; line-height:1.2;">The moody Highland road, revisited</div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div style="padding:48px 40px 48px 36px; background:#EFEBE0;">
+            <h2 style="font-family:Newsreader,serif; font-weight:400; font-size:30px; color:#1F2A24; margin:0 0 24px;">Shelves</h2>
+            <div style="display:flex; flex-direction:column; gap:14px;">
+              <a href="#1c" style="display:block; background:#F4F1EA; border:1px solid #DFD8C8; padding:20px;" style-hover="border-color:#C2643A">
+                <div style="display:flex; justify-content:space-between; align-items:baseline;">
+                  <div style="font-family:Newsreader,serif; font-size:24px; color:#1F2A24;">Japan 2025</div>
+                  <div style="font-family:'DM Mono',monospace; font-size:11px; color:#8B9184;">14 notes</div>
+                </div>
+                <p style="font-family:Newsreader,serif; font-size:15.5px; line-height:1.55; color:#5B6657; margin:8px 0 0;">Winter cities, snow, and every meal along the route.</p>
+              </a>
+              <a href="#1c" style="display:block; background:#F4F1EA; border:1px solid #DFD8C8; padding:20px;" style-hover="border-color:#C2643A">
+                <div style="display:flex; justify-content:space-between; align-items:baseline;">
+                  <div style="font-family:Newsreader,serif; font-size:24px; color:#1F2A24;">UK / Scotland 2023</div>
+                  <div style="font-family:'DM Mono',monospace; font-size:11px; color:#8B9184;">9 notes</div>
+                </div>
+                <p style="font-family:Newsreader,serif; font-size:15.5px; line-height:1.55; color:#5B6657; margin:8px 0 0;">Autumn roads, old cities, Highland weather.</p>
+              </a>
+              <a href="#1c" style="display:block; background:#F4F1EA; border:1px solid #DFD8C8; padding:20px;" style-hover="border-color:#C2643A">
+                <div style="display:flex; justify-content:space-between; align-items:baseline;">
+                  <div style="font-family:Newsreader,serif; font-size:24px; color:#1F2A24;">Jakarta table</div>
+                  <div style="font-family:'DM Mono',monospace; font-size:11px; color:#C2643A;">Growing</div>
+                </div>
+                <p style="font-family:Newsreader,serif; font-size:15.5px; line-height:1.55; color:#5B6657; margin:8px 0 0;">Restaurant reviews from home, a few every month.</p>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- diary card -->
+        <div style="padding:56px 40px; background:#1F2A24; display:grid; grid-template-columns:1fr 420px; gap:48px; align-items:center;">
+          <div>
+            <div style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#D89B6E; margin-bottom:18px;">Why it reads like a diary</div>
+            <h2 style="font-family:Newsreader,serif; font-weight:300; font-size:44px; line-height:1.12; color:#F4F1EA; margin:0 0 18px;">Honest context first. Pretty photos second.</h2>
+            <p style="font-family:Newsreader,serif; font-size:18px; line-height:1.65; color:#B9C2B4; margin:0 0 14px;">Each entry keeps the note I wrote at the time, then adds the practical part underneath: what it cost, who it suits, what I&rsquo;d skip. That&rsquo;s the bit that&rsquo;s still useful next year.</p>
+            <a href="#1c" style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#F4F1EA; border-bottom:1px solid #D89B6E; padding-bottom:5px;">About NutNibbles →</a>
+          </div>
+          <div style="background:#F4F1EA; padding:26px 26px 28px; box-shadow:0 20px 40px rgba(0,0,0,.25);">
+            <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#A39B8A; margin-bottom:12px;">Field note · 27 Jan 2025</div>
+            <p style="font-family:Newsreader,serif; font-style:italic; font-size:19.5px; line-height:1.55; color:#1F2A24; margin:0 0 16px;">&ldquo;The clouds never fully moved. Every time the peak showed for ten seconds, the whole field went quiet and then everybody laughed.&rdquo;</p>
+            <img src="https://nutsnibbles.cc/assets/images/japan-2025/tokyo/fuji-san-red-pagoda-view.jpeg" alt="Fuji behind a red pagoda roof" style="width:100%; height:150px; object-fit:cover; display:block;">
+          </div>
+        </div>
+
+        <!-- work with -->
+        <div style="padding:48px 40px; display:flex; align-items:center; justify-content:space-between; gap:40px;">
+          <div>
+            <h2 style="font-family:Newsreader,serif; font-weight:400; font-size:34px; color:#1F2A24; margin:0 0 8px;">Restaurants &amp; hotels: I&rsquo;m open to hosting.</h2>
+            <p style="font-family:Newsreader,serif; font-size:17px; color:#5B6657; margin:0;">Full reviews only, published honestly &mdash; rates and past work on the collaboration page.</p>
+          </div>
+          <a href="#1c" style="background:#C2643A; color:#F4F1EA; padding:16px 28px; font-family:'DM Mono',monospace; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; white-space:nowrap;">Work with NutNibbles</a>
+        </div>
+
+        <div style="background:#EFEBE0; border-top:1px solid #DFD8C8; padding:32px 40px; display:flex; justify-content:space-between; align-items:center; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#6E7568;">
+          <div>NutNibbles &copy; 2026</div>
+          <div style="display:flex; gap:30px;"><a href="#1c">Atlas</a><a href="#1c">Trips</a><a href="#1c">Food</a><a href="#1c">Work with me</a></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</x-dc>
+</body>
+</html>

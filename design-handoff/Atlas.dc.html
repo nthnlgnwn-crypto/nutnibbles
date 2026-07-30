@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:ital,wght@0,300..800;1,300..800&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#FAF5EC; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: #B0451C; }
+  ::selection { background:#E9C79A; }
+</style>
+</helmet>
+
+<div style="background:#FAF5EC; font-family:Karla, sans-serif;">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; padding:20px 56px; border-bottom:1px solid #E3DACA;">
+    <a href="Home.dc.html" style="display:flex; align-items:center;">
+      <span style="font-family:Karla,sans-serif; font-weight:800; font-size:19px; letter-spacing:.17em; color:#191713;">NUT</span>
+      <span style="width:5px; height:5px; border-radius:50%; background:#B0451C; margin:0 7px;"></span>
+      <span style="font-family:Karla,sans-serif; font-weight:800; font-size:19px; letter-spacing:.17em; color:#191713;">NIBBLES</span>
+    </a>
+    <nav style="display:flex; gap:30px; font-size:12.5px; letter-spacing:.12em; text-transform:uppercase; color:#4A463C; font-weight:600;">
+      <a href="Travel-Index.dc.html">Travel</a>
+      <a href="Food-Index.dc.html">Food</a>
+      <a href="Atlas.dc.html" style="border-bottom:2px solid #B0451C; padding-bottom:2px;">Atlas</a>
+      <a href="Work-With-Me.dc.html">Work with me</a>
+    </nav>
+    <div style="font-family:'DM Mono',monospace; font-size:11px; color:#8A8271;">20 entries</div>
+  </header>
+
+  <section style="padding:52px 56px 32px; display:grid; grid-template-columns:1fr 400px; gap:64px; align-items:end;">
+    <div>
+      <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#B0451C; margin-bottom:20px;">The Atlas</div>
+      <h1 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:76px; line-height:.98; letter-spacing:-.015em; color:#191713; margin:0 0 18px;">Every pin is a meal I can still describe.</h1>
+      <p style="font-family:Newsreader,serif; font-size:20px; line-height:1.6; color:#514B41; margin:0; max-width:52ch;">Browse by place instead of by post. Click a pin to see the chapter and every food note attached to it.</p>
+    </div>
+    <div style="display:flex; gap:32px; justify-content:flex-end;">
+      <div>
+        <div style="font-family:'Instrument Serif',serif; font-size:52px; color:#B0451C; line-height:1;">11</div>
+        <div style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#8A8271; margin-top:6px;">Food notes</div>
+      </div>
+      <div>
+        <div style="font-family:'Instrument Serif',serif; font-size:52px; color:#191713; line-height:1;">09</div>
+        <div style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#8A8271; margin-top:6px;">Trips</div>
+      </div>
+      <div>
+        <div style="font-family:'Instrument Serif',serif; font-size:52px; color:#191713; line-height:1;">13</div>
+        <div style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#8A8271; margin-top:6px;">Countries</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- filters -->
+  <section style="padding:0 56px 20px; display:flex; align-items:center; gap:10px;">
+    <div style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:#A39880; margin-right:8px;">Filter</div>
+    <span style="background:#191713; color:#FAF5EC; padding:9px 16px; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; cursor:pointer;">All</span>
+    <span style="border:1px solid #C9BFAB; color:#4A463C; padding:9px 16px; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; cursor:pointer;" style-hover="border-color:#B0451C">Travel chapters</span>
+    <span style="border:1px solid #C9BFAB; color:#4A463C; padding:9px 16px; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; cursor:pointer;" style-hover="border-color:#B0451C">Food notes</span>
+    <span style="border:1px solid #C9BFAB; color:#4A463C; padding:9px 16px; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; cursor:pointer;" style-hover="border-color:#B0451C">Japan</span>
+    <span style="border:1px solid #C9BFAB; color:#4A463C; padding:9px 16px; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; cursor:pointer;" style-hover="border-color:#B0451C">Indonesia</span>
+    <span style="border:1px solid #C9BFAB; color:#4A463C; padding:9px 16px; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; cursor:pointer;" style-hover="border-color:#B0451C">Thailand</span>
+    <span style="border:1px solid #C9BFAB; color:#4A463C; padding:9px 16px; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; cursor:pointer;" style-hover="border-color:#B0451C">UK</span>
+  </section>
+
+  <!-- map -->
+  <section style="padding:0 56px 56px;">
+    <div style="border:1px solid #E3DACA; height:620px; background:#F4F1EA;">
+      <iframe src="map-atlas.html" title="Map of every place logged in the journal" style="width:100%; height:100%; border:0; display:block;"></iframe>
+    </div>
+    <div style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.1em; color:#A39880; padding-top:10px;">Click a country to zoom into its cities · scroll or use +/&minus; to zoom, drag to pan. Map data &copy; Natural Earth.</div>
+  </section>
+
+  <!-- index by country -->
+  <section style="padding:0 56px 56px; display:grid; grid-template-columns:repeat(4,1fr); gap:32px;">
+    <div>
+      <div style="display:flex; align-items:baseline; justify-content:space-between; border-bottom:2px solid #191713; padding-bottom:12px; margin-bottom:8px;">
+        <h2 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:32px; color:#191713; margin:0;">Japan</h2>
+        <div style="font-family:'DM Mono',monospace; font-size:11px; color:#8A8271;">18&ndash;29 Jan 2025 · 12</div>
+      </div>
+      <a href="Trip-Japan-2025.dc.html" style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:15px 0; border-bottom:1px solid #E3DACA;" style-hover="color:#B0451C">
+        <span style="font-family:Newsreader,serif; font-size:19px; color:#191713;">Sapporo</span>
+        <span style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#8A8271;">Chapter · 5 food notes</span>
+      </a>
+      <a href="Trip-Japan-2025.dc.html" style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:15px 0; border-bottom:1px solid #E3DACA;" style-hover="color:#B0451C">
+        <span style="font-family:Newsreader,serif; font-size:19px; color:#191713;">Osaka</span>
+        <span style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#8A8271;">Chapter · 2 food notes</span>
+      </a>
+      <a href="Trip-Japan-2025.dc.html" style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:15px 0; border-bottom:1px solid #E3DACA;" style-hover="color:#B0451C">
+        <span style="font-family:Newsreader,serif; font-size:19px; color:#191713;">Kyoto</span>
+        <span style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#8A8271;">Day trip · 25 Jan</span>
+      </a>
+      <a href="Chapter-Tokyo.dc.html" style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:15px 0; border-bottom:1px solid #E3DACA;" style-hover="color:#B0451C">
+        <span style="font-family:Newsreader,serif; font-size:19px; color:#191713;">Tokyo</span>
+        <span style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#8A8271;">Chapter · 1 food note</span>
+      </a>
+    </div>
+    <div>
+      <div style="display:flex; align-items:baseline; justify-content:space-between; border-bottom:2px solid #191713; padding-bottom:12px; margin-bottom:8px;">
+        <h2 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:32px; color:#191713; margin:0;">Indonesia</h2>
+        <div style="font-family:'DM Mono',monospace; font-size:11px; color:#B0451C;">Growing · 2</div>
+      </div>
+      <a href="Food-Kindling.dc.html" style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:15px 0; border-bottom:1px solid #E3DACA;" style-hover="color:#B0451C">
+        <span style="font-family:Newsreader,serif; font-size:19px; color:#191713;">Kindling, Jakarta</span>
+        <span style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#8A8271;">9 May 2026 · Meter</span>
+      </a>
+      <a href="Food-Kindling.dc.html" style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:15px 0; border-bottom:1px solid #E3DACA;" style-hover="color:#B0451C">
+        <span style="font-family:Newsreader,serif; font-size:19px; color:#191713;">August, Jakarta</span>
+        <span style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#8A8271;">18 Apr 2026 · Meter</span>
+      </a>
+      <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:15px 0; border-bottom:1px solid #E3DACA; opacity:.55;">
+        <span style="font-family:Newsreader,serif; font-size:19px; color:#191713;">Next review</span>
+        <span style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#8A8271;">In progress</span>
+      </div>
+    </div>
+    <div>
+      <div style="display:flex; align-items:baseline; justify-content:space-between; border-bottom:2px solid #191713; padding-bottom:12px; margin-bottom:8px;">
+        <h2 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:32px; color:#191713; margin:0;">UK</h2>
+        <div style="font-family:'DM Mono',monospace; font-size:11px; color:#8A8271;">7&ndash;22 Nov 2023 · 4</div>
+      </div>
+      <a href="Home.dc.html" style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:15px 0; border-bottom:1px solid #E3DACA;" style-hover="color:#B0451C">
+        <span style="font-family:Newsreader,serif; font-size:19px; color:#191713;">London</span>
+        <span style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#8A8271;">Chapter · Arrived 7 Nov</span>
+      </a>
+      <a href="Home.dc.html" style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:15px 0; border-bottom:1px solid #E3DACA;" style-hover="color:#B0451C">
+        <span style="font-family:Newsreader,serif; font-size:19px; color:#191713;">Scottish Highlands</span>
+        <span style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#8A8271;">Chapter · Road trip</span>
+      </a>
+      <a href="Home.dc.html" style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:15px 0; border-bottom:1px solid #E3DACA;" style-hover="color:#B0451C">
+        <span style="font-family:Newsreader,serif; font-size:19px; color:#191713;">Edinburgh</span>
+        <span style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#8A8271;">Chapter · Old town</span>
+      </a>
+      <a href="Home.dc.html" style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:15px 0; border-bottom:1px solid #E3DACA;" style-hover="color:#B0451C">
+        <span style="font-family:Newsreader,serif; font-size:19px; color:#191713;">English road stops</span>
+        <span style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#8A8271;">Route notes</span>
+      </a>
+    </div>
+    <div>
+      <div style="display:flex; align-items:baseline; justify-content:space-between; border-bottom:2px solid #191713; padding-bottom:12px; margin-bottom:8px;">
+        <h2 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:32px; color:#191713; margin:0;">Thailand</h2>
+        <div style="font-family:'DM Mono',monospace; font-size:11px; color:#8A8271;">17 Jan 2026 · 1</div>
+      </div>
+      <a href="Food-Kindling.dc.html" style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:15px 0; border-bottom:1px solid #E3DACA;" style-hover="color:#B0451C">
+        <span style="font-family:Newsreader,serif; font-size:19px; color:#191713;">Saawaan, Bangkok</span>
+        <span style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#8A8271;">17 Jan 2026 · 7.7</span>
+      </a>
+      <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:15px 0; border-bottom:1px solid #E3DACA; opacity:.55;">
+        <span style="font-family:Newsreader,serif; font-size:19px; color:#191713;">More of Bangkok</span>
+        <span style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#8A8271;">Next trip</span>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#12100E; color:#CFC6B6; padding:48px 56px; display:flex; justify-content:space-between; align-items:flex-end;">
+    <div>
+      <div style="display:flex; align-items:center; margin-bottom:12px;">
+        <span style="font-family:Karla,sans-serif; font-weight:800; font-size:19px; letter-spacing:.17em; color:#FAF5EC;">NUT</span>
+        <span style="width:5px; height:5px; border-radius:50%; background:#B0451C; margin:0 7px;"></span>
+        <span style="font-family:Karla,sans-serif; font-weight:800; font-size:19px; letter-spacing:.17em; color:#FAF5EC;">NIBBLES</span>
+      </div>
+      <div style="font-family:Newsreader,serif; font-size:16px; font-style:italic; color:#9C9385;">Kept by hand since 2023.</div>
+    </div>
+    <div style="display:flex; gap:48px; font-size:12px; letter-spacing:.12em; text-transform:uppercase;">
+      <div style="display:flex; flex-direction:column; gap:10px;"><a href="Home.dc.html">Journal</a><a href="Travel-Index.dc.html">Travel</a></div>
+      <div style="display:flex; flex-direction:column; gap:10px;"><a href="Food-Index.dc.html">Food</a><a href="Atlas.dc.html">The Atlas</a></div>
+      <div style="display:flex; flex-direction:column; gap:10px;"><a href="Work-With-Me.dc.html">Work with me</a><a href="Home.dc.html">Instagram</a></div>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+</body>
+</html>
