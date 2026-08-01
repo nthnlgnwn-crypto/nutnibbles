@@ -1,8 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>document.documentElement.classList.remove('no-js');</script>
     <title>Food | NutNibbles</title>
     <meta name="description" content="Food stories, snacks, cafes, markets, and memorable meals from NutNibbles.">
     <link rel="canonical" href="https://nutsnibbles.cc/food/">
@@ -23,216 +24,401 @@
   <body>
     <header class="site-header">
       <a class="brand" href="../index.html" aria-label="NutNibbles home">
-        <img class="brand-mark" src="../assets/images/nutnibbles-logo.webp" alt="">
-        <span>NutNibbles</span>
+        <span>Nut</span><span class="brand-dot" aria-hidden="true"></span><span>Nibbles</span>
       </a>
       <nav class="nav-links" aria-label="Main navigation">
         <a href="../travel/index.html">Travel</a>
         <a href="index.html" aria-current="page">Food</a>
+        <a href="../work-with-nutnibbles/index.html">Work with me</a>
       </nav>
+      <span class="site-header-meta">11 notes</span>
     </header>
 
     <main>
-      <section class="page-hero hub-hero hub-hero--food">
-        <p class="eyebrow">Food</p>
-        <h1>Tasted stories from every stop.</h1>
-        <p>Personal food memories rather than ranked lists: what fit the day, what surprised me, what I would actually recommend, and what I would skip next time.</p>
+      <section class="hub-title">
+        <div class="hub-title-copy">
+          <p class="eyebrow">Food notes</p>
+          <h1>Every meal, scored the same way.</h1>
+          <p>Jakarta reviews every few weeks, plus the meals worth writing about from each trip. Full reviews carry a Signature Meter; shorter notes just tell you whether to bother.</p>
+        </div>
+        <dl class="hub-title-meta">
+          <div>
+            <dt>Signature Meter</dt>
+            <dd>Saawaan &mdash; 7.7, the only scored review</dd>
+          </div>
+          <div>
+            <dt>Home base</dt>
+            <dd>Jakarta &mdash; the list that keeps growing</dd>
+          </div>
+          <div>
+            <dt>Disclosure</dt>
+            <dd>All paid in full unless a note says otherwise</dd>
+          </div>
+        </dl>
       </section>
 
-      <section class="index-guide food-start-guide" aria-label="Food browsing guide">
-        <div class="index-guide-header">
-          <p class="eyebrow">Browse by Use Case</p>
-          <h2>Choose the kind of meal you need.</h2>
-          <p>Open the special-occasion reviews when you are choosing a restaurant. Open the Japan food notes when you want trip-friendly meals, snacks, and comfort stops by city.</p>
+      <section class="food-controls" aria-label="Filter and sort food notes">
+        <div class="food-controls-group">
+          <span class="food-controls-label" id="place-label">Place</span>
+          <div class="chip-row" role="group" aria-labelledby="place-label" data-chip-group="place">
+            <button type="button" data-value="all" aria-pressed="true">All</button>
+            <button type="button" data-value="jakarta" aria-pressed="false">Jakarta</button>
+            <button type="button" data-value="bangkok" aria-pressed="false">Bangkok</button>
+            <button type="button" data-value="tokyo" aria-pressed="false">Tokyo</button>
+            <button type="button" data-value="osaka" aria-pressed="false">Osaka</button>
+            <button type="button" data-value="sapporo" aria-pressed="false">Sapporo</button>
+          </div>
         </div>
-        <div class="index-guide-grid">
-          <a class="index-guide-card" href="#special-occasion">
-            <span>Full reviews</span>
-            <h3>Special-occasion dining</h3>
-            <p>Fine dining notes with clearer verdicts, best-for context, and what made each dinner worth remembering.</p>
-          </a>
-          <a class="index-guide-card" href="#sapporo-food">
-            <span>Japan comfort</span>
-            <h3>Sapporo food stops</h3>
-            <p>Ramen, seafood, convenience-store dinner, shrine-day lunch, and a winter soft-serve stop.</p>
-          </a>
-          <a class="index-guide-card" href="#kansai-tokyo-food">
-            <span>City meals</span>
-            <h3>Osaka and Tokyo favorites</h3>
-            <p>Yakiniku, curry comfort, and the Tokyo gyukatsu meal that still feels like one of the trip’s strongest food memories.</p>
-          </a>
-        </div>
-      </section>
-
-      <section class="food-index-group" id="special-occasion" aria-labelledby="special-occasion-heading">
-        <div class="food-index-group-header">
-          <p class="eyebrow">Full Reviews</p>
-          <h2 id="special-occasion-heading">Special-occasion dining</h2>
-          <p>Use these when you are looking for a date-night, birthday-dinner, or fine-dining reference across Jakarta and Bangkok, not just a quick food photo.</p>
-        </div>
-        <div class="food-index-grid">
-          <article class="food-preview-card">
-            <a class="food-preview-image" href="august-jakarta-dinner/index.html">
-              <img src="../assets/images/jakarta/august/teh-kotak.jpeg" alt="Teh Kotak dessert presentation at August Jakarta" loading="lazy" decoding="async">
-            </a>
-            <span>Jakarta / Date Night</span>
-            <h3><a href="august-jakarta-dinner/index.html">August Jakarta Dinner</a></h3>
-            <p>A third visit to August Jakarta that still feels worth it, with Teh Kotak, BTM Noodle, striploin, warm service, and polished special-occasion energy.</p>
-            <div class="collection-card-tags" aria-label="August Jakarta review highlights">
-              <b>Fine dining</b>
-              <b>Date night</b>
-              <b>Special occasion</b>
-            </div>
-          </article>
-          <article class="food-preview-card">
-            <a class="food-preview-image" href="kindling-jakarta-birthday-dinner/index.html">
-              <img src="../assets/images/jakarta/kindling-birthday/crab-custard.jpeg" alt="Kindling crab custard served in a white cup with amaebi and dark sauce" loading="lazy" decoding="async">
-            </a>
-            <span>Jakarta / Birthday Dinner</span>
-            <h3><a href="kindling-jakarta-birthday-dinner/index.html">Kindling Birthday Dinner</a></h3>
-            <p>A cozy fine dining birthday dinner with three rooms, thoughtful service, crab custard, steak, duck, and a chef greeting.</p>
-            <div class="collection-card-tags" aria-label="Kindling review highlights">
-              <b>Special occasion</b>
-              <b>Set menu</b>
-              <b>Personal review</b>
-            </div>
-          </article>
-          <article class="food-preview-card">
-            <a class="food-preview-image" href="saawaan-bangkok-jan-2026/index.html">
-              <img src="../assets/images/saawaan-bangkok-jan-2026/saawaan-opening-course.jpeg" alt="Sculptural opening course at Saawaan Bangkok" loading="lazy" decoding="async">
-            </a>
-            <span>Bangkok / Dinner Date</span>
-            <h3><a href="saawaan-bangkok-jan-2026/index.html">Saawaan Bangkok Dinner</a></h3>
-            <p>A polished Thai fine dining dinner with great service, strong craft, Larb and Fermented highlights, Raw as the weakest dish, and a careful 7.7/10 verdict.</p>
-            <div class="collection-card-tags" aria-label="Saawaan Bangkok review highlights">
-              <b>Fine dining</b>
-              <b>Bangkok</b>
-              <b>7.7 / 10</b>
-            </div>
-          </article>
+        <div class="food-controls-group">
+          <span class="food-controls-label" id="sort-label">Sort</span>
+          <div class="chip-row" role="group" aria-labelledby="sort-label" data-chip-group="sort">
+            <button type="button" data-value="recent" aria-pressed="true">Newest</button>
+            <button type="button" data-value="place" aria-pressed="false">Place</button>
+          </div>
         </div>
       </section>
 
-      <section class="food-index-group" id="sapporo-food" aria-labelledby="sapporo-food-heading">
-        <div class="food-index-group-header">
-          <p class="eyebrow">Japan / Sapporo</p>
-          <h2 id="sapporo-food-heading">Snow-day food notes</h2>
-          <p>Hokkaido gave the trip its widest food range: late ramen, seafood, a hotel-room convenience dinner, a shrine-day plate, and one soft-serve memory in freezing weather.</p>
-        </div>
-        <div class="food-index-grid">
-          <article class="food-preview-card">
-            <a class="food-preview-image" href="sapporo-ramen-alley/index.html">
-              <img src="../assets/images/japan-2025/sapporo/ramen-bowl.jpeg" alt="A bowl of ramen with egg, pork, scallions, and savoury broth" loading="lazy" decoding="async">
-            </a>
-            <span>Sapporo / Arrival Night</span>
-            <h3><a href="sapporo-ramen-alley/index.html">Arrival Night Ramen Alley</a></h3>
-            <p>A late 22:30 bowl after landing in Hokkaido, with savoury broth and a cramped-but-cozy ramen shop feel.</p>
-            <div class="collection-card-tags" aria-label="Ramen alley review highlights">
-              <b>Late-night meal</b>
-              <b>Travel comfort</b>
+      <div class="filter-anchors" aria-hidden="true">
+        <span id="special-occasion"></span>
+        <span id="sapporo-food"></span>
+        <span id="kansai-tokyo-food"></span>
+      </div>
+
+      <div class="food-count-row">
+        <p class="food-count" aria-live="polite">11 notes across 5 places</p>
+        <p class="food-sort-note">Newest first</p>
+      </div>
+
+      <section class="food-index-grid">
+        <a class="food-preview-card" href="kindling-jakarta-birthday-dinner/index.html" data-place="jakarta" data-kind="review" data-sort="20260509" data-score="">
+          <div class="food-preview-image">
+            <img src="../assets/images/jakarta/kindling-birthday/crab-custard.jpeg" alt="Kindling crab custard served in a white cup with amaebi and dark sauce" width="768" height="1024" loading="lazy" decoding="async">
+          </div>
+          <div class="food-preview-body">
+            <div class="food-preview-meta">
+              <span>Jakarta &middot; Review</span>
+              <span class="food-preview-date">9 May 2026</span>
             </div>
-          </article>
-          <article class="food-preview-card">
-            <a class="food-preview-image" href="sapporo-seafood-lunch/index.html">
-              <img src="../assets/images/japan-2025/sapporo/sapporo-lunch-salmon-sashimi.jpeg" alt="Fresh salmon sashimi rice bowl from Sapporo lunch" loading="lazy" decoding="async">
-            </a>
-            <span>Sapporo / Seafood Lunch</span>
-            <h3><a href="sapporo-seafood-lunch/index.html">Fresh Salmon and King Crab Lunch</a></h3>
-            <p>The restaurant name is forgotten for now, but the fresh salmon sashimi and juicy king crab leg were worth remembering.</p>
-            <div class="collection-card-tags" aria-label="Seafood lunch review highlights">
-              <b>Seafood</b>
-              <b>Freshness</b>
+            <h3>Kindling</h3>
+            <p>Three-room set menu that felt intimate rather than polished. Crab custard was the peak.</p>
+            <span class="food-preview-verdict">Expensive but worth it &middot; birthday dinner</span>
+          </div>
+        </a>
+        <a class="food-preview-card" href="august-jakarta-dinner/index.html" data-place="jakarta" data-kind="review" data-sort="20260418" data-score="">
+          <div class="food-preview-image">
+            <img src="../assets/images/jakarta/august/teh-kotak.jpeg" alt="Teh Kotak dessert presentation at August Jakarta" width="768" height="1024" loading="lazy" decoding="async">
+          </div>
+          <div class="food-preview-body">
+            <div class="food-preview-meta">
+              <span>Jakarta &middot; Review</span>
+              <span class="food-preview-date">18 Apr 2026</span>
             </div>
-          </article>
-          <article class="food-preview-card">
-            <a class="food-preview-image" href="sapporo-711-dinner/index.html">
-              <img src="../assets/images/japan-2025/sapporo/sapporo-711-dinner.jpeg" alt="7-Eleven dinner spread with crab, egg, grilled chicken, and snacks" loading="lazy" decoding="async">
-            </a>
-            <span>Sapporo / Hotel Night</span>
-            <h3><a href="sapporo-711-dinner/index.html">7-Eleven Hotel Dinner</a></h3>
-            <p>A relaxed hotel-room dinner after Mt. Moiwa, with convenience store snacks, crab-style bites, egg, chicken, and dessert.</p>
-            <div class="collection-card-tags" aria-label="7-Eleven dinner review highlights">
-              <b>Convenience finds</b>
-              <b>Casual meal</b>
+            <h3>August</h3>
+            <p>Third visit and still no weak dish. Warmer-modern where Kindling is nostalgic.</p>
+            <span class="food-preview-verdict">Worth it &middot; date night</span>
+          </div>
+        </a>
+        <a class="food-preview-card" href="saawaan-bangkok-jan-2026/index.html" data-place="bangkok" data-kind="review" data-sort="20260117" data-score="7.7">
+          <div class="food-preview-image">
+            <img src="../assets/images/saawaan-bangkok-jan-2026/saawaan-opening-course.jpeg" alt="Sculptural opening course at Saawaan Bangkok" width="1350" height="1800" loading="lazy" decoding="async">
+            <span class="food-preview-score">7.7</span>
+          </div>
+          <div class="food-preview-body">
+            <div class="food-preview-meta">
+              <span>Bangkok &middot; Review</span>
+              <span class="food-preview-date">17 Jan 2026</span>
             </div>
-          </article>
-          <article class="food-preview-card">
-            <a class="food-preview-image" href="hokkaido-jingu-lunch/index.html">
-              <img src="../assets/images/japan-2025/sapporo/hokkaido-jingu-nearby-lunch.jpeg" alt="Lunch plate with omurice, fried seafood, salad, and hamburger patty" loading="lazy" decoding="async">
-            </a>
-            <span>Sapporo / Shrine Day</span>
-            <h3><a href="hokkaido-jingu-lunch/index.html">Lunch Near Hokkaido Jingu</a></h3>
-            <p>A comforting lunch plate after the shrine, with omurice, fried seafood, salad, and hamburger-style patty.</p>
-            <div class="collection-card-tags" aria-label="Hokkaido Jingu lunch review highlights">
-              <b>Comfort food</b>
-              <b>Travel pause</b>
+            <h3>Saawaan</h3>
+            <p>Serious Thai craft and excellent service, but the Raw course was the clear miss.</p>
+            <span class="food-preview-verdict">Beautiful craft, not automatic return</span>
+          </div>
+        </a>
+        <a class="food-preview-card" href="tokyo-gyukatsu-motomura/index.html" data-place="tokyo" data-kind="note" data-sort="20250126" data-score="">
+          <div class="food-preview-image">
+            <img src="../assets/images/japan-2025/tokyo/gyukatsu-motomura-cutlet-set.jpeg" alt="Gyukatsu Motomura beef cutlet set with sides and rice" width="1200" height="1600" loading="lazy" decoding="async">
+          </div>
+          <div class="food-preview-body">
+            <div class="food-preview-meta">
+              <span>Tokyo &middot; Food note</span>
+              <span class="food-preview-date">26 Jan 2025</span>
             </div>
-          </article>
-          <article class="food-preview-card">
-            <a class="food-preview-image" href="shiroi-koibito-soft-serve/index.html">
-              <img src="../assets/images/japan-2025/sapporo/shiroi-koibito-soft-serve.jpeg" alt="Soft serve ice cream cups outside Shiroi Koibito Park in winter" loading="lazy" decoding="async">
-            </a>
-            <span>Sapporo / Sweet Stop</span>
-            <h3><a href="shiroi-koibito-soft-serve/index.html">Shiroi Koibito Soft Serve</a></h3>
-            <p>A delicate, sweet soft serve eaten outside in freezing Sapporo weather after seeing how the biscuits are made.</p>
-            <div class="collection-card-tags" aria-label="Shiroi Koibito review highlights">
-              <b>Dessert</b>
-              <b>Winter snack</b>
+            <h3>Gyukatsu Motomura</h3>
+            <p>The hot stone lets you finish each bite yourself. Best first meal of the Tokyo leg.</p>
+            <span class="food-preview-verdict">Go &middot; best gyukatsu</span>
+          </div>
+        </a>
+        <a class="food-preview-card" href="osaka-coco-curry-shin-umeda/index.html" data-place="osaka" data-kind="note" data-sort="20250123" data-score="">
+          <div class="food-preview-image">
+            <img src="../assets/images/japan-2025/osaka/coco-ichibanya-shin-umeda-curry.jpeg" alt="CoCo Ichibanya curry with fried cutlet and spinach in Osaka" width="1200" height="1600" loading="lazy" decoding="async">
+          </div>
+          <div class="food-preview-body">
+            <div class="food-preview-meta">
+              <span>Osaka &middot; Food note</span>
+              <span class="food-preview-date">23 Jan 2025</span>
             </div>
-          </article>
+            <h3>CoCo Curry, Shin Umeda</h3>
+            <p>After Osaka Castle: crispy cutlet, warm sauce, easy travel-day comfort.</p>
+            <span class="food-preview-verdict">Fine &middot; easy lunch</span>
+          </div>
+        </a>
+        <a class="food-preview-card" href="osaka-ryunosu-lunch/index.html" data-place="osaka" data-kind="note" data-sort="20250122" data-score="">
+          <div class="food-preview-image">
+            <img src="../assets/images/japan-2025/osaka/ryunosu-yakiniku-meat.jpeg" alt="Assorted wagyu beef plate at Ryunosu in Osaka" width="1200" height="1600" loading="lazy" decoding="async">
+          </div>
+          <div class="food-preview-body">
+            <div class="food-preview-meta">
+              <span>Osaka &middot; Food note</span>
+              <span class="food-preview-date">22 Jan 2025</span>
+            </div>
+            <h3>Ryunosu yakiniku</h3>
+            <p>Yakiniku near Shinsaibashi &mdash; legitly good meat, plus a big udon bowl.</p>
+            <span class="food-preview-verdict">Go &middot; late lunch</span>
+          </div>
+        </a>
+        <a class="food-preview-card" href="shiroi-koibito-soft-serve/index.html" data-place="sapporo" data-kind="note" data-sort="20250120.2" data-score="">
+          <div class="food-preview-image">
+            <img src="../assets/images/japan-2025/sapporo/shiroi-koibito-soft-serve.jpeg" alt="Soft serve ice cream cups outside Shiroi Koibito Park in winter" width="768" height="1024" loading="lazy" decoding="async">
+          </div>
+          <div class="food-preview-body">
+            <div class="food-preview-meta">
+              <span>Sapporo &middot; Food note</span>
+              <span class="food-preview-date">20 Jan 2025</span>
+            </div>
+            <h3>Shiroi Koibito soft serve</h3>
+            <p>Delicate and sweet, eaten outside in freezing weather after the biscuit tour.</p>
+            <span class="food-preview-verdict">Go once &middot; sweet stop</span>
+          </div>
+        </a>
+        <a class="food-preview-card" href="hokkaido-jingu-lunch/index.html" data-place="sapporo" data-kind="note" data-sort="20250120.1" data-score="">
+          <div class="food-preview-image">
+            <img src="../assets/images/japan-2025/sapporo/hokkaido-jingu-nearby-lunch.jpeg" alt="Lunch plate with omurice, fried seafood, salad, and hamburger patty" width="768" height="1024" loading="lazy" decoding="async">
+          </div>
+          <div class="food-preview-body">
+            <div class="food-preview-meta">
+              <span>Sapporo &middot; Food note</span>
+              <span class="food-preview-date">20 Jan 2025</span>
+            </div>
+            <h3>Lunch near Hokkaido Jingu</h3>
+            <p>Omurice, fried seafood, salad, hamburger patty &mdash; comfort after the shrine.</p>
+            <span class="food-preview-verdict">Fine &middot; shrine day</span>
+          </div>
+        </a>
+        <a class="food-preview-card" href="sapporo-711-dinner/index.html" data-place="sapporo" data-kind="note" data-sort="20250119.2" data-score="">
+          <div class="food-preview-image">
+            <img src="../assets/images/japan-2025/sapporo/sapporo-711-dinner.jpeg" alt="7-Eleven dinner spread with crab, egg, grilled chicken, and snacks" width="1200" height="1600" loading="lazy" decoding="async">
+          </div>
+          <div class="food-preview-body">
+            <div class="food-preview-meta">
+              <span>Sapporo &middot; Food note</span>
+              <span class="food-preview-date">19 Jan 2025</span>
+            </div>
+            <h3>7-Eleven hotel dinner</h3>
+            <p>After Mt. Moiwa: convenience store snacks, crab-style bites, egg, chicken, dessert.</p>
+            <span class="food-preview-verdict">Do it &middot; hotel night</span>
+          </div>
+        </a>
+        <a class="food-preview-card" href="sapporo-seafood-lunch/index.html" data-place="sapporo" data-kind="note" data-sort="20250119.1" data-score="">
+          <div class="food-preview-image">
+            <img src="../assets/images/japan-2025/sapporo/sapporo-lunch-salmon-sashimi.jpeg" alt="Fresh salmon sashimi rice bowl from Sapporo lunch" width="1200" height="1600" loading="lazy" decoding="async">
+          </div>
+          <div class="food-preview-body">
+            <div class="food-preview-meta">
+              <span>Sapporo &middot; Food note</span>
+              <span class="food-preview-date">19 Jan 2025</span>
+            </div>
+            <h3>Salmon &amp; king crab lunch</h3>
+            <p>Restaurant name forgotten, but the salmon sashimi and king crab leg stuck.</p>
+            <span class="food-preview-verdict">Go &middot; seafood</span>
+          </div>
+        </a>
+        <a class="food-preview-card" href="sapporo-ramen-alley/index.html" data-place="sapporo" data-kind="note" data-sort="20250118" data-score="">
+          <div class="food-preview-image">
+            <img src="../assets/images/japan-2025/sapporo/ramen-bowl.jpeg" alt="A bowl of ramen with egg, pork, scallions, and savoury broth" width="1200" height="1600" loading="lazy" decoding="async">
+          </div>
+          <div class="food-preview-body">
+            <div class="food-preview-meta">
+              <span>Sapporo &middot; Food note</span>
+              <span class="food-preview-date">18 Jan 2025</span>
+            </div>
+            <h3>Arrival night ramen</h3>
+            <p>A late 22:30 bowl after landing in Hokkaido. Cramped, cozy, savoury broth.</p>
+            <span class="food-preview-verdict">Go &middot; first night</span>
+          </div>
+        </a>
+        <div class="food-empty-state" hidden>
+          <h3>Nothing written in <span data-empty-place>this city</span> yet.</h3>
+          <p>We ate there. It just hasn&rsquo;t been written up.</p>
+          <button type="button" class="button secondary" data-reset-filter>Show all notes</button>
         </div>
       </section>
 
-      <section class="food-index-group food-index-group--last" id="kansai-tokyo-food" aria-labelledby="kansai-tokyo-food-heading">
-        <div class="food-index-group-header">
-          <p class="eyebrow">Japan / Osaka + Tokyo</p>
-          <h2 id="kansai-tokyo-food-heading">City meals and comfort stops</h2>
-          <p>Open these when you want the practical food side of the Japan route: post-arrival yakiniku, curry after sightseeing, and a Tokyo beef cutlet lunch worth remembering.</p>
+      <section class="food-coming-next">
+        <div>
+          <p class="eyebrow">Coming next</p>
+          <h2>More Jakarta, and a Malang list.</h2>
+          <p>A new review every few weeks. The monthly letter goes out before anything is polished.</p>
         </div>
-        <div class="food-index-grid">
-          <article class="food-preview-card">
-            <a class="food-preview-image" href="osaka-ryunosu-lunch/index.html">
-              <img src="../assets/images/japan-2025/osaka/ryunosu-yakiniku-meat.jpeg" alt="Assorted wagyu beef plate at Ryunosu in Osaka" loading="lazy" decoding="async">
-            </a>
-            <span>Osaka / Late Lunch</span>
-            <h3><a href="osaka-ryunosu-lunch/index.html">Ryunosu Late Lunch</a></h3>
-            <p>Yakiniku near Shinsaibashi with legitly good meat and a large, tasty udon bowl after landing in Osaka.</p>
-            <div class="collection-card-tags" aria-label="Ryunosu review highlights">
-              <b>Yakiniku</b>
-              <b>Worth repeating</b>
-            </div>
-          </article>
-          <article class="food-preview-card">
-            <a class="food-preview-image" href="osaka-coco-curry-shin-umeda/index.html">
-              <img src="../assets/images/japan-2025/osaka/coco-ichibanya-shin-umeda-curry.jpeg" alt="CoCo Ichibanya curry with fried cutlet and spinach in Osaka" loading="lazy" decoding="async">
-            </a>
-            <span>Osaka / Easy Lunch</span>
-            <h3><a href="osaka-coco-curry-shin-umeda/index.html">CoCo Curry Shin Umeda</a></h3>
-            <p>A simple, filling curry lunch after Osaka Castle, with crispy cutlet, warm sauce, and easy travel-day comfort.</p>
-            <div class="collection-card-tags" aria-label="CoCo curry review highlights">
-              <b>Chain comfort</b>
-              <b>Quick stop</b>
-            </div>
-          </article>
-          <article class="food-preview-card">
-            <a class="food-preview-image" href="tokyo-gyukatsu-motomura/index.html">
-              <img src="../assets/images/japan-2025/tokyo/gyukatsu-motomura-cutlet-set.jpeg" alt="Gyukatsu Motomura beef cutlet set with sides and rice" loading="lazy" decoding="async">
-            </a>
-            <span>Tokyo / Late Lunch</span>
-            <h3><a href="tokyo-gyukatsu-motomura/index.html">Gyukatsu Motomura Late Lunch</a></h3>
-            <p>A late lunch after flying into Tokyo, with crispy beef cutlet, hot stones, rice bowls, and best-meal energy.</p>
-            <div class="collection-card-tags" aria-label="Gyukatsu Motomura review highlights">
-              <b>Best meal</b>
-              <b>Tokyo favorite</b>
-            </div>
-          </article>
-        </div>
+        <a class="button accent" href="../index.html">Get the letter</a>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>NutNibbles</p>
-      <p><a href="../index.html">Home</a> / <a href="../japan-guide/index.html">Japan Guide</a> / <a href="../work-with-nutnibbles/index.html">Work With NutNibbles</a></p>
+      <div class="site-footer-brand">
+        <a class="brand" href="../index.html" aria-label="NutNibbles home">
+          <span>Nut</span><span class="brand-dot" aria-hidden="true"></span><span>Nibbles</span>
+        </a>
+        <p class="site-footer-tagline">Kept by hand since 2023.</p>
+      </div>
+      <div class="site-footer-links">
+        <div>
+          <a href="../travel/index.html">Travel</a>
+          <a href="../food/index.html">Food</a>
+        </div>
+        <div>
+          <a href="../japan-guide/index.html">Japan guide</a>
+        </div>
+        <div>
+          <a href="../work-with-nutnibbles/index.html">Work with me</a>
+        </div>
+      </div>
     </footer>
+    <script defer>
+      (function () {
+        var VALID_PLACES = ["all", "jakarta", "bangkok", "tokyo", "osaka", "sapporo"];
+        var VALID_SORTS = ["recent", "place"];
+        var PLACE_LABELS = { jakarta: "Jakarta", bangkok: "Bangkok", tokyo: "Tokyo", osaka: "Osaka", sapporo: "Sapporo" };
+        var SORT_NOTES = { recent: "Newest first", place: "Grouped by city" };
+        var HASH_PRESETS = {
+          "#special-occasion": { place: "all", sort: "recent", kind: "review" },
+          "#sapporo-food": { place: "sapporo", sort: "recent", kind: null },
+          "#kansai-tokyo-food": { place: "osaka", sort: "recent", kind: null }
+        };
+
+        var grid = document.querySelector(".food-index-grid");
+        var cards = Array.prototype.slice.call(document.querySelectorAll(".food-preview-card"));
+        var countEl = document.querySelector(".food-count");
+        var sortEl = document.querySelector(".food-sort-note");
+        var emptyEl = document.querySelector(".food-empty-state");
+        var emptyPlaceEl = emptyEl.querySelector("[data-empty-place]");
+        var placeButtons = Array.prototype.slice.call(document.querySelectorAll('[data-chip-group="place"] button'));
+        var sortButtons = Array.prototype.slice.call(document.querySelectorAll('[data-chip-group="sort"] button'));
+
+        var state = readInitialState();
+
+        function readInitialState() {
+          var preset = HASH_PRESETS[location.hash];
+          if (preset) {
+            return { place: preset.place, sort: preset.sort, kind: preset.kind, fromHash: true };
+          }
+          var params = new URLSearchParams(location.search);
+          var place = params.get("place");
+          var sort = params.get("sort");
+          var kind = params.get("kind");
+          return {
+            place: VALID_PLACES.indexOf(place) !== -1 ? place : "all",
+            sort: VALID_SORTS.indexOf(sort) !== -1 ? sort : "recent",
+            kind: kind === "review" ? "review" : null,
+            fromHash: false
+          };
+        }
+
+        function syncUrl() {
+          var params = new URLSearchParams();
+          if (state.place !== "all") params.set("place", state.place);
+          if (state.sort !== "recent") params.set("sort", state.sort);
+          if (state.kind) params.set("kind", state.kind);
+          var qs = params.toString();
+          history.replaceState(null, "", location.pathname + (qs ? "?" + qs : ""));
+        }
+
+        function render() {
+          var visible = cards.filter(function (card) {
+            if (state.kind) return card.dataset.kind === state.kind;
+            return state.place === "all" || card.dataset.place === state.place;
+          });
+
+          cards.forEach(function (card) {
+            card.hidden = visible.indexOf(card) === -1;
+          });
+
+          visible
+            .slice()
+            .sort(function (a, b) {
+              if (state.sort === "place") {
+                if (a.dataset.place !== b.dataset.place) {
+                  return a.dataset.place < b.dataset.place ? -1 : 1;
+                }
+                return parseFloat(b.dataset.sort) - parseFloat(a.dataset.sort);
+              }
+              return parseFloat(b.dataset.sort) - parseFloat(a.dataset.sort);
+            })
+            .forEach(function (card, i) {
+              card.style.order = i;
+            });
+
+          placeButtons.forEach(function (btn) {
+            btn.setAttribute("aria-pressed", String(!state.kind && btn.dataset.value === state.place));
+          });
+          sortButtons.forEach(function (btn) {
+            btn.setAttribute("aria-pressed", String(btn.dataset.value === state.sort));
+          });
+
+          var n = visible.length;
+          var noun = n === 1 ? " note" : " notes";
+          var countText;
+          if (state.kind === "review") {
+            countText = n + noun + " — full reviews";
+          } else if (state.place === "all") {
+            countText = n + noun + " across 5 places";
+          } else {
+            countText = n + noun + " in " + PLACE_LABELS[state.place];
+          }
+          countEl.textContent = countText;
+          sortEl.textContent = SORT_NOTES[state.sort];
+
+          if (n === 0) {
+            emptyPlaceEl.textContent = state.place !== "all" ? PLACE_LABELS[state.place] : "this city";
+            emptyEl.hidden = false;
+          } else {
+            emptyEl.hidden = true;
+          }
+        }
+
+        function setPlace(value) {
+          state = { place: value, sort: state.sort, kind: null };
+          syncUrl();
+          render();
+        }
+
+        function setSort(value) {
+          state = { place: state.place, sort: value, kind: null };
+          syncUrl();
+          render();
+        }
+
+        placeButtons.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            setPlace(btn.dataset.value);
+          });
+        });
+
+        sortButtons.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            setSort(btn.dataset.value);
+          });
+        });
+
+        var resetBtn = emptyEl.querySelector("[data-reset-filter]");
+        resetBtn.addEventListener("click", function () {
+          setPlace("all");
+        });
+
+        if (state.fromHash) {
+          history.replaceState(null, "", location.pathname + location.search);
+        }
+        syncUrl();
+        render();
+      })();
+    </script>
   </body>
 </html>
