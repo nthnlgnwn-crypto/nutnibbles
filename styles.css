@@ -462,6 +462,16 @@ h3 {
   margin: 0 auto 26px;
 }
 
+/* .latest already resolves --container-width for its own box; a .section-heading
+   or .collection-grid nested inside it would resolve the same fluid formula again
+   against the already-narrowed parent, landing 40px too narrow. */
+.latest .section-heading,
+.latest .collection-grid {
+  width: auto;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 /* Full-bleed closing band. */
 .site-footer {
   width: 100%;
