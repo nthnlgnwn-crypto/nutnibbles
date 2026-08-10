@@ -3433,6 +3433,310 @@ figure.photo-lead figcaption {
   aspect-ratio: 16 / 10;
 }
 
+/* Atlas page */
+
+.atlas-map-section {
+  padding: 0 var(--container-inline) var(--section-gap);
+}
+
+.atlas-map-frame {
+  position: relative;
+  height: 620px;
+  background: var(--paper-sunken);
+  border: 1px solid var(--rule);
+}
+
+.atlas-map-noscript {
+  display: none;
+  max-width: 46ch;
+  margin: 0;
+  padding: 24px;
+  color: var(--body);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.no-js .atlas-map-noscript {
+  display: block;
+}
+
+.no-js .atlas-wrap {
+  display: none;
+}
+
+.atlas-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.atlas-wrap.dragging {
+  cursor: grabbing;
+}
+
+.atlas-wrap svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.atlas-wrap .lbl {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  fill: var(--body);
+  pointer-events: none;
+}
+
+.atlas-wrap .clbl {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  fill: var(--ink);
+  pointer-events: none;
+}
+
+.atlas-wrap .cnt {
+  font-family: var(--display);
+  font-size: 15px;
+  fill: var(--paper);
+  pointer-events: none;
+  text-anchor: middle;
+}
+
+.atlas-wrap .pin {
+  cursor: pointer;
+}
+
+.atlas-status {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0 24px;
+}
+
+/* Author-origin display:flex above beats the UA [hidden] rule on specificity ties — restore it explicitly. */
+.atlas-status[hidden] {
+  display: none;
+}
+
+.atlas-card {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  width: 250px;
+  padding: 15px 18px 18px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  /* The one deliberate box-shadow left in the sheet, alongside .brand-dot's radius. */
+  box-shadow: 0 14px 34px rgba(25, 23, 19, 0.12);
+}
+
+.atlas-card-kind {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.atlas-card h3 {
+  margin: 7px 0 3px;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.05;
+  color: var(--ink);
+}
+
+.atlas-card p {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--reading);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.atlas-card ul {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 11px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.atlas-card li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  color: var(--body);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.atlas-card li span {
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+.atlas-legend {
+  position: absolute;
+  right: 20px;
+  top: 18px;
+  display: flex;
+  gap: 14px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Legend swatches and zoom-reset are round by explicit Phase 4 exception — see AGENTS.md structure rules. */
+.atlas-legend i {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 6px;
+  border-radius: 50%;
+}
+
+.atlas-zoom {
+  position: absolute;
+  left: 20px;
+  top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+
+.atlas-zoom button {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  color: var(--ink);
+  background: var(--paper);
+  border: 0;
+  font-family: var(--mono);
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.atlas-zoom button:hover {
+  color: var(--paper);
+  background: var(--accent);
+}
+
+.atlas-hint {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.atlas-map-caption {
+  max-width: none;
+  margin: 10px 0 0;
+  color: var(--eyebrow);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+}
+
+.atlas-index {
+  padding: 0 var(--container-inline) var(--section-gap);
+}
+
+.atlas-index-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.atlas-index-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  margin-bottom: 8px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.atlas-index-head h2 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.atlas-index-count {
+  color: var(--meta);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+.atlas-index-count--growing {
+  color: var(--accent);
+}
+
+.atlas-index-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.atlas-index-row:hover {
+  color: var(--accent);
+}
+
+.atlas-index-name {
+  font-family: var(--reading);
+  font-size: 19px;
+  color: var(--ink);
+}
+
+.atlas-index-row:hover .atlas-index-name {
+  color: var(--accent);
+}
+
+.atlas-index-meta {
+  flex-shrink: 0;
+  color: var(--meta);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.atlas-index-note {
+  max-width: 80ch;
+  margin: -12px 0 0;
+  padding: 0 var(--container-inline) var(--section-gap);
+  color: var(--eyebrow);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  line-height: 1.6;
+}
+
 @media (max-width: 860px) {
   html {
     scroll-padding-top: calc(var(--header-h) + 66px);
@@ -3735,6 +4039,21 @@ figure.photo-lead figcaption {
     margin-top: 0;
   }
 
+  /* .hub-title-meta div targets dt/dd wrapper divs on food/travel; override every property for the Atlas stat row it also wraps. */
+  .hub-title-meta .atlas-band-stats {
+    display: flex;
+    grid-template-columns: none;
+    gap: 24px;
+    align-items: baseline;
+    padding-top: 0;
+    margin-top: 0;
+    border-top: none;
+  }
+
+  .atlas-index-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .trip-feature-head {
     flex-direction: column;
     align-items: flex-start;
@@ -3948,6 +4267,14 @@ figure.photo-lead figcaption {
     grid-template-columns: 1fr;
   }
 
+  .atlas-index-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .atlas-map-frame {
+    height: 520px;
+  }
+
   .food-preview-image img {
     height: 200px;
   }
@@ -4141,6 +4468,7 @@ figure.photo-lead figcaption {
 
   .nav-links {
     width: 100%;
+    gap: 4px;
     justify-content: flex-start;
     overflow-x: auto;
     scrollbar-width: none;
@@ -4148,6 +4476,10 @@ figure.photo-lead figcaption {
 
   .nav-links::-webkit-scrollbar {
     display: none;
+  }
+
+  .nav-links a {
+    padding: 0 11px;
   }
 
   h2 {
@@ -4442,6 +4774,60 @@ figure.photo-lead figcaption {
   .atlas-band-copy {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  /* Mobile map branch — matches the COMPACT sizing in assets/js/atlas-map.js exactly. */
+  .atlas-card {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    padding: 12px 16px 14px;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    box-shadow: 0 -8px 24px rgba(25, 23, 19, 0.12);
+  }
+
+  .atlas-card h3 {
+    font-size: 22px;
+  }
+
+  .atlas-card ul {
+    max-height: 78px;
+    overflow-y: auto;
+  }
+
+  .atlas-card li,
+  .atlas-card p {
+    font-size: 12px;
+  }
+
+  .atlas-card-kind {
+    font-size: 10px;
+  }
+
+  .atlas-zoom {
+    left: 12px;
+    top: 12px;
+  }
+
+  .atlas-zoom button {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+
+  .atlas-legend {
+    right: 12px;
+    top: 14px;
+    gap: 10px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+
+  .atlas-hint {
+    display: none;
   }
 }
 

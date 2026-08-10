@@ -1,0 +1,46 @@
+{
+  "stats": { "foodNotes": 11, "trips": 9, "countries": 13 },
+  "countryOrder": [
+    "Japan", "Indonesia", "Thailand", "New Zealand", "United Kingdom",
+    "Hong Kong", "South Korea", "Switzerland", "France",
+    "Italy", "Germany", "Netherlands", "Belgium"
+  ],
+  "places": [
+    { "id": "sapporo", "name": "Sapporo", "country": "Japan", "when": "18–21 Jan 2025", "lat": 43.0618, "lon": 141.3545, "kind": "travel", "href": "travel/japan-2025/sapporo/index.html", "items": ["Snow days & Hokkaido side trips", "Arrival night ramen alley", "Salmon & king crab lunch", "7-Eleven hotel dinner", "Shiroi Koibito soft serve"] },
+    { "id": "osaka", "name": "Osaka", "country": "Japan", "when": "22–24 Jan 2025", "lat": 34.6937, "lon": 135.5023, "kind": "travel", "href": "travel/japan-2025/osaka/index.html", "items": ["Osaka as a slower city base", "Ryunosu yakiniku late lunch", "CoCo Curry Shin Umeda"] },
+    { "id": "kyoto", "name": "Kyoto", "country": "Japan", "when": "25 Jan 2025", "lat": 35.0116, "lon": 135.7681, "kind": "travel", "href": "travel/japan-2025/kyoto/index.html", "items": ["Kimono day trip & shrine walks", "Fushimi Inari gates"] },
+    { "id": "fuji-san", "name": "Fuji-san", "country": "Japan", "when": "27 Jan 2025", "lat": 35.36, "lon": 138.73, "kind": "travel", "href": null, "items": ["Picture hunting around Mt. Fuji", "Part of the Tokyo chapter"] },
+    { "id": "tokyo", "name": "Tokyo", "country": "Japan", "when": "26–28 Jan 2025", "lat": 35.6762, "lon": 139.6503, "kind": "travel", "href": "travel/japan-2025/tokyo/index.html", "items": ["Stays, food, Fuji, soft pauses", "Gyukatsu Motomura", "Meiji Jingu + Harajuku"] },
+
+    { "id": "kindling-jakarta", "name": "Kindling, Jakarta", "country": "Indonesia", "when": "9 May 2026", "lat": -6.2088, "lon": 106.8456, "kind": "food", "href": "food/kindling-jakarta-birthday-dinner/index.html", "items": ["Full review — no score, no Meter", "Room-to-room courses, birthday dinner"] },
+    { "id": "august-jakarta", "name": "August, Jakarta", "country": "Indonesia", "when": "18 Apr 2026", "lat": -6.2088, "lon": 106.8456, "kind": "food", "href": "food/august-jakarta-dinner/index.html", "items": ["Full review — no score, no Meter", "Date-night special-occasion pick"] },
+    { "id": "malang-bromo", "name": "Malang & Bromo", "country": "Indonesia", "when": "1–3 May 2026", "lat": -7.9666, "lon": 112.6326, "kind": "travel", "href": "travel/malang-bromo-2026/index.html", "items": ["A brother's wedding weekend", "Bromo backdrop, family outfits", "Road logistics between the two"] },
+
+    { "id": "bangkok", "name": "Bangkok", "country": "Thailand", "when": "May–Jun 2025", "lat": 13.7563, "lon": 100.5018, "kind": "travel", "href": "travel/bangkok-2025/index.html", "items": ["Two visits, May and June", "Wat Arun detail, riverside light", "Khaan — the fine-dining standout"] },
+    { "id": "saawaan-bangkok", "name": "Saawaan, Bangkok", "country": "Thailand", "when": "17 Jan 2026", "lat": 13.7563, "lon": 100.5018, "kind": "food", "href": "food/saawaan-bangkok-jan-2026/index.html", "items": ["Set menu review — 7.2/10", "Larb & Fermented courses stood out", "Raw course was the weakest"] },
+
+    { "id": "rotorua-taupo", "name": "Rotorua & Taupo", "country": "New Zealand", "when": "Jul 2024", "lat": -38.1368, "lon": 176.2497, "kind": "travel", "href": "travel/new-zealand-2024/rotorua-taupo/index.html", "items": ["Geothermal ground, damp weather", "Cold lake views, moody opening"] },
+    { "id": "new-plymouth", "name": "New Plymouth", "country": "New Zealand", "when": "Jul 2024", "lat": -39.0556, "lon": 174.0752, "kind": "travel", "href": "travel/new-zealand-2024/new-plymouth/index.html", "items": ["Taranaki mountain views", "Calm lake paths, sunset edge"] },
+    { "id": "matamata-hamilton", "name": "Matamata & Hamilton", "country": "New Zealand", "when": "24–25 Jul 2024", "lat": -37.8103, "lon": 175.7747, "kind": "travel", "href": "travel/new-zealand-2024/matamata-hamilton/index.html", "items": ["Green slopes, small round doors", "The gentlest, final chapter"] },
+
+    { "id": "london", "name": "London", "country": "United Kingdom", "when": "7–9 Nov 2023", "lat": 51.5074, "lon": -0.1278, "kind": "travel", "href": "travel/uk-scotland-2023/london/index.html", "items": ["Park water, old stone, theatre lights", "A softer first chapter"] },
+    { "id": "england-road", "name": "England Road", "country": "United Kingdom", "when": "10–12 Nov 2023", "lat": 53.4808, "lon": -2.2426, "kind": "travel", "href": "travel/uk-scotland-2023/england-road/index.html", "items": ["Windsor, Manchester, Blackpool", "The practical middle: meals, errands"] },
+    { "id": "scotland-highlands", "name": "Scotland Highlands", "country": "United Kingdom", "when": "13–18 Nov 2023", "lat": 57.12, "lon": -4.71, "kind": "travel", "href": "travel/uk-scotland-2023/scotland-highlands/index.html", "items": ["Glasgow, Highlands, Inverness, Stirling", "Whisky rooms, low clouds, dark roads"] },
+    { "id": "edinburgh", "name": "Edinburgh", "country": "United Kingdom", "when": "19–22 Nov 2023", "lat": 55.9533, "lon": -3.1883, "kind": "travel", "href": "travel/uk-scotland-2023/edinburgh/index.html", "items": ["Castle gates, palace lawns", "One final move south through London"] },
+
+    { "id": "hong-kong", "name": "Hong Kong", "country": "Hong Kong", "when": "14–16 Jul 2023", "lat": 22.3193, "lon": 114.1694, "kind": "travel", "href": "travel/hong-kong-2023/index.html", "items": ["Causeway Bay wandering", "Bakehouse egg tart, Yat Lok roast goose", "Disneyland happiness"] },
+
+    { "id": "seoul", "name": "Seoul", "country": "South Korea", "when": "Dec 2022", "lat": 37.5665, "lon": 126.9780, "kind": "travel", "href": "travel/korea-2022/seoul/index.html", "items": ["Winter streets, cafe pauses", "Korean barbecue, skyline finish"] },
+    { "id": "busan", "name": "Busan", "country": "South Korea", "when": "Dec 2022", "lat": 35.1796, "lon": 129.0756, "kind": "travel", "href": "travel/korea-2022/busan/index.html", "items": ["Coastal views, hillside color", "Sea-facing walks, warm bowls"] },
+
+    { "id": "switzerland-2020", "name": "Switzerland (2020)", "country": "Switzerland", "when": "Dec 2019–Jan 2020", "lat": 46.4312, "lon": 6.9107, "kind": "travel", "href": "travel/europe-winter-2020/switzerland/index.html", "items": ["Zurich, Lucerne, Interlaken, Montreux, Bern", "Montreux cotton-candy sky", "Beatenberg sledding, Blausee clarity"] },
+    { "id": "europe-alpine-2021-22", "name": "Europe Winter 2021/22", "country": "Switzerland", "when": "27 Dec 2021–8 Jan 2022", "lat": 46.0207, "lon": 7.7491, "kind": "travel", "href": "travel/europe-winter-2021-22/index.html", "items": ["Zurich, Bern, Zermatt, St Moritz, Poschiavo", "Zermatt sunrise, Glacier Express", "New Year lodging, booked early next time"] },
+
+    { "id": "paris", "name": "Paris", "country": "France", "when": "Europe Winter 2020", "lat": 48.8566, "lon": 2.3522, "kind": "travel", "href": "travel/europe-winter-2020/paris/index.html", "items": ["Eiffel winter light", "Pierre Hermé macarons, Kong for lunch", "Where the route finally slowed down"] },
+
+    { "id": "milan", "name": "Milan", "country": "Italy", "when": "Dec 2019", "lat": 45.4642, "lon": 9.1900, "kind": "soon", "href": null, "items": ["Route texture, not yet its own chapter", "The trip's city-scale opening"] },
+    { "id": "germany-route", "name": "Frankfurt & Köln", "country": "Germany", "when": "Jan 2020", "lat": 50.1109, "lon": 8.6821, "kind": "soon", "href": null, "items": ["Route texture, not yet its own chapter"] },
+    { "id": "amsterdam", "name": "Amsterdam", "country": "Netherlands", "when": "Jan 2020", "lat": 52.3676, "lon": 4.9041, "kind": "soon", "href": null, "items": ["Route texture, not yet its own chapter", "Winter canal walk"] },
+    { "id": "brussels", "name": "Brussels", "country": "Belgium", "when": "Jan 2020", "lat": 50.8503, "lon": 4.3517, "kind": "soon", "href": null, "items": ["Route texture, not yet its own chapter", "Atomium on a winter day"] }
+  ]
+}

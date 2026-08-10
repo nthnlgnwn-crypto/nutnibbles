@@ -7,6 +7,7 @@ const PUBLIC_HTML_ROOTS = [
   path.join(ROOT, "index.html"),
   path.join(ROOT, "travel"),
   path.join(ROOT, "food"),
+  path.join(ROOT, "atlas"),
   path.join(ROOT, "work-with-nutnibbles"),
   path.join(ROOT, "japan-guide")
 ];
