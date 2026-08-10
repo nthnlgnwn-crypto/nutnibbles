@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "nutnibbles-preview",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["/Users/nut/Documents/Personal/nutnibbles/.claude/preview-server.js"],
+      "port": 4173,
+      "autoPort": true
+    }
+  ]
+}
