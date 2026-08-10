@@ -32,7 +32,6 @@
         <a href="index.html" aria-current="page">The Atlas</a>
         <a href="../work-with-nutnibbles/index.html">Work with me</a>
       </nav>
-      <span class="site-header-meta">20 entries</span>
     </header>
 
     <main>
@@ -40,7 +39,7 @@
         <div class="hub-title-copy">
           <p class="eyebrow">The Atlas</p>
           <h1>Every pin is a meal I can still describe.</h1>
-          <p>Browse by place instead of by post. Click a pin to see the chapter and every food note attached to it.</p>
+          <p>Browse by place. Click a country to zoom into its cities.</p>
         </div>
         <div class="hub-title-meta">
           <div class="atlas-band-stats">
@@ -60,29 +59,56 @@
         </div>
       </section>
 
+      <section class="atlas-controls" aria-label="Filter the map and index">
+        <div class="atlas-controls-group">
+          <span class="atlas-controls-label" id="kind-label">Kind</span>
+          <div class="chip-row" role="group" aria-labelledby="kind-label" data-chip-group="kind">
+            <button type="button" data-value="all" aria-pressed="true">All</button>
+            <button type="button" data-value="travel" aria-pressed="false">Travel chapters</button>
+            <button type="button" data-value="food" aria-pressed="false">Food notes</button>
+          </div>
+        </div>
+        <div class="atlas-controls-group">
+          <span class="atlas-controls-label" id="country-label">Country</span>
+          <div class="chip-row" role="group" aria-labelledby="country-label" data-chip-group="country">
+            <button type="button" data-value="Japan" aria-pressed="false">Japan</button>
+            <button type="button" data-value="Indonesia" aria-pressed="false">Indonesia</button>
+            <button type="button" data-value="Thailand" aria-pressed="false">Thailand</button>
+            <button type="button" data-value="United Kingdom" aria-pressed="false">UK</button>
+            <button type="button" data-value="South Korea" aria-pressed="false">South Korea</button>
+            <button type="button" data-value="New Zealand" aria-pressed="false">New Zealand</button>
+            <button type="button" data-value="Hong Kong" aria-pressed="false">Hong Kong</button>
+            <button type="button" data-value="Switzerland" aria-pressed="false">Switzerland</button>
+            <button type="button" data-value="France" aria-pressed="false">France</button>
+          </div>
+        </div>
+      </section>
+
+      <p class="atlas-result-line" aria-live="polite"></p>
+
       <section class="atlas-map-section" aria-label="Map of every place logged in the journal">
         <div class="atlas-map-frame">
           <p class="atlas-map-noscript">The map needs JavaScript to run. Browse the country index below instead.</p>
           <div id="atlas-wrap" class="atlas-wrap">
             <div id="atlas-loading" class="atlas-status">Loading map&hellip;</div>
             <div id="atlas-error" class="atlas-status" hidden>Map data couldn&rsquo;t load. Browse the country index below instead.</div>
-            <div id="atlas-legend" class="atlas-legend">
+            <div id="atlas-legend" class="atlas-legend" hidden>
               <div><i style="background:var(--ink)"></i>Travel chapter</div>
               <div><i style="background:var(--accent)"></i>Food note</div>
               <div><i style="background:var(--rule-strong)"></i>Planned</div>
             </div>
-            <div id="atlas-zoom" class="atlas-zoom">
+            <div id="atlas-zoom" class="atlas-zoom" hidden>
               <button type="button" id="atlas-zin" aria-label="Zoom in" title="Zoom in">+</button>
               <button type="button" id="atlas-zout" aria-label="Zoom out" title="Zoom out">&minus;</button>
-              <button type="button" id="atlas-zreset" aria-label="Reset zoom" title="Reset zoom">&#9675;</button>
+              <button type="button" id="atlas-zreset" aria-label="Reset zoom" title="Reset zoom">&#10226;</button>
             </div>
-            <div id="atlas-card" class="atlas-card">
+            <div id="atlas-card" class="atlas-card" hidden>
               <div class="atlas-card-kind">Selected</div>
               <h3 id="atlas-card-title">Japan</h3>
               <p id="atlas-card-sub"></p>
               <ul id="atlas-card-list"></ul>
             </div>
-            <div id="atlas-hint" class="atlas-hint">Scroll or +/&minus; to zoom &middot; drag to pan</div>
+            <div id="atlas-hint" class="atlas-hint" hidden>Scroll or +/&minus; to zoom &middot; drag to pan</div>
           </div>
         </div>
         <p class="atlas-map-caption">Click a country to zoom into its cities &middot; scroll or use +/&minus; to zoom, drag to pan. Map data &copy; Natural Earth.</p>
@@ -93,23 +119,27 @@
           <div class="atlas-index-country" data-country="Japan">
             <div class="atlas-index-head">
               <h2>Japan</h2>
-              <span class="atlas-index-count">18&ndash;29 Jan 2025 &middot; 12</span>
+              <span class="atlas-index-count">18&ndash;29 Jan 2025 &middot; 5</span>
             </div>
-            <a class="atlas-index-row" href="../travel/japan-2025/sapporo/index.html">
+            <a class="atlas-index-row" data-kind="travel" data-country="Japan" data-food-notes="5" href="../travel/japan-2025/sapporo/index.html">
               <span class="atlas-index-name">Sapporo</span>
               <span class="atlas-index-meta">Chapter &middot; 5 food notes</span>
             </a>
-            <a class="atlas-index-row" href="../travel/japan-2025/osaka/index.html">
+            <a class="atlas-index-row" data-kind="travel" data-country="Japan" data-food-notes="2" href="../travel/japan-2025/osaka/index.html">
               <span class="atlas-index-name">Osaka</span>
               <span class="atlas-index-meta">Chapter &middot; 2 food notes</span>
             </a>
-            <a class="atlas-index-row" href="../travel/japan-2025/kyoto/index.html">
+            <a class="atlas-index-row" data-kind="travel" data-country="Japan" href="../travel/japan-2025/kyoto/index.html">
               <span class="atlas-index-name">Kyoto</span>
               <span class="atlas-index-meta">Day trip &middot; 25 Jan</span>
             </a>
-            <a class="atlas-index-row" href="../travel/japan-2025/tokyo/index.html">
+            <a class="atlas-index-row" data-kind="travel" data-country="Japan" data-food-notes="1" href="../travel/japan-2025/tokyo/index.html">
               <span class="atlas-index-name">Tokyo</span>
               <span class="atlas-index-meta">Chapter &middot; 1 food note</span>
+            </a>
+            <a class="atlas-index-row" data-kind="travel" data-country="Japan" href="../travel/japan-2025/tokyo/index.html#fuji-san-tour">
+              <span class="atlas-index-name">Fuji-san</span>
+              <span class="atlas-index-meta">Day tour &middot; 27 Jan</span>
             </a>
           </div>
 
@@ -118,15 +148,15 @@
               <h2>Indonesia</h2>
               <span class="atlas-index-count atlas-index-count--growing">Growing &middot; 3</span>
             </div>
-            <a class="atlas-index-row" href="../food/kindling-jakarta-birthday-dinner/index.html">
+            <a class="atlas-index-row" data-kind="food" data-country="Indonesia" href="../food/kindling-jakarta-birthday-dinner/index.html">
               <span class="atlas-index-name">Kindling, Jakarta</span>
               <span class="atlas-index-meta">9 May 2026 &middot; Full review</span>
             </a>
-            <a class="atlas-index-row" href="../food/august-jakarta-dinner/index.html">
+            <a class="atlas-index-row" data-kind="food" data-country="Indonesia" href="../food/august-jakarta-dinner/index.html">
               <span class="atlas-index-name">August, Jakarta</span>
               <span class="atlas-index-meta">18 Apr 2026 &middot; Full review</span>
             </a>
-            <a class="atlas-index-row" href="../travel/malang-bromo-2026/index.html">
+            <a class="atlas-index-row" data-kind="travel" data-country="Indonesia" href="../travel/malang-bromo-2026/index.html">
               <span class="atlas-index-name">Malang &amp; Bromo</span>
               <span class="atlas-index-meta">1&ndash;3 May 2026 &middot; Chapter</span>
             </a>
@@ -137,32 +167,13 @@
               <h2>Thailand</h2>
               <span class="atlas-index-count">May 2025&ndash;Jan 2026 &middot; 2</span>
             </div>
-            <a class="atlas-index-row" href="../travel/bangkok-2025/index.html">
+            <a class="atlas-index-row" data-kind="travel" data-country="Thailand" href="../travel/bangkok-2025/index.html">
               <span class="atlas-index-name">Bangkok 2025</span>
               <span class="atlas-index-meta">Chapter &middot; May&ndash;Jun 2025</span>
             </a>
-            <a class="atlas-index-row" href="../food/saawaan-bangkok-jan-2026/index.html">
+            <a class="atlas-index-row" data-kind="food" data-country="Thailand" href="../food/saawaan-bangkok-jan-2026/index.html">
               <span class="atlas-index-name">Saawaan, Bangkok</span>
               <span class="atlas-index-meta">17 Jan 2026 &middot; 7.2</span>
-            </a>
-          </div>
-
-          <div class="atlas-index-country" data-country="New Zealand">
-            <div class="atlas-index-head">
-              <h2>New Zealand</h2>
-              <span class="atlas-index-count">19&ndash;28 Jul 2024 &middot; 3</span>
-            </div>
-            <a class="atlas-index-row" href="../travel/new-zealand-2024/rotorua-taupo/index.html">
-              <span class="atlas-index-name">Rotorua &amp; Taupo</span>
-              <span class="atlas-index-meta">Chapter &middot; Jul 2024</span>
-            </a>
-            <a class="atlas-index-row" href="../travel/new-zealand-2024/new-plymouth/index.html">
-              <span class="atlas-index-name">New Plymouth</span>
-              <span class="atlas-index-meta">Chapter &middot; Jul 2024</span>
-            </a>
-            <a class="atlas-index-row" href="../travel/new-zealand-2024/matamata-hamilton/index.html">
-              <span class="atlas-index-name">Matamata &amp; Hamilton</span>
-              <span class="atlas-index-meta">Chapter &middot; 24&ndash;25 Jul</span>
             </a>
           </div>
 
@@ -171,32 +182,21 @@
               <h2>United Kingdom</h2>
               <span class="atlas-index-count">7&ndash;22 Nov 2023 &middot; 4</span>
             </div>
-            <a class="atlas-index-row" href="../travel/uk-scotland-2023/london/index.html">
+            <a class="atlas-index-row" data-kind="travel" data-country="United Kingdom" href="../travel/uk-scotland-2023/london/index.html">
               <span class="atlas-index-name">London</span>
               <span class="atlas-index-meta">Chapter &middot; 7&ndash;9 Nov</span>
             </a>
-            <a class="atlas-index-row" href="../travel/uk-scotland-2023/england-road/index.html">
+            <a class="atlas-index-row" data-kind="travel" data-country="United Kingdom" href="../travel/uk-scotland-2023/england-road/index.html">
               <span class="atlas-index-name">England Road</span>
               <span class="atlas-index-meta">Chapter &middot; 10&ndash;12 Nov</span>
             </a>
-            <a class="atlas-index-row" href="../travel/uk-scotland-2023/scotland-highlands/index.html">
+            <a class="atlas-index-row" data-kind="travel" data-country="United Kingdom" href="../travel/uk-scotland-2023/scotland-highlands/index.html">
               <span class="atlas-index-name">Scotland Highlands</span>
               <span class="atlas-index-meta">Chapter &middot; 13&ndash;18 Nov</span>
             </a>
-            <a class="atlas-index-row" href="../travel/uk-scotland-2023/edinburgh/index.html">
+            <a class="atlas-index-row" data-kind="travel" data-country="United Kingdom" href="../travel/uk-scotland-2023/edinburgh/index.html">
               <span class="atlas-index-name">Edinburgh</span>
               <span class="atlas-index-meta">Chapter &middot; 19&ndash;22 Nov</span>
-            </a>
-          </div>
-
-          <div class="atlas-index-country" data-country="Hong Kong">
-            <div class="atlas-index-head">
-              <h2>Hong Kong</h2>
-              <span class="atlas-index-count">14&ndash;16 Jul 2023 &middot; 1</span>
-            </div>
-            <a class="atlas-index-row" href="../travel/hong-kong-2023/index.html">
-              <span class="atlas-index-name">Hong Kong</span>
-              <span class="atlas-index-meta">Chapter &middot; 14&ndash;16 Jul</span>
             </a>
           </div>
 
@@ -205,13 +205,43 @@
               <h2>South Korea</h2>
               <span class="atlas-index-count">8&ndash;19 Dec 2022 &middot; 2</span>
             </div>
-            <a class="atlas-index-row" href="../travel/korea-2022/seoul/index.html">
+            <a class="atlas-index-row" data-kind="travel" data-country="South Korea" href="../travel/korea-2022/seoul/index.html">
               <span class="atlas-index-name">Seoul</span>
               <span class="atlas-index-meta">Chapter &middot; Dec 2022</span>
             </a>
-            <a class="atlas-index-row" href="../travel/korea-2022/busan/index.html">
+            <a class="atlas-index-row" data-kind="travel" data-country="South Korea" href="../travel/korea-2022/busan/index.html">
               <span class="atlas-index-name">Busan</span>
               <span class="atlas-index-meta">Chapter &middot; Dec 2022</span>
+            </a>
+          </div>
+
+          <div class="atlas-index-country" data-country="New Zealand">
+            <div class="atlas-index-head">
+              <h2>New Zealand</h2>
+              <span class="atlas-index-count">19&ndash;28 Jul 2024 &middot; 3</span>
+            </div>
+            <a class="atlas-index-row" data-kind="travel" data-country="New Zealand" href="../travel/new-zealand-2024/rotorua-taupo/index.html">
+              <span class="atlas-index-name">Rotorua &amp; Taupo</span>
+              <span class="atlas-index-meta">Chapter &middot; Jul 2024</span>
+            </a>
+            <a class="atlas-index-row" data-kind="travel" data-country="New Zealand" href="../travel/new-zealand-2024/new-plymouth/index.html">
+              <span class="atlas-index-name">New Plymouth</span>
+              <span class="atlas-index-meta">Chapter &middot; Jul 2024</span>
+            </a>
+            <a class="atlas-index-row" data-kind="travel" data-country="New Zealand" href="../travel/new-zealand-2024/matamata-hamilton/index.html">
+              <span class="atlas-index-name">Matamata &amp; Hamilton</span>
+              <span class="atlas-index-meta">Chapter &middot; 24&ndash;25 Jul</span>
+            </a>
+          </div>
+
+          <div class="atlas-index-country" data-country="Hong Kong">
+            <div class="atlas-index-head">
+              <h2>Hong Kong</h2>
+              <span class="atlas-index-count">14&ndash;16 Jul 2023 &middot; 1</span>
+            </div>
+            <a class="atlas-index-row" data-kind="travel" data-country="Hong Kong" href="../travel/hong-kong-2023/index.html">
+              <span class="atlas-index-name">Hong Kong</span>
+              <span class="atlas-index-meta">Chapter &middot; 14&ndash;16 Jul</span>
             </a>
           </div>
 
@@ -220,11 +250,11 @@
               <h2>Switzerland</h2>
               <span class="atlas-index-count">Two trips &middot; 2</span>
             </div>
-            <a class="atlas-index-row" href="../travel/europe-winter-2020/switzerland/index.html">
+            <a class="atlas-index-row" data-kind="travel" data-country="Switzerland" href="../travel/europe-winter-2020/switzerland/index.html">
               <span class="atlas-index-name">Switzerland (2020)</span>
               <span class="atlas-index-meta">Chapter &middot; Dec 2019&ndash;Jan 2020</span>
             </a>
-            <a class="atlas-index-row" href="../travel/europe-winter-2021-22/index.html">
+            <a class="atlas-index-row" data-kind="travel" data-country="Switzerland" href="../travel/europe-winter-2021-22/index.html">
               <span class="atlas-index-name">Europe Winter 2021/22</span>
               <span class="atlas-index-meta">Chapter &middot; 27 Dec 2021&ndash;8 Jan 2022</span>
             </a>
@@ -235,13 +265,35 @@
               <h2>France</h2>
               <span class="atlas-index-count">Dec 2019&ndash;Jan 2020 &middot; 1</span>
             </div>
-            <a class="atlas-index-row" href="../travel/europe-winter-2020/paris/index.html">
+            <a class="atlas-index-row" data-kind="travel" data-country="France" href="../travel/europe-winter-2020/paris/index.html">
               <span class="atlas-index-name">Paris</span>
               <span class="atlas-index-meta">Chapter &middot; Europe Winter 2020</span>
             </a>
           </div>
+
+          <div class="atlas-index-country atlas-index-country--unwritten" id="atlas-also-route">
+            <div class="atlas-index-head">
+              <h2>Also on the route</h2>
+              <span class="atlas-index-count">Europe Winter 2020</span>
+            </div>
+            <div class="atlas-index-row atlas-index-row--unwritten">
+              <span class="atlas-index-name">Milan, Italy</span>
+              <span class="atlas-index-meta">Unwritten</span>
+            </div>
+            <div class="atlas-index-row atlas-index-row--unwritten">
+              <span class="atlas-index-name">Frankfurt &amp; K&ouml;ln, Germany</span>
+              <span class="atlas-index-meta">Unwritten</span>
+            </div>
+            <div class="atlas-index-row atlas-index-row--unwritten">
+              <span class="atlas-index-name">Amsterdam, Netherlands</span>
+              <span class="atlas-index-meta">Unwritten</span>
+            </div>
+            <div class="atlas-index-row atlas-index-row--unwritten">
+              <span class="atlas-index-name">Brussels, Belgium</span>
+              <span class="atlas-index-meta">Unwritten</span>
+            </div>
+          </div>
         </div>
-        <p class="atlas-index-note">Milan, Frankfurt &amp; K&ouml;ln, Amsterdam, and Brussels were also part of the Europe Winter 2020 route &mdash; still route texture, not yet their own chapters. They&rsquo;re on the map, not in the index above.</p>
       </section>
     </main>
 

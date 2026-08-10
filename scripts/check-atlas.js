@@ -54,11 +54,34 @@ for (const tag of rowTags) {
   }
 }
 
-// The static index is a hand-written rendering of the same linked places —
-// the two counts should match 1:1 (nothing added or dropped silently).
-if (rowTags.length !== linkedPlaces.length) {
+// The static index is a hand-written rendering of the same linked places.
+// A plain count match would have missed the original Fuji-san drift (a real
+// pin with no href isn't in linkedPlaces at all, so the totals still lined
+// up) — compare by the actual href, in both directions, instead (§4.2c #5).
+// atlas/index.html hrefs are "../travel/…", relative to atlas/; strip that
+// prefix to compare against the JSON's root-relative form.
+const rowHrefs = new Set(
+  rowTags.map((tag) => getAttr(tag, "href").replace(/^\.\.\//, ""))
+);
+const linkedHrefs = new Set(linkedPlaces.map((p) => p.href));
+for (const href of linkedHrefs) {
+  if (!rowHrefs.has(href)) {
+    issues.push(`atlas-places.json: ${href} is a linked place but has no matching row in atlas/index.html.`);
+  }
+}
+for (const href of rowHrefs) {
+  if (!linkedHrefs.has(href)) {
+    issues.push(`atlas/index.html: a row links to ${href}, which isn't any place's href in atlas-places.json.`);
+  }
+}
+
+// A non-"soon" place represents real, written content and should always
+// link somewhere — this is the rule Fuji-san's href:null silently broke.
+// "soon" places are the one legitimate case for no href.
+const unlinkedRealPlaces = data.places.filter((p) => p.kind !== "soon" && !p.href);
+for (const place of unlinkedRealPlaces) {
   issues.push(
-    `atlas/index.html has ${rowTags.length} index rows but atlas-places.json has ${linkedPlaces.length} linked places — one was updated without the other.`
+    `atlas-places.json: ${place.id} is kind:"${place.kind}" (real content) but has no href — give it a page or anchor, or mark it "soon" if it isn't written yet.`
   );
 }
 

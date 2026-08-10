@@ -1929,7 +1929,8 @@ figure.photo-lead figcaption {
   padding: 20px var(--container-inline) 56px;
 }
 
-.food-controls {
+.food-controls,
+.atlas-controls {
   position: sticky;
   top: var(--header-h);
   z-index: 15;
@@ -1944,7 +1945,8 @@ figure.photo-lead figcaption {
   border-bottom: 1px solid var(--rule);
 }
 
-.no-js .food-controls {
+.no-js .food-controls,
+.no-js .atlas-controls {
   display: none;
 }
 
@@ -1953,14 +1955,16 @@ figure.photo-lead figcaption {
   scroll-margin-top: calc(var(--header-h) + var(--controls-h));
 }
 
-.food-controls-group {
+.food-controls-group,
+.atlas-controls-group {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 9px;
 }
 
-.food-controls-label {
+.food-controls-label,
+.atlas-controls-label {
   margin-right: 6px;
   color: var(--eyebrow);
   font-family: var(--mono);
@@ -2835,14 +2839,16 @@ figure.photo-lead figcaption {
   line-height: 1.06;
 }
 
-.atlas-band-pending {
-  margin-bottom: 0;
-  color: var(--eyebrow);
-  font-family: var(--mono);
-  font-size: 11.5px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  white-space: nowrap;
+.atlas-band--dark .button {
+  color: var(--ink);
+  background: var(--paper);
+  border-color: var(--paper);
+}
+
+.atlas-band--dark .button:hover {
+  color: var(--paper);
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
 #atlas {
@@ -3469,6 +3475,9 @@ figure.photo-lead figcaption {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  /* One-finger drag scrolls the page; the map's own zoom.filter() only
+     answers to multi-touch, mouse and wheel input (§6.1). */
+  touch-action: pan-y;
   cursor: grab;
 }
 
@@ -3603,6 +3612,12 @@ figure.photo-lead figcaption {
   text-transform: uppercase;
 }
 
+/* Same author-vs-UA-origin gap as .atlas-status — see the note above it. */
+.atlas-legend[hidden],
+.atlas-zoom[hidden] {
+  display: none;
+}
+
 /* Legend swatches and zoom-reset are round by explicit Phase 4 exception — see AGENTS.md structure rules. */
 .atlas-legend i {
   display: inline-block;
@@ -3726,15 +3741,28 @@ figure.photo-lead figcaption {
   text-transform: uppercase;
 }
 
-.atlas-index-note {
-  max-width: 80ch;
-  margin: -12px 0 0;
-  padding: 0 var(--container-inline) var(--section-gap);
-  color: var(--eyebrow);
+/* Unwritten rows are a <div>, not an <a> — no href, no hover-accent, no pointer. */
+.atlas-index-row--unwritten {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.atlas-index-row--unwritten:hover {
+  color: inherit;
+}
+
+.atlas-index-row--unwritten:hover .atlas-index-name {
+  color: var(--ink);
+}
+
+.atlas-result-line {
+  padding: 18px var(--container-inline) 0;
+  margin-bottom: 0;
+  color: var(--meta);
   font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.05em;
-  line-height: 1.6;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 @media (max-width: 860px) {
@@ -3746,7 +3774,8 @@ figure.photo-lead figcaption {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .food-controls {
+  .food-controls,
+  .atlas-controls {
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
@@ -4224,15 +4253,18 @@ figure.photo-lead figcaption {
 }
 
 @media (max-width: 560px) {
-  .food-controls {
+  .food-controls,
+  .atlas-controls {
     position: static;
   }
 
-  .food-controls-group {
+  .food-controls-group,
+  .atlas-controls-group {
     flex-wrap: nowrap;
   }
 
-  .food-controls-label {
+  .food-controls-label,
+  .atlas-controls-label {
     flex-shrink: 0;
   }
 
@@ -4241,6 +4273,10 @@ figure.photo-lead figcaption {
     overflow-x: auto;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
+    /* Fade the trailing edge so a clipped row (e.g. "FOOD NOT…") reads as
+       scrollable rather than cut off (§4.2c #7). */
+    -webkit-mask-image: linear-gradient(to right, black calc(100% - 28px), transparent 100%);
+    mask-image: linear-gradient(to right, black calc(100% - 28px), transparent 100%);
   }
 
   .chip-row::-webkit-scrollbar {
@@ -4269,6 +4305,10 @@ figure.photo-lead figcaption {
 
   .atlas-index-grid {
     grid-template-columns: 1fr;
+  }
+
+  .atlas-index-row {
+    min-height: 44px;
   }
 
   .atlas-map-frame {
