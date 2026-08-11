@@ -289,6 +289,15 @@ main {
   margin: 0 auto;
 }
 
+/* .notes-layout already resolves --container-width for its own box; a .photo-grid
+   nested inside it would resolve the same fluid formula again against the
+   already-narrowed parent, landing ~40px too narrow (C1). */
+.notes-layout .photo-grid {
+  width: auto;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 380px;
