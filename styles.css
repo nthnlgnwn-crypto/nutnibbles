@@ -974,6 +974,15 @@ blockquote.editorial-statement {
   padding-bottom: 96px;
 }
 
+/* .magazine-flow already resolves --container-width for its own box; a
+   .chapter-pager nested inside it would resolve the same fluid formula
+   again against the already-narrowed parent, landing ~40px too narrow (A6). */
+.magazine-flow .chapter-pager {
+  width: auto;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .magazine-flow > * + * {
   margin-top: var(--section-gap);
 }
@@ -2462,6 +2471,15 @@ figure.photo-lead figcaption {
   margin: 0 auto 52px;
 }
 
+/* .city-chapter-nav already resolves --container-width for its own box; a
+   .city-chapter-grid nested inside it would resolve the same fluid formula
+   again against the already-narrowed parent, landing ~40px too narrow (A3). */
+.city-chapter-nav .city-chapter-grid {
+  width: auto;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .city-chapter-nav-header {
   display: grid;
   gap: 10px;
@@ -2775,6 +2793,16 @@ figure.photo-lead figcaption {
 .trip-reading-flow-table {
   width: var(--container-width);
   margin: 0 auto;
+}
+
+/* .trip-reading-flow already resolves --container-width for its own box; a
+   .trip-reading-flow-table nested inside it (as a grid item) would resolve the
+   same fluid formula again against its own grid-area, landing ~40px too
+   narrow (A7). width: auto lets it stretch to fill the assigned column track. */
+.trip-reading-flow .trip-reading-flow-table {
+  width: auto;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .trip-reading-flow {
