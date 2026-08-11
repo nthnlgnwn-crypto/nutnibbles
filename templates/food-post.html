@@ -20,23 +20,40 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
     <link rel="stylesheet" href="../../styles.css">
   </head>
-  <body>
+  <body id="top">
     <header class="site-header">
       <a class="brand" href="../../index.html" aria-label="NutNibbles home">
-        <img class="brand-mark" src="../../assets/images/nutnibbles-logo.webp" alt="" loading="lazy" decoding="async">
-        <span>NutNibbles</span>
+        <span>Nut</span><span class="brand-dot" aria-hidden="true"></span><span>Nibbles</span>
       </a>
       <nav class="nav-links" aria-label="Main navigation">
         <a href="../../travel/index.html">Travel</a>
         <a href="../index.html" aria-current="page">Food</a>
+        <a href="../../atlas/index.html">The Atlas</a>
+        <a href="../../work-with-nutnibbles/index.html">Work with me</a>
       </nav>
     </header>
 
     <main>
-      <section class="page-hero food-hero">
-        <p class="eyebrow">{{CITY}} / {{DATE}} / {{MEAL_CONTEXT}}</p>
-        <h1>{{PERSONAL_HEADLINE}}</h1>
-        <p>{{OPENING_CONTEXT_PARAGRAPH}}</p>
+      <section class="magazine-hero article-hero-spread food-review-hero">
+        <div class="magazine-hero-copy">
+          <p class="eyebrow">Food Review / {{CITY}} / {{DATE}}</p>
+          <p class="food-review-venue">{{VENUE_NAME}}</p>
+          <h1>{{PERSONAL_HEADLINE}}</h1>
+          <div class="food-review-hero-meta">
+            <!-- OVERALL_SCORE must equal the arithmetic mean of the six Signature Meter axis scores below (First Bite, Crave Factor, Room Mood, Host Energy, Worth the Wallet, Return Ticket), rounded to one decimal. Readers check this. -->
+            <p class="food-review-score" aria-label="Overall score {{OVERALL_SCORE}} out of 10">{{OVERALL_SCORE}}<span>/10</span></p>
+            <ul class="meta-row" aria-label="Best for">
+              <li>{{MEAL_CONTEXT}}</li>
+              <li>{{BEST_FOR_TAG_1}}</li>
+              <li>{{BEST_FOR_TAG_2}}</li>
+            </ul>
+          </div>
+          <p class="standfirst">{{OPENING_CONTEXT_PARAGRAPH}}</p>
+        </div>
+        <figure class="magazine-hero-frame magazine-hero-media">
+          <img src="../../{{HERO_IMAGE_PATH}}" alt="{{USEFUL_HERO_IMAGE_ALT_TEXT}}" class="object-center" loading="eager" decoding="async">
+          <figcaption>{{HERO_IMAGE_CAPTION}}</figcaption>
+        </figure>
       </section>
 
       <section class="feature-story">
@@ -49,7 +66,42 @@
           <p><strong>Worth it?</strong> {{VERDICT_FOR_WHO_AND_WHEN}}</p>
           <a class="text-link" href="{{RELATED_CITY_SECTION_RELATIVE_URL}}">Back to {{RELATED_CITY}} trip note</a>
         </div>
-        <img src="../../{{HERO_IMAGE_PATH}}" alt="{{USEFUL_HERO_IMAGE_ALT_TEXT}}" loading="lazy" decoding="async">
+        <img src="../../{{FEATURE_STORY_IMAGE_PATH}}" alt="{{USEFUL_FEATURE_STORY_IMAGE_ALT_TEXT}}" loading="lazy" decoding="async">
+      </section>
+
+      <section class="review-meter" aria-label="NutNibbles review meter for {{VENUE_NAME}}">
+        <div class="review-meter-header">
+          <p class="eyebrow">NutNibbles Signature Meter</p>
+          <h2>{{METER_HEADING}}</h2>
+          <p>{{METER_SUMMARY}}</p>
+        </div>
+
+        <div class="review-meter-grid">
+          <div class="review-meter-row">
+            <div class="review-meter-label"><span>First Bite</span><strong>{{AXIS_FIRST_BITE}} / 10</strong></div>
+            <div class="review-meter-track"><div class="review-meter-fill" style="--score: {{AXIS_FIRST_BITE_PCT}}"></div></div>
+          </div>
+          <div class="review-meter-row">
+            <div class="review-meter-label"><span>Crave Factor</span><strong>{{AXIS_CRAVE_FACTOR}} / 10</strong></div>
+            <div class="review-meter-track"><div class="review-meter-fill" style="--score: {{AXIS_CRAVE_FACTOR_PCT}}"></div></div>
+          </div>
+          <div class="review-meter-row">
+            <div class="review-meter-label"><span>Room Mood</span><strong>{{AXIS_ROOM_MOOD}} / 10</strong></div>
+            <div class="review-meter-track"><div class="review-meter-fill" style="--score: {{AXIS_ROOM_MOOD_PCT}}"></div></div>
+          </div>
+          <div class="review-meter-row">
+            <div class="review-meter-label"><span>Host Energy</span><strong>{{AXIS_HOST_ENERGY}} / 10</strong></div>
+            <div class="review-meter-track"><div class="review-meter-fill" style="--score: {{AXIS_HOST_ENERGY_PCT}}"></div></div>
+          </div>
+          <div class="review-meter-row">
+            <div class="review-meter-label"><span>Worth the Wallet</span><strong>{{AXIS_WORTH_THE_WALLET}} / 10</strong></div>
+            <div class="review-meter-track"><div class="review-meter-fill" style="--score: {{AXIS_WORTH_THE_WALLET_PCT}}"></div></div>
+          </div>
+          <div class="review-meter-row">
+            <div class="review-meter-label"><span>Return Ticket</span><strong>{{AXIS_RETURN_TICKET}} / 10</strong></div>
+            <div class="review-meter-track"><div class="review-meter-fill" style="--score: {{AXIS_RETURN_TICKET_PCT}}"></div></div>
+          </div>
+        </div>
       </section>
 
       <section class="related-note" aria-label="Related travel chapter">
@@ -64,8 +116,27 @@
     </main>
 
     <footer class="site-footer">
-      <p>NutNibbles</p>
-      <p><a href="../index.html">Back to Food</a></p>
+      <div class="site-footer-brand">
+        <a class="brand" href="../../index.html" aria-label="NutNibbles home">
+          <span>Nut</span><span class="brand-dot" aria-hidden="true"></span><span>Nibbles</span>
+        </a>
+        <p class="site-footer-tagline">Kept by hand since 2023.</p>
+      </div>
+      <div class="site-footer-links">
+        <div>
+          <a href="../../travel/index.html">Travel</a>
+          <a href="../../food/index.html">Food</a>
+          <a href="../../atlas/index.html">The Atlas</a>
+        </div>
+        <div>
+          <a href="../../japan-guide/index.html">Japan guide</a>
+        </div>
+        <div>
+          <a href="../../work-with-nutnibbles/index.html">Work with me</a>
+        </div>
+      </div>
     </footer>
+    <a class="back-to-top" href="#top" aria-label="Back to top">Top</a>
+    <script src="../../assets/js/back-to-top.js"></script>
   </body>
 </html>

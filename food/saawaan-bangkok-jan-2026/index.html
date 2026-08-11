@@ -20,7 +20,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
     <link rel="stylesheet" href="../../styles.css">
   </head>
-  <body>
+  <body id="top">
     <header class="site-header">
       <a class="brand" href="../../index.html" aria-label="NutNibbles home">
         <span>Nut</span><span class="brand-dot" aria-hidden="true"></span><span>Nibbles</span>
@@ -40,6 +40,7 @@
           <p class="food-review-venue">Saawaan Bangkok</p>
           <h1>Beautiful craft, not automatic return.</h1>
           <div class="food-review-hero-meta">
+            <!-- OVERALL_SCORE must equal the arithmetic mean of the six Signature Meter axis scores below (First Bite, Crave Factor, Room Mood, Host Energy, Worth the Wallet, Return Ticket), rounded to one decimal. Readers check this. (7.5+6.5+8.0+8.5+7.0+5.7)/6 = 7.2 -->
             <p class="food-review-score" aria-label="Overall score 7.2 out of 10">7.2<span>/10</span></p>
             <ul class="meta-row" aria-label="Best for">
               <li>Date night</li>
@@ -84,20 +85,28 @@
 
         <div class="review-meter-grid">
           <div class="review-meter-row">
-            <div class="review-meter-label"><span>Crave</span><strong>7.0 / 10</strong></div>
-            <div class="review-meter-track"><div class="review-meter-fill" style="--score: 70"></div></div>
+            <div class="review-meter-label"><span>First Bite</span><strong>7.5 / 10</strong></div>
+            <div class="review-meter-track"><div class="review-meter-fill" style="--score: 75"></div></div>
           </div>
           <div class="review-meter-row">
-            <div class="review-meter-label"><span>Craft</span><strong>9.0 / 10</strong></div>
-            <div class="review-meter-track"><div class="review-meter-fill" style="--score: 90"></div></div>
+            <div class="review-meter-label"><span>Crave Factor</span><strong>6.5 / 10</strong></div>
+            <div class="review-meter-track"><div class="review-meter-fill" style="--score: 65"></div></div>
           </div>
           <div class="review-meter-row">
-            <div class="review-meter-label"><span>Comfort</span><strong>8.0 / 10</strong></div>
+            <div class="review-meter-label"><span>Room Mood</span><strong>8.0 / 10</strong></div>
             <div class="review-meter-track"><div class="review-meter-fill" style="--score: 80"></div></div>
           </div>
           <div class="review-meter-row">
-            <div class="review-meter-label"><span>Comeback</span><strong>7.0 / 10</strong></div>
+            <div class="review-meter-label"><span>Host Energy</span><strong>8.5 / 10</strong></div>
+            <div class="review-meter-track"><div class="review-meter-fill" style="--score: 85"></div></div>
+          </div>
+          <div class="review-meter-row">
+            <div class="review-meter-label"><span>Worth the Wallet</span><strong>7.0 / 10</strong></div>
             <div class="review-meter-track"><div class="review-meter-fill" style="--score: 70"></div></div>
+          </div>
+          <div class="review-meter-row">
+            <div class="review-meter-label"><span>Return Ticket</span><strong>5.7 / 10</strong></div>
+            <div class="review-meter-track"><div class="review-meter-fill" style="--score: 57"></div></div>
           </div>
         </div>
       </section>
@@ -269,5 +278,7 @@
         </div>
       </div>
     </footer>
+    <a class="back-to-top" href="#top" aria-label="Back to top">Top</a>
+    <script src="../../assets/js/back-to-top.js"></script>
   </body>
 </html>

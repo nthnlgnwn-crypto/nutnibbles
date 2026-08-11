@@ -20,7 +20,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
     <link rel="stylesheet" href="../../styles.css">
   </head>
-  <body>
+  <body id="top">
     <header class="site-header">
       <a class="brand" href="../../index.html" aria-label="NutNibbles home">
         <span>Nut</span><span class="brand-dot" aria-hidden="true"></span><span>Nibbles</span>
@@ -34,18 +34,21 @@
     </header>
 
     <main>
-      <section class="magazine-hero">
+      <section class="magazine-hero article-hero-spread food-review-hero">
         <div class="magazine-hero-copy">
           <p class="eyebrow">Food Review / Jakarta / 9 May 2026</p>
+          <p class="food-review-venue">Kindling Jakarta</p>
           <h1>Kindling made a birthday dinner feel intimate instead of overly polished.</h1>
+          <div class="food-review-hero-meta">
+            <!-- OVERALL_SCORE must equal the arithmetic mean of the six Signature Meter axis scores below (First Bite, Crave Factor, Room Mood, Host Energy, Worth the Wallet, Return Ticket), rounded to one decimal. Readers check this. (9.0+9.1+9.4+9.4+8.9+9.0)/6 = 9.1333 -> 9.1 -->
+            <p class="food-review-score" aria-label="Overall score 9.1 out of 10">9.1<span>/10</span></p>
+            <ul class="meta-row" aria-label="Best for">
+              <li>Birthday dinner</li>
+              <li>Set menu</li>
+              <li>Fine dining</li>
+            </ul>
+          </div>
           <p class="standfirst">If you are looking for a Jakarta fine dining reference that feels more homey than theatrical, Kindling is a strong special-occasion option. This birthday dinner stood out because the room felt warm, the service felt personal, and the set menu moved with real ceremony instead of cold precision.</p>
-          <ul class="meta-row" aria-label="Kindling Jakarta review details">
-            <li>Kindling Jakarta</li>
-            <li>Birthday dinner</li>
-            <li>Set menu</li>
-            <li>Fine dining</li>
-            <li>9 May 2026</li>
-          </ul>
           <p>Expensive, but worth it. The strongest part was that the night felt memorable all the way through, from the three-room progression to the head chef greeting us directly at the end.</p>
         </div>
         <figure class="magazine-hero-frame magazine-hero-media">
@@ -256,5 +259,7 @@
         </div>
       </div>
     </footer>
+    <a class="back-to-top" href="#top" aria-label="Back to top">Top</a>
+    <script src="../../assets/js/back-to-top.js"></script>
   </body>
 </html>
