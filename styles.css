@@ -4298,6 +4298,13 @@ figure.photo-lead figcaption {
   .food-controls-group,
   .atlas-controls-group {
     flex-wrap: nowrap;
+    /* .atlas-controls/.food-controls go flex-direction:column at 860px with
+       align-items:flex-start, so a group sizes to its own content on the
+       cross axis unless told to fill it — width:100% + min-width:0 is what
+       lets .chip-row's overflow-x:auto below actually have something to
+       clip and scroll within, instead of growing past the viewport (§5). */
+    width: 100%;
+    min-width: 0;
   }
 
   .food-controls-label,
@@ -4308,6 +4315,10 @@ figure.photo-lead figcaption {
   .chip-row {
     flex-wrap: nowrap;
     overflow-x: auto;
+    /* Without this, a flex item's default min-width:auto keeps it (and every
+       ancestor) sized to its content, so overflow-x:auto never gets anything
+       to scroll and main's overflow:hidden silently clips the tail chips (§5). */
+    min-width: 0;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
     /* Fade the trailing edge so a clipped row (e.g. "FOOD NOT…") reads as
