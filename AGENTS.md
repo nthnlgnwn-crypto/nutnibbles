@@ -181,7 +181,7 @@ Do not commit unless asked.
 ## Known risks
 
 - `sitemap.xml` is manual and easy to forget — `npm run check:sitemap` catches it, so run it.
-- `.github/workflows/pages.yml` publishes the repo root while `scripts/build-static.js` generates `dist/`. Clarify deployment before changing either.
+- Deploys via an external Cloudflare publisher: pushing to `main` publishes automatically. `.github/workflows/pages.yml` is a manual fallback only, not the live path. `dist/` is a local build artifact for previewing — gitignored, never committed, not what gets served.
 - The Tokyo page references remote hotel images. Don't add more remote dependencies.
 - Historical reviews predate the fixed six-axis Meter and need rescoring.
 - Entry counts are hardcoded in several hubs. When adding a post, grep for the old count.
