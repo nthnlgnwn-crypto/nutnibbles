@@ -88,6 +88,11 @@ function extractOverallScore(html) {
   return { ariaValue: parseFloat(m[1]), textValue: parseFloat(m[2]) };
 }
 
+function extractJsonLdRating(html) {
+  const m = html.match(/"@type":\s*"Review"[\s\S]*?"ratingValue":\s*([\d.]+)/);
+  return m ? parseFloat(m[1]) : null;
+}
+
 function extractFoodPreviewCards(html) {
   const blocks = html.match(/<a class="food-preview-card"[^>]*>[\s\S]*?<\/a>/g) || [];
   return blocks.map((block) => {
@@ -117,6 +122,9 @@ function checkMeterAndScoreConsistency(foodPostPages, foodIndexRel, foodIndexHtm
     if (!isFullReview) {
       if (overall) {
         flag("BLOCKER", rel, "short note has no Signature Meter but still renders an overall score");
+      }
+      if (extractJsonLdRating(html) !== null) {
+        flag("BLOCKER", rel, "short note has no Signature Meter but its JSON-LD carries a ratingValue");
       }
       if (card) {
         if (card.dataScore !== "") {
@@ -167,6 +175,13 @@ function checkMeterAndScoreConsistency(foodPostPages, foodIndexRel, foodIndexHtm
         if (!card.hasBadge || card.badgeScore.toFixed(1) !== overall.textValue.toFixed(1)) {
           flag("BLOCKER", foodIndexRel, `card for "${slug}" ${card.hasBadge ? `shows badge ${card.badgeScore}` : "has no .food-preview-score badge"} but the review's overall is ${overall.textValue}`);
         }
+      }
+
+      const jsonLdRating = extractJsonLdRating(html);
+      if (jsonLdRating === null) {
+        flag("BLOCKER", rel, "full review has no JSON-LD ratingValue to verify");
+      } else if (jsonLdRating.toFixed(1) !== overall.textValue.toFixed(1)) {
+        flag("BLOCKER", rel, `JSON-LD ratingValue is ${jsonLdRating} but the review's overall is ${overall.textValue}`);
       }
     }
   }
