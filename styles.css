@@ -3639,6 +3639,11 @@ figure.photo-lead figcaption {
   color: var(--accent);
 }
 
+.atlas-card-link:hover,
+.atlas-card-item-link:hover {
+  color: var(--accent);
+}
+
 .atlas-legend {
   position: absolute;
   right: 20px;

@@ -289,13 +289,16 @@
 
     function showCity(d) {
       selection = { type: "city", data: d };
-      set("City", d.name, d.country + " · " + d.when, d.items);
+      set("City", d.name, d.country + " · " + d.when, d.items, d.href ? "../" + d.href : null);
     }
     function showCluster(c) {
       selection = { type: "cluster", data: c };
       const n = filteredCount(c);
       set("Country", c.name, n + (n === 1 ? " place" : " places") + " · click to zoom in",
-        c.members.filter(matchesFilter).map((m) => m.name + (m.kind === "soon" ? " — planned" : " — " + m.when)));
+        c.members.filter(matchesFilter).map((m) => ({
+          text: m.name + (m.kind === "soon" ? " — planned" : " — " + m.when),
+          href: m.href ? "../" + m.href : null
+        })));
     }
     // The card is a response to a click; before the first one, or once the
     // active filter empties whatever was selected, it holds a prompt instead
@@ -304,12 +307,21 @@
       selection = null;
       set("", "Select a country", "Click a pin to see what's there.", []);
     }
-    function set(kind, title, sub, items) {
+    function set(kind, title, sub, items, titleHref) {
       document.querySelector("#atlas-card .atlas-card-kind").textContent = kind;
-      document.getElementById("atlas-card-title").textContent = title;
+      const titleEl = document.getElementById("atlas-card-title");
+      titleEl.innerHTML = titleHref
+        ? `<a class="atlas-card-link" href="${titleHref}">${title}</a>`
+        : title;
       document.getElementById("atlas-card-sub").textContent = sub;
       document.getElementById("atlas-card-list").innerHTML = items
-        .map((t) => `<li><span>&rarr;</span><span style="color:var(--body)">${t}</span></li>`)
+        .map((item) => {
+          const text = typeof item === "string" ? item : item.text;
+          const href = typeof item === "string" ? null : item.href;
+          return href
+            ? `<li><span>&rarr;</span><a class="atlas-card-item-link" href="${href}">${text}</a></li>`
+            : `<li><span>&rarr;</span><span style="color:var(--body)">${text}</span></li>`;
+        })
         .join("");
     }
 
