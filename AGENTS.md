@@ -93,7 +93,7 @@ Rules:
 
 - Score each axis 0–10 to one decimal.
 - **The overall score is the mean of the six axes**, shown to one decimal. It is arithmetic, not a separate judgement — so a reader can check it.
-- Scores are only meaningful if every review uses the same six axes. Historical reviews using other axis sets (Saawaan's Crave / Craft / Comfort / Comeback) must be rescored onto the six before any new review ships, or the whole scale is meaningless.
+- Scores are only meaningful if every review uses the same six axes — all three existing reviews, including Saawaan (formerly scored on Crave / Craft / Comfort / Comeback), are on the fixed six now. What's still open is whether short food notes should ever carry a score; that's Nut's call, not a technical constraint.
 - The meter appears **only on full reviews**. Short food notes carry no meter and no score — never render a zero or a dash.
 - Wherever a score appears elsewhere (index badge, Atlas row, related card), it must match the review exactly.
 - Below the bars, tag chips: the headline verdict first as a filled chip, then outlined detail chips.
@@ -183,5 +183,5 @@ Do not commit unless asked.
 - `sitemap.xml` is manual and easy to forget — `npm run check:sitemap` catches it, so run it.
 - Deploys via an external Cloudflare publisher: pushing to `main` publishes automatically. `.github/workflows/pages.yml` is a manual fallback only, not the live path. `dist/` is a local build artifact for previewing — gitignored, never committed, not what gets served.
 - The Tokyo page references remote hotel images. Don't add more remote dependencies.
-- Historical reviews predate the fixed six-axis Meter and need rescoring.
+- All three full reviews are already on the fixed six-axis Meter — `check:editorial` verifies the six labels on every review and blocks on drift. What's still open is whether short food notes should ever carry a score; that's Nut's call, not a technical constraint.
 - Entry counts are hardcoded in several hubs. When adding a post, grep for the old count.
