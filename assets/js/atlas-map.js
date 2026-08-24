@@ -287,9 +287,17 @@
       );
     }
 
+    // "Chapter" only fits travel places; the three food-kind pins are
+    // reviews, and the site's own vocabulary calls them that everywhere else.
+    function actionLabelFor(d) {
+      return d.kind === "food" ? `Open the ${d.name} review →` : `Open the ${d.name} chapter →`;
+    }
+
     function showCity(d) {
       selection = { type: "city", data: d };
-      set("City", d.name, d.country + " · " + d.when, d.items, d.href ? "../" + d.href : null);
+      const href = d.href ? "../" + d.href : null;
+      set("City", d.name, d.country + " · " + d.when, d.items, href,
+        href ? { href, label: actionLabelFor(d) } : null);
     }
     function showCluster(c) {
       selection = { type: "cluster", data: c };
@@ -298,16 +306,17 @@
         c.members.filter(matchesFilter).map((m) => ({
           text: m.name + (m.kind === "soon" ? " — planned" : " — " + m.when),
           href: m.href ? "../" + m.href : null
-        })));
+        // A cluster has no single destination of its own — no action line.
+        })), null, null);
     }
     // The card is a response to a click; before the first one, or once the
     // active filter empties whatever was selected, it holds a prompt instead
     // of a stale or zero-count subject (§4.2c #3).
     function clearCard() {
       selection = null;
-      set("", "Select a country", "Click a pin to see what's there.", []);
+      set("", "Select a country", "Click a pin to see what's there.", [], null, null);
     }
-    function set(kind, title, sub, items, titleHref) {
+    function set(kind, title, sub, items, titleHref, action) {
       document.querySelector("#atlas-card .atlas-card-kind").textContent = kind;
       const titleEl = document.getElementById("atlas-card-title");
       titleEl.innerHTML = titleHref
@@ -323,6 +332,15 @@
             : `<li><span>&rarr;</span><span style="color:var(--body)">${text}</span></li>`;
         })
         .join("");
+      const actionEl = document.getElementById("atlas-card-action");
+      if (action) {
+        actionEl.href = action.href;
+        actionEl.textContent = action.label;
+        actionEl.hidden = false;
+      } else {
+        actionEl.hidden = true;
+        actionEl.removeAttribute("href");
+      }
     }
 
     function filteredCount(cluster) {

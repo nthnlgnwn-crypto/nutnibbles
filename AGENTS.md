@@ -132,6 +132,7 @@ Most readers arrive on a phone from search. Mobile is not a review step; it is t
 - Chapter jump nav scrolls horizontally rather than wrapping.
 - Gutter 56px → 20px. Reading column stays 720px.
 - **Touch targets minimum 44px.** Map pins need `r: 10` or larger (use a transparent oversized hit circle over a smaller visible dot).
+- **When the 44px touch-target floor conflicts with the Atlas card's ~35%-of-map-height guideline (see Mobile map), the touch target wins.** It's a hard accessibility floor; the card height is approximate. Resolved in Phase 8 when the card's link affordance added a 44px action row and the New Plymouth card landed at 37.2% — don't shrink a target to chase the percentage.
 - Add a build-time tap-target check alongside the existing `npm run check:*` scripts. This rule was missed twice in review; a script catches it reliably and eyeballing does not.
 - Add `scroll-margin-top` to anchor targets equal to the sticky header height.
 

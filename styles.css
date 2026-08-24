@@ -3639,9 +3639,35 @@ figure.photo-lead figcaption {
   color: var(--accent);
 }
 
+.atlas-card-link,
+.atlas-card-item-link {
+  color: var(--ink);
+  border-bottom: 1px solid var(--accent);
+}
+
+/* The title is 26px display type at a tight line-height — a plain
+   border-bottom crosses descenders. Extra clearance, nothing else. */
+.atlas-card-link {
+  padding-bottom: 2px;
+}
+
 .atlas-card-link:hover,
 .atlas-card-item-link:hover {
   color: var(--accent);
+}
+
+.atlas-card-action {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 44px;
+  margin-top: 6px;
+  font-size: 12.5px;
+}
+
+.atlas-card-action[hidden] {
+  display: none;
 }
 
 .atlas-legend {
