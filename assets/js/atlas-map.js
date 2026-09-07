@@ -153,7 +153,18 @@
     places.forEach((p) => { const xy = projection([p.lon, p.lat]); p.px = xy[0]; p.py = xy[1]; });
     clusters.forEach((c) => { const xy = projection([c.lon, c.lat]); c.px = xy[0]; c.py = xy[1]; });
 
-    // Automated label declutter (Phase 8 #2): each label's final position is
+    // Real position of the zoom-control stack, in the same [0,W]x[0,H] frame
+    // as every other label computation — measured live rather than assumed,
+    // so this can't drift from its own CSS the way a hardcoded guess could.
+    // Safe to measure here: zoomEl.hidden was cleared above, so it's laid out.
+    const zoomElRect = zoomEl.getBoundingClientRect();
+    const wrapRect = wrap.getBoundingClientRect();
+    const zoomBox = {
+      left: zoomElRect.left - wrapRect.left, top: zoomElRect.top - wrapRect.top,
+      right: zoomElRect.right - wrapRect.left, bottom: zoomElRect.bottom - wrapRect.top
+    };
+
+    // Automated label declutter (Phase 8 #2): each label's base position is
     // its base offset (LBL_DY/CITY_LBL_DY, atlas-geometry.js) plus a greedy
     // vertical nudge that pushes anything still overlapping straight down
     // until clear. Computed once, here — the geometry is static per page
@@ -162,18 +173,26 @@
     // recompute on pan/zoom and nothing to fight the transform.
     // scripts/check-atlas-labels.js runs this exact same pass in Node and
     // blocks the build if anything still overlaps.
-    const clusterNudgeDy = new Map(
-      geo.nudgeClear(
-        clusters.slice().sort((a, b) => a.name.localeCompare(b.name)).map((c) => {
-          const dy = geo.clusterBaseDy(c.name, COMPACT);
-          const w = geo.labelWidth(c.name, "cluster");
-          const off = geo.labelVerticalOffsets("cluster");
-          const y = c.py + dy;
-          return { key: c.name, dy, rect: { left: c.px - w / 2, right: c.px + w / 2, top: y + off.top, bottom: y + off.bottom } };
-        }),
-        geo.NUDGE_STEP_CLUSTER, geo.NUDGE_MAX_STEPS
-      ).map((b) => [b.key, b.dy])
-    );
+    //
+    // Frame/control clipping (Phase 8 #3) is different: whichever country is
+    // zoomed in, every place is visible as a bystander, so a bystander's
+    // clear-of-the-frame anchor side and position depend on *which* zoom is
+    // active, not just its own country's. That part is recomputed on each
+    // zoomTo() call (updateCityLabelPositions, below) — still not per
+    // animation frame, just once per zoom target, same as the info card.
+    const clusterBoxes = clusters.slice().sort((a, b) => a.name.localeCompare(b.name)).map((c) => {
+      const dy = geo.clusterBaseDy(c.name, COMPACT);
+      const w = geo.labelWidth(c.name, "cluster");
+      const off = geo.labelVerticalOffsets("cluster");
+      const y = c.py + dy;
+      return { key: c.name, dy, rect: { left: c.px - w / 2, right: c.px + w / 2, top: y + off.top, bottom: y + off.bottom } };
+    });
+    const clusterX = new Map(), clusterY = new Map();
+    geo.nudgeClear(clusterBoxes, geo.NUDGE_STEP_CLUSTER, geo.NUDGE_MAX_STEPS).forEach((b) => {
+      const clamped = geo.clampToFrameAndControls(b.rect, W, H, zoomBox, geo.CLAMP_PUSH_GAP, geo.NUDGE_MAX_STEPS);
+      clusterX.set(b.key, clamped.left - b.rect.left);
+      clusterY.set(b.key, b.dy + (clamped.top - b.rect.top));
+    });
 
     const cityNudgeDy = new Map();
     countryOrder.forEach((name) => {
@@ -187,19 +206,30 @@
       const boxes = members.slice().sort((a, b) => a.id.localeCompare(b.id)).map((d) => {
         const screenX = tx + zoom.kk * d.px, screenY = ty + zoom.kk * d.py;
         const dy = geo.cityBaseDy(d.id);
-        const anchorEnd = d.lon < 20;
-        const xOff = anchorEnd ? -(DOT_R + 8) : (DOT_R + 8);
-        const text = d.kind === "soon" ? `${d.name} · soon` : d.name;
-        const w = geo.labelWidth(text, "city");
-        const off = geo.labelVerticalOffsets("city");
-        const textX = screenX + xOff, y = screenY + dy;
-        return {
-          key: d.id, dy,
-          rect: { left: anchorEnd ? textX - w : textX, right: anchorEnd ? textX : textX + w, top: y + off.top, bottom: y + off.bottom }
-        };
+        return { key: d.id, dy, rect: geo.cityLabelRect(d, screenX, screenY, dy, DOT_R, W).rect };
       });
       geo.nudgeClear(boxes, geo.NUDGE_STEP_CITY, geo.NUDGE_MAX_STEPS).forEach((b) => cityNudgeDy.set(b.key, b.dy));
     });
+
+    // Reactive part of Phase 8 #3: given the country about to be zoomed
+    // into, every place's label gets the anchor side and frame/control clamp
+    // that fit *this* view, using each place's own (static) dy from above.
+    function updateCityLabelPositions(targetMembers) {
+      const zoom = geo.zoomToScale(W, H, targetMembers, 5.5);
+      const tx = W / 2 - zoom.kk * zoom.cx, ty = H / 2 - zoom.kk * zoom.cy;
+      gCities.selectAll("g.pin").each(function (d) {
+        const screenX = tx + zoom.kk * d.px, screenY = ty + zoom.kk * d.py;
+        const dy = cityNudgeDy.get(d.id);
+        const placed = geo.cityLabelRect(d, screenX, screenY, dy, DOT_R, W);
+        const clamped = geo.clampToFrameAndControls(placed.rect, W, H, zoomBox, geo.CLAMP_PUSH_GAP, geo.NUDGE_MAX_STEPS);
+        const dx = clamped.left - placed.rect.left, dyAdjust = clamped.top - placed.rect.top;
+        const label = d3.select(this).select("text.lbl");
+        label
+          .attr("text-anchor", placed.anchorEnd ? "end" : "start")
+          .attr("x", placed.xOff + dx)
+          .attr("y", dy + dyAdjust);
+      });
+    }
 
     // ── country clusters ─────────────────────────────
     const cl = gClusters.selectAll("g.pin").data(clusters).join("g").attr("class", "pin")
@@ -211,7 +241,9 @@
       .attr("fill", (d) => COLORS[d.kind]).attr("stroke", "var(--paper)").attr("stroke-width", 2);
     cl.append("text").attr("class", "cnt").attr("y", COMPACT ? 4 : 5)
       .style("font-size", COMPACT ? "12px" : "15px").text((d) => filteredCount(d));
-    cl.append("text").attr("class", "clbl").attr("y", (d) => clusterNudgeDy.get(d.name)).attr("text-anchor", "middle").text((d) => d.name);
+    cl.append("text").attr("class", "clbl")
+      .attr("x", (d) => clusterX.get(d.name)).attr("y", (d) => clusterY.get(d.name))
+      .attr("text-anchor", "middle").text((d) => d.name);
 
     // ── city pins ───────────────────────────────────
     const ct = gCities.selectAll("g.pin").data(places).join("g").attr("class", "pin")
@@ -224,9 +256,11 @@
     ct.append("circle").attr("class", "dot").attr("r", DOT_R)
       .attr("fill", (d) => COLORS[d.kind]).attr("stroke", "var(--paper)").attr("stroke-width", COMPACT ? 2 : 1.5);
     ct.append("text").attr("class", "lbl")
-      .attr("x", (d) => d.lon < 20 ? -(DOT_R + 8) : (DOT_R + 8))
+      // x/text-anchor are set reactively by updateCityLabelPositions() below,
+      // since a bystander place's clear side depends on which country is
+      // currently zoomed in — city tier isn't visible until the first
+      // zoomTo() call sets them, so no placeholder value is ever seen.
       .attr("y", (d) => cityNudgeDy.get(d.id))
-      .attr("text-anchor", (d) => d.lon < 20 ? "end" : "start")
       .text((d) => d.kind === "soon" ? d.name + " · soon" : d.name);
 
     zoomBehavior = d3.zoom().scaleExtent([1, 14])
@@ -274,6 +308,7 @@
 
     function zoomTo(members, k) {
       const { kk, cx, cy } = geo.zoomToScale(W, H, members, k);
+      updateCityLabelPositions(members);
       svg.transition().duration(700).call(
         zoomBehavior.transform,
         d3.zoomIdentity.translate(W / 2 - kk * cx, H / 2 - kk * cy).scale(kk)

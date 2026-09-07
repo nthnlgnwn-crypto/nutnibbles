@@ -56,6 +56,7 @@
   var NUDGE_STEP_CITY = 16;
   var NUDGE_STEP_CLUSTER = 17;
   var NUDGE_MAX_STEPS = 8;
+  var CLAMP_PUSH_GAP = 4; // clearance below the zoom controls when pushed clear
 
   // At COMPACT width the world map lands in a shorter band than the frame
   // suggests, so cluster labels need proportionally more clearance — not
@@ -127,6 +128,68 @@
     return !(a.right < b.left || a.left > b.right || a.bottom < b.top || a.top > b.bottom);
   }
 
+  // Final safety net, applied after a label's ordinary position is chosen
+  // (anchor-flip for city labels, centered for cluster labels): shift it
+  // the minimum distance needed to sit fully inside the frame, then — if it
+  // still overlaps the zoom-control stack sitting in the top-left corner —
+  // push it below the controls, re-clamping to the frame if that push runs
+  // it past the bottom edge. A pure position fix, not a re-layout: it never
+  // changes anchor side or label width, only where the box sits.
+  function clampToFrameAndControls(rect, frameW, frameH, zoomBox, pushStep, maxSteps) {
+    var dx = 0, dy = 0;
+    if (rect.left < 0) dx = -rect.left;
+    else if (rect.right > frameW) dx = frameW - rect.right;
+    if (rect.top < 0) dy = -rect.top;
+    else if (rect.bottom > frameH) dy = frameH - rect.bottom;
+
+    var cur = { left: rect.left + dx, right: rect.right + dx, top: rect.top + dy, bottom: rect.bottom + dy };
+
+    var steps = 0;
+    while (steps < maxSteps && rectsOverlap(cur, zoomBox)) {
+      var push = zoomBox.bottom - cur.top + pushStep;
+      cur = { left: cur.left, right: cur.right, top: cur.top + push, bottom: cur.bottom + push };
+      if (cur.bottom > frameH) {
+        var back = frameH - cur.bottom;
+        cur = { left: cur.left, right: cur.right, top: cur.top + back, bottom: cur.bottom + back };
+      }
+      steps++;
+    }
+    return cur;
+  }
+
+  // Which side of its own dot a city label should sit on. Raw longitude
+  // used to stand in for "which side of the frame this pin is near," but
+  // longitude is fixed per place while its actual screen position isn't —
+  // it depends on which country is currently zoomed in, since every place
+  // stays visible as a bystander whenever any country is zoomed into. Ask
+  // the frame instead: anchor toward whichever side has more room.
+  function cityAnchorEnd(screenX, frameW) {
+    return screenX > frameW / 2;
+  }
+
+  // A city label's bounding rect for a given on-screen dot position and
+  // vertical offset — shared so the map and the check build the identical
+  // rect from the identical inputs.
+  function cityLabelRect(d, screenX, screenY, dy, dotR, frameW) {
+    var anchorEnd = cityAnchorEnd(screenX, frameW);
+    var xOff = anchorEnd ? -(dotR + 8) : dotR + 8;
+    var text = d.kind === "soon" ? d.name + " · soon" : d.name;
+    var w = labelWidth(text, "city");
+    var off = labelVerticalOffsets("city");
+    var textX = screenX + xOff;
+    var y = screenY + dy;
+    return {
+      anchorEnd: anchorEnd,
+      xOff: xOff,
+      rect: {
+        left: anchorEnd ? textX - w : textX,
+        right: anchorEnd ? textX : textX + w,
+        top: y + off.top,
+        bottom: y + off.bottom
+      }
+    };
+  }
+
   // Greedy vertical declutter. `boxes` must already be in a fixed, explicit
   // order chosen by the caller (e.g. sorted by id) — this function never
   // reorders, so its output is deterministic only if its input is. Each
@@ -179,6 +242,7 @@
     NUDGE_STEP_CITY: NUDGE_STEP_CITY,
     NUDGE_STEP_CLUSTER: NUDGE_STEP_CLUSTER,
     NUDGE_MAX_STEPS: NUDGE_MAX_STEPS,
+    CLAMP_PUSH_GAP: CLAMP_PUSH_GAP,
     LBL_DY_SCALE_COMPACT: LBL_DY_SCALE_COMPACT,
     cityBaseDy: cityBaseDy,
     clusterBaseDy: clusterBaseDy,
@@ -187,6 +251,9 @@
     zoomToScale: zoomToScale,
     rectsOverlap: rectsOverlap,
     nudgeClear: nudgeClear,
+    clampToFrameAndControls: clampToFrameAndControls,
+    cityAnchorEnd: cityAnchorEnd,
+    cityLabelRect: cityLabelRect,
     labelWidth: labelWidth,
     labelVerticalOffsets: labelVerticalOffsets
   };
