@@ -46,44 +46,12 @@
   const path = d3.geoPath(projection);
   let clusters = [], zoomBehavior, current = d3.zoomIdentity;
 
-  // Hand-tuned so labels clear their pin at the country-cluster zoom level.
-  // Re-checked after the §4.2b #2 box refit — the manual fit spread every
-  // cluster much further apart than the old fitExtent() ever actually did
-  // (see the fit computation below), so most of these are new values, not
-  // reused ones.
-  const LBL_DY = {
-    Indonesia: 36,
-    Japan: 34,
-    // New Zealand's cluster sits near the bottom edge of the frame; a
-    // downward label collided with the "scroll/drag" hint text.
-    "New Zealand": -34,
-    Thailand: 58,
-    "Hong Kong": -34,
-    "South Korea": -54,
-    // UK/Switzerland/France are close enough to each other, even at the
-    // wider fit, that they need deliberate separation, not just distinct
-    // sides of their own pin.
-    "United Kingdom": -40,
-    Switzerland: -38,
-    France: 48
-  };
-
-  // City-tier labels around Kansai/Tokyo sit close enough to collide;
-  // stagger the ones sharing the default y=4 baseline (§4.2b #8).
-  const CITY_LBL_DY = {
-    osaka: -10,
-    kyoto: 22,
-    tokyo: 10,
-    "fuji-san": -24
-  };
-
-  // At mobile width the frame is much narrower than it is tall, so the fit
-  // below is width-bound and the whole world map lands in a shorter band
-  // than the 520px frame suggests — discs that were merely close on desktop
-  // are now genuinely overlapping. COMPACT's bigger disc/font makes this
-  // worse, not better, so the label offsets need more room specifically
-  // here, not just a copy of the desktop spread (§4.2c #6).
-  const LBL_DY_SCALE = COMPACT ? 1.6 : 1;
+  // Base label offsets (LBL_DY, CITY_LBL_DY) and the projection/zoom math
+  // now live in atlas-geometry.js, shared with scripts/check-atlas-labels.js
+  // so the map and its collision check can never silently drift apart. A
+  // greedy nudge pass (also shared) runs once at load, on top of these base
+  // offsets, to clear whatever collides — see the nudge precompute below.
+  const geo = window.AtlasGeometry;
 
   function showError() {
     const loading = document.getElementById("atlas-loading");
@@ -170,29 +138,11 @@
     // longitude) as degenerate and silently falls back to whole-sphere
     // bounds, which is why the original box's exact numbers never actually
     // mattered — every fit was really "whole world," just close enough by
-    // luck for the original 4-country set. Fit the two corner points by hand.
-    const BOX_LON = [-8, 178], BOX_LAT = [-44, 60];
-    // The fit only ever accounted for pin *coordinates*, not the disc drawn
-    // on top of one — New Zealand's cluster anchor sits close enough to the
-    // box's own edge (176°E against a 178°E box) that its disc, radius and
-    // all, extended past the frame. Pad by the disc radius plus a modest
-    // allowance for a centered label overrunning its pin (pre-commit fix).
-    // Desktop's discs never got this close to its own wider padding.
-    const COMPACT_DISC_MARGIN = DISC_R + 20;
-    const pad = COMPACT
-      ? { left: COMPACT_DISC_MARGIN, top: COMPACT_DISC_MARGIN, right: COMPACT_DISC_MARGIN, bottom: COMPACT_DISC_MARGIN }
-      : { left: 26, top: 40, right: 26, bottom: 26 };
-    projection.scale(1).translate([0, 0]);
-    const topLeft = projection([BOX_LON[0], BOX_LAT[1]]);
-    const bottomRight = projection([BOX_LON[1], BOX_LAT[0]]);
-    const boxW = bottomRight[0] - topLeft[0], boxH = bottomRight[1] - topLeft[1];
-    const availW = W - pad.left - pad.right, availH = H - pad.top - pad.bottom;
-    const fitScale = Math.min(availW / boxW, availH / boxH);
-    const midX = (topLeft[0] + bottomRight[0]) / 2, midY = (topLeft[1] + bottomRight[1]) / 2;
-    projection.scale(fitScale).translate([
-      (pad.left + W - pad.right) / 2 - fitScale * midX,
-      (pad.top + H - pad.bottom) / 2 - fitScale * midY
-    ]);
+    // luck for the original 4-country set. Fit the two corner points by hand
+    // (atlas-geometry.js's fitProjection — box, padding, and the COMPACT
+    // disc-margin allowance all live there now, shared with the check).
+    const fit = geo.fitProjection(W, H, COMPACT, DISC_R);
+    projection.scale(fit.scale).translate([fit.tx, fit.ty]);
 
     // non-scaling-stroke: gGeo gets scale(kk) applied on zoom (see render());
     // without it the 1.25px coastline balloons to 1.25*kk at city tier (§4.2c #4).
@@ -202,6 +152,54 @@
 
     places.forEach((p) => { const xy = projection([p.lon, p.lat]); p.px = xy[0]; p.py = xy[1]; });
     clusters.forEach((c) => { const xy = projection([c.lon, c.lat]); c.px = xy[0]; c.py = xy[1]; });
+
+    // Automated label declutter (Phase 8 #2): each label's final position is
+    // its base offset (LBL_DY/CITY_LBL_DY, atlas-geometry.js) plus a greedy
+    // vertical nudge that pushes anything still overlapping straight down
+    // until clear. Computed once, here — the geometry is static per page
+    // load (only the zoom *transform* animates, via translate, and every
+    // label's own y rides along with it unchanged), so there's nothing to
+    // recompute on pan/zoom and nothing to fight the transform.
+    // scripts/check-atlas-labels.js runs this exact same pass in Node and
+    // blocks the build if anything still overlaps.
+    const clusterNudgeDy = new Map(
+      geo.nudgeClear(
+        clusters.slice().sort((a, b) => a.name.localeCompare(b.name)).map((c) => {
+          const dy = geo.clusterBaseDy(c.name, COMPACT);
+          const w = geo.labelWidth(c.name, "cluster");
+          const off = geo.labelVerticalOffsets("cluster");
+          const y = c.py + dy;
+          return { key: c.name, dy, rect: { left: c.px - w / 2, right: c.px + w / 2, top: y + off.top, bottom: y + off.bottom } };
+        }),
+        geo.NUDGE_STEP_CLUSTER, geo.NUDGE_MAX_STEPS
+      ).map((b) => [b.key, b.dy])
+    );
+
+    const cityNudgeDy = new Map();
+    countryOrder.forEach((name) => {
+      const members = places.filter((p) => p.country === name);
+      if (members.length < 2) {
+        members.forEach((m) => cityNudgeDy.set(m.id, geo.cityBaseDy(m.id)));
+        return;
+      }
+      const zoom = geo.zoomToScale(W, H, members, 5.5);
+      const tx = W / 2 - zoom.kk * zoom.cx, ty = H / 2 - zoom.kk * zoom.cy;
+      const boxes = members.slice().sort((a, b) => a.id.localeCompare(b.id)).map((d) => {
+        const screenX = tx + zoom.kk * d.px, screenY = ty + zoom.kk * d.py;
+        const dy = geo.cityBaseDy(d.id);
+        const anchorEnd = d.lon < 20;
+        const xOff = anchorEnd ? -(DOT_R + 8) : (DOT_R + 8);
+        const text = d.kind === "soon" ? `${d.name} · soon` : d.name;
+        const w = geo.labelWidth(text, "city");
+        const off = geo.labelVerticalOffsets("city");
+        const textX = screenX + xOff, y = screenY + dy;
+        return {
+          key: d.id, dy,
+          rect: { left: anchorEnd ? textX - w : textX, right: anchorEnd ? textX : textX + w, top: y + off.top, bottom: y + off.bottom }
+        };
+      });
+      geo.nudgeClear(boxes, geo.NUDGE_STEP_CITY, geo.NUDGE_MAX_STEPS).forEach((b) => cityNudgeDy.set(b.key, b.dy));
+    });
 
     // ── country clusters ─────────────────────────────
     const cl = gClusters.selectAll("g.pin").data(clusters).join("g").attr("class", "pin")
@@ -213,7 +211,7 @@
       .attr("fill", (d) => COLORS[d.kind]).attr("stroke", "var(--paper)").attr("stroke-width", 2);
     cl.append("text").attr("class", "cnt").attr("y", COMPACT ? 4 : 5)
       .style("font-size", COMPACT ? "12px" : "15px").text((d) => filteredCount(d));
-    cl.append("text").attr("class", "clbl").attr("y", (d) => (LBL_DY[d.name] || 34) * LBL_DY_SCALE).attr("text-anchor", "middle").text((d) => d.name);
+    cl.append("text").attr("class", "clbl").attr("y", (d) => clusterNudgeDy.get(d.name)).attr("text-anchor", "middle").text((d) => d.name);
 
     // ── city pins ───────────────────────────────────
     const ct = gCities.selectAll("g.pin").data(places).join("g").attr("class", "pin")
@@ -227,7 +225,7 @@
       .attr("fill", (d) => COLORS[d.kind]).attr("stroke", "var(--paper)").attr("stroke-width", COMPACT ? 2 : 1.5);
     ct.append("text").attr("class", "lbl")
       .attr("x", (d) => d.lon < 20 ? -(DOT_R + 8) : (DOT_R + 8))
-      .attr("y", (d) => CITY_LBL_DY[d.id] !== undefined ? CITY_LBL_DY[d.id] : 4)
+      .attr("y", (d) => cityNudgeDy.get(d.id))
       .attr("text-anchor", (d) => d.lon < 20 ? "end" : "start")
       .text((d) => d.kind === "soon" ? d.name + " · soon" : d.name);
 
@@ -275,12 +273,7 @@
     }
 
     function zoomTo(members, k) {
-      const xs = members.map((m) => m.px), ys = members.map((m) => m.py);
-      const cx = (Math.min(...xs) + Math.max(...xs)) / 2;
-      const cy = (Math.min(...ys) + Math.max(...ys)) / 2;
-      const spanX = Math.max(...xs) - Math.min(...xs), spanY = Math.max(...ys) - Math.min(...ys);
-      const fit = Math.min((W - 220) / Math.max(spanX, 1), (H - 200) / Math.max(spanY, 1));
-      const kk = Math.max(CITY_ZOOM + 0.4, Math.min(k, isFinite(fit) ? fit : k, 9));
+      const { kk, cx, cy } = geo.zoomToScale(W, H, members, k);
       svg.transition().duration(700).call(
         zoomBehavior.transform,
         d3.zoomIdentity.translate(W / 2 - kk * cx, H / 2 - kk * cy).scale(kk)
