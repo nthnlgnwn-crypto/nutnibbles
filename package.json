@@ -8,8 +8,9 @@
     "check:atlas": "node scripts/check-atlas.js",
     "check:atlas-labels": "node scripts/check-atlas-labels.js",
     "check:editorial": "node scripts/check-editorial.js",
-    "check": "npm run check:meta && npm run check:sitemap && npm run check:links && npm run check:images && npm run check:atlas && npm run check:atlas-labels && npm run check:editorial",
-    "preview": "python3 -m http.server 4173 -d dist"
+    "check": "npm run check:meta && npm run check:sitemap && npm run check:links && npm run check:images && npm run check:atlas && npm run check:atlas-labels && npm run check:editorial && npm run check:freshness",
+    "preview": "python3 -m http.server 4173 -d dist",
+    "check:freshness": "node scripts/check-freshness.js"
   },
   "devDependencies": {}
 }
