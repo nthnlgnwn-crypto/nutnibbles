@@ -1310,7 +1310,11 @@ figure.photo-lead figcaption {
 .gallery-card:not(.photo-lead) img,
 .photo-essay-grid figure:not(.photo-lead) img,
 .essay-photo-card:not(.photo-lead) img {
-  aspect-ratio: 3 / 2;
+  /* 4:5, not 3:2. Every photo on this site is a 3:4 portrait phone shot; a 3:2
+     crop discards half of it and routinely cut off heads and the bottoms of
+     plates. 4:5 keeps 94%. Do not change this without re-checking a person
+     shot and a food shot side by side. */
+  aspect-ratio: 4 / 5;
   border-radius: 0;
 }
 
