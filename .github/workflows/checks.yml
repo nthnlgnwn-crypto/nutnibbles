@@ -1,0 +1,33 @@
+name: Checks
+
+# The point of this file: Nut should never be the one who discovers that the
+# homepage is stale or a photo is cropped through someone's face. Every push and
+# every pull request runs the full build and check chain, and a failure is
+# visible on GitHub without anyone remembering to run anything.
+#
+# This does NOT deploy. Deployment is an external Cloudflare publisher that
+# watches main (see AGENTS.md). This job only reports.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # The site has no dependencies; the check scripts are plain Node. If that
+      # ever changes, add a cache and an install step here.
+      - name: Build
+        run: npm run build
+
+      - name: Check
+        run: npm run check
