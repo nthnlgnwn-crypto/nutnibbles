@@ -1,9 +1,9 @@
 {
-  "stats": { "foodNotes": 11, "trips": 9, "countries": 13 },
+  "stats": { "foodNotes": 11, "trips": 10, "countries": 15 },
   "countryOrder": [
-    "Japan", "Indonesia", "Thailand", "New Zealand", "United Kingdom",
-    "Hong Kong", "South Korea", "Switzerland", "France",
-    "Italy", "Germany", "Netherlands", "Belgium"
+    "Japan", "Australia", "Singapore", "Indonesia", "Thailand",
+    "New Zealand", "United Kingdom", "Hong Kong", "South Korea",
+    "Switzerland", "France", "Italy", "Germany", "Netherlands", "Belgium"
   ],
   "places": [
     { "id": "sapporo", "name": "Sapporo", "country": "Japan", "when": "18–21 Jan 2025", "lat": 43.0618, "lon": 141.3545, "kind": "travel", "href": "travel/japan-2025/sapporo/index.html", "foodNotes": 5, "items": ["Snow days & Hokkaido side trips", "Arrival night ramen alley", "Salmon & king crab lunch", "7-Eleven hotel dinner", "Shiroi Koibito soft serve"] },
@@ -11,6 +11,11 @@
     { "id": "kyoto", "name": "Kyoto", "country": "Japan", "when": "25 Jan 2025", "lat": 35.0116, "lon": 135.7681, "kind": "travel", "href": "travel/japan-2025/kyoto/index.html", "items": ["Kimono day trip & shrine walks", "Fushimi Inari gates"] },
     { "id": "fuji-san", "name": "Fuji-san", "country": "Japan", "when": "27 Jan 2025", "lat": 35.36, "lon": 138.73, "kind": "travel", "href": "travel/japan-2025/tokyo/index.html#fuji-san-tour", "items": ["Picture hunting around Mt. Fuji", "Part of the Tokyo chapter"] },
     { "id": "tokyo", "name": "Tokyo", "country": "Japan", "when": "26–28 Jan 2025", "lat": 35.6762, "lon": 139.6503, "kind": "travel", "href": "travel/japan-2025/tokyo/index.html", "foodNotes": 1, "items": ["Stays, food, Fuji, soft pauses", "Gyukatsu Motomura", "Meiji Jingu + Harajuku"] },
+
+    { "id": "sydney-race-week", "name": "Sydney Marathon", "country": "Australia", "when": "26–30 Aug 2026", "lat": -33.8688, "lon": 151.2093, "kind": "travel", "href": "travel/sydney-2026/race-week/index.html", "items": ["First marathon, a World Marathon Major", "Shakeout run, race pack, 6:22 finish", "AP House pastries were the letdown"] },
+    { "id": "bondi-tamarama", "name": "Bondi & Tamarama", "country": "Australia", "when": "31 Aug–4 Sep 2026", "lat": -33.8915, "lon": 151.2767, "kind": "travel", "href": "travel/sydney-2026/after-the-race/index.html", "items": ["Coastal walk, Taronga Zoo, Green Square Library", "DOPA wagyu don, Sydney Fish Market", "Sea urchin and oysters — the best meal of the trip"] },
+
+    { "id": "singapore-extension", "name": "Singapore", "country": "Singapore", "when": "5–8 Sep 2026", "lat": 1.3521, "lon": 103.8198, "kind": "travel", "href": "travel/sydney-2026/singapore-extension/index.html", "items": ["A cancelled flight home, ash from Krakatau", "Two comped days, then two on my own money", "Orchard Road, Marina Bay, midnight tarts"] },
 
     { "id": "kindling-jakarta", "name": "Kindling, Jakarta", "country": "Indonesia", "when": "9 May 2026", "lat": -6.2088, "lon": 106.8456, "kind": "food", "href": "food/kindling-jakarta-birthday-dinner/index.html", "items": ["Full review — no score, no Meter", "Room-to-room courses, birthday dinner"] },
     { "id": "august-jakarta", "name": "August, Jakarta", "country": "Indonesia", "when": "18 Apr 2026", "lat": -6.2088, "lon": 106.8456, "kind": "food", "href": "food/august-jakarta-dinner/index.html", "items": ["Full review — no score, no Meter", "Date-night special-occasion pick"] },
