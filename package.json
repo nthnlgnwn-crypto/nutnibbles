@@ -10,7 +10,8 @@
     "check:editorial": "node scripts/check-editorial.js",
     "check": "npm run check:meta && npm run check:sitemap && npm run check:links && npm run check:images && npm run check:atlas && npm run check:atlas-labels && npm run check:editorial && npm run check:freshness",
     "preview": "python3 -m http.server 4173 -d dist",
-    "check:freshness": "node scripts/check-freshness.js"
+    "check:freshness": "node scripts/check-freshness.js",
+    "check:layout": "node scripts/check-layout.js"
   },
   "devDependencies": {}
 }
