@@ -3789,6 +3789,10 @@ figure.photo-lead figcaption {
 
 .atlas-index-row {
   display: flex;
+  /* wrap, or a long meta ("Chapter · Dec 2019–Jan 2020") overflows its grid
+     column and lands on top of the next country's name. Verified across
+     375–1440px: short metas stay inline, long ones drop to their own line. */
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
   gap: 16px;
@@ -3801,6 +3805,7 @@ figure.photo-lead figcaption {
 }
 
 .atlas-index-name {
+  min-width: 0;
   font-family: var(--reading);
   font-size: 19px;
   color: var(--ink);
@@ -3811,7 +3816,7 @@ figure.photo-lead figcaption {
 }
 
 .atlas-index-meta {
-  flex-shrink: 0;
+  flex-shrink: 1;
   color: var(--meta);
   font-family: var(--mono);
   font-size: 10.5px;
