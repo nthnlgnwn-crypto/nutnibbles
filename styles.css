@@ -2455,6 +2455,20 @@ figure.photo-lead figcaption {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  /* A 4-card grid held four columns all the way down to 861px, which squeezed
+     each card to ~200px — narrow enough that "Start Edinburgh chapter" burst
+     out of its card by 30px. Four cards go 2-up below 1100px; the ≤860px rule
+     below already takes everything to 2-up, so this only fixes the gap. */
+  .city-chapter-grid:has(> :last-child:nth-child(4)) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (min-width: 1101px) {
+    .city-chapter-grid:has(> :last-child:nth-child(4)) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
   .chapter-pager:has(> a:last-child:nth-child(3)) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
